@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cassandra Peterson - Software Engineer Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --primary-50: #f0f9ff;
+      --primary-100: #e0f2fe;
+      --primary-200: #bae6fd;
+      --primary-300: #7dd3fc;
+      --primary-400: #38bdf8;
+      --primary-500: #0ea5e9;
+      --primary-600: #0284c7;
+      --primary-700: #0369a1;
+      --primary-800: #075985;
+      --primary-900: #0c4a6e;
+      
+      --secondary-50: #fff1f2;
+      --secondary-100: #ffe4e6;
+      --secondary-200: #fecdd3;
+      --secondary-300: #fda4af;
+      --secondary-400: #fb7185;
+      --secondary-500: #f43f5e;
+      --secondary-600: #e11d48;
+      --secondary-700: #be123c;
+      --secondary-800: #9f1239;
+      --secondary-900: #881337;
+      
+      --dark-800: #1a202c;
+      --dark-900: #0f172a;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--dark-900);
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    header {
+      background-color: var(--dark-900);
+      border-bottom: 1px solid #2d3748;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+    }
+    
+    .logo span {
+      color: var(--primary-500);
+    }
+    
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    nav a {
+      color: #a0aec0;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: white;
+    }
+    
+    .hero {
+      padding: 6rem 0;
+      background-color: var(--dark-900);
+    }
+    
+    .hero-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+    
+    .hero h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #a0aec0;
+      margin-bottom: 2rem;
+    }
+    
+    .typewriter {
+      color: var(--primary-500);
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-600);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-700);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 1px solid #4a5568;
+    }
+    
+    .btn-secondary:hover {
+      border-color: white;
+    }
+    
+    .section {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2.25rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+    
+    .section-title p {
+      color: #a0aec0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .about {
+      background-color: var(--dark-800);
+    }
+    
+    .about-container {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .about-img {
+      flex: 1;
+    }
+    
+    .about-img img {
+      width: 100%;
+      border-radius: 1rem;
+    }
+    
+    .about-content {
+      flex: 1;
+    }
+    
+    .about-content h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+    
+    .about-content p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .skills {
+      background-color: var(--dark-900);
+    }
+    
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 2rem;
+    }
+    
+    .skill-card {
+      background-color: var(--dark-800);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .skill-card i {
+      font-size: 2.5rem;
+      color: var(--primary-500);
+      margin-bottom: 1rem;
+    }
+    
+    .projects {
+      background-color: var(--dark-800);
+    }
+    
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      background-color: var(--dark-900);
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .project-img {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(12, 74, 110, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+    }
+    
+    .project-content h3 {
+      color: white;
+      margin-bottom: 0.75rem;
+    }
+    
+    .project-content p {
+      margin-bottom: 1rem;
+      color: #a0aec0;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .project-tag {
+      background-color: var(--primary-900);
+      color: var(--primary-300);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+    }
+    
+    .experience {
+      background-color: var(--dark-900);
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background-color: var(--primary-600);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-bottom: 3rem;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: -11px;
+      top: 0;
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      background-color: var(--primary-600);
+    }
+    
+    .timeline-item h3 {
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      color: #a0aec0;
+    }
+    
+    .timeline-description {
+      margin-bottom: 1rem;
+    }
+    
+    .timeline-achievements {
+      list-style-position: inside;
+      list-style-type: disc;
+      color: #a0aec0;
+    }
+    
+    .contact {
+      background-color: var(--dark-800);
+    }
+    
+    .contact-container {
+      display: flex;
+      gap: 4rem;
+    }
+    
+    .contact-info {
+      flex: 1;
+    }
+    
+    .contact-info-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .contact-info-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    
+    .contact-info-item i {
+      font-size: 1.5rem;
+      color: var(--primary-500);
+    }
+    
+    .contact-form {
+      flex: 1;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #a0aec0;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--dark-900);
+      border: 1px solid #4a5568;
+      border-radius: 0.375rem;
+      color: white;
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+    
+    footer {
+      background-color: var(--dark-900);
+      border-top: 1px solid #2d3748;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .social-link {
+      color: #a0aec0;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    
+    .social-link:hover {
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+      }
+      
+      .projects-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-container">
+        <div class="logo">
+          <span>&lt;</span> Cassandra <span>/&gt;</span>
+        </div>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <section class="hero">
+    <div class="container">
+      <div class="hero-container">
+        <h1>Cassandra Peterson</h1>
+        <h2>Software Engineer in Training at <span class="typewriter">TripleTen</span></h2>
+        <p>I build creative, responsive websites with clean code and seamless user experiences</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-primary">Get in Touch</a>
+          <a href="#projects" class="btn btn-secondary">View My Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>Get to know who I am and what I do</p>
+      </div>
+      <div class="about-container">
+        <div class="about-img">
+          <img src="assets/cassie.jpg" alt="Cassandra Peterson">
+        </div>
+        <div class="about-content">
+          <h3>Software Engineer based in Omaha, Nebraska</h3>
+          <p>
+            I'm a Software Engineer in training at TripleTen, passionate about creating clean, efficient code and building intuitive user experiences. With a background in graphic design, I bring a unique perspective to web development that combines technical skills with an eye for aesthetics.
+          </p>
+          <p>
+            My journey into software engineering began with self-teaching HTML and CSS, which evolved into a deep interest in JavaScript and React. I'm constantly learning and expanding my skillset to stay current with the latest technologies and best practices.
+          </p>
+          <p>
+            When I'm not coding, you can find me hiking with my dog, experimenting with new recipes, or working on digital art projects. I believe in continuous learning and challenging myself to grow both personally and professionally.
+          </p>
+          <a href="assets/Resume-Cassandra-Peterson.pdf" target="_blank" class="btn btn-primary">Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="skills" class="section skills">
+    <div class="container">
+      <div class="section-title">
+        <h2>My Skills</h2>
+        <p>Technologies and tools I work with</p>
+      </div>
+      <div class="skills-container">
+        <div class="skill-card">
+          <i class="fab fa-html5"></i>
+          <h3>HTML5</h3>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-css3-alt"></i>
+          <h3>CSS3</h3>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-js"></i>
+          <h3>JavaScript</h3>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-react"></i>
+          <h3>React</h3>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-node-js"></i>
+          <h3>Node.js</h3>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-git-alt"></i>
+          <h3>Git</h3>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-sass"></i>
+          <h3>Sass</h3>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-database"></i>
+          <h3>MongoDB</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>Check out some of my recent work</p>
+      </div>
+      <div class="projects-container">
+        <div class="project-card">
+          <div class="project-img">
+            <img src="https://via.placeholder.com/350x200" alt="Project 1">
+            <div class="project-overlay">
+              <a href="#" class="btn btn-primary">View Demo</a>
+              <a href="#" class="btn btn-secondary">View Code</a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Around the U.S.</h3>
+            <p>Interactive photo-sharing web application with user authentication</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">Express</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-img">
+            <img src="https://via.placeholder.com/350x200" alt="Project 2">
+            <div class="project-overlay">
+              <a href="#" class="btn btn-primary">View Demo</a>
+              <a href="#" class="btn btn-secondary">View Code</a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>News Explorer</h3>
+            <p>Full-stack web application for searching and saving news articles</p>
+            <div class="project-tags">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">React</span>
+              <span class="project-tag">Express</span>
+              <span class="project-tag">API</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-img">
+            <img src="https://via.placeholder.com/350x200" alt="Project 3">
+            <div class="project-overlay">
+              <a href="#" class="btn btn-primary">View Demo</a>
+              <a href="#" class="btn btn-secondary">View Code</a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Learning How to Learn</h3>
+            <p>Educational landing page with animations and responsive design</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">CSS3</span>
+              <span class="project-tag">Animations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="experience" class="section experience">
+    <div class="container">
+      <div class="section-title">
+        <h2>Experience</h2>
+        <p>My professional journey</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Software Engineering Student</h3>
+          <div class="timeline-meta">
+            <span>TripleTen</span>
+            <span>Jan 2023 - Present</span>
+          </div>
+          <p class="timeline-description">
+            Intensive software engineering bootcamp focusing on full-stack web development.
+          </p>
+          <ul class="timeline-achievements">
+            <li>Built 15+ projects using technologies like React, Node.js, and MongoDB</li>
+            <li>Collaborated with peers on group projects using Git and GitHub</li>
+            <li>Implemented responsive designs and accessibility features</li>
+            <li>Created RESTful APIs and integrated external services</li>
+          </ul>
+        </div>
+        
+        <div class="timeline-item">
+          <h3>Graphic Designer</h3>
+          <div class="timeline-meta">
+            <span>Freelance</span>
+            <span>Jun 2020 - Dec 2022</span>
+          </div>
+          <p class="timeline-description">
+            Created visual designs for various clients including websites, logos, and marketing materials.
+          </p>
+          <ul class="timeline-achievements">
+            <li>Designed and developed responsive websites for small businesses</li>
+            <li>Created brand identities including logos, color schemes, and typography</li>
+            <li>Produced digital marketing materials that increased client engagement</li>
+            <li>Collaborated with clients to ensure designs met their vision and objectives</li>
+          </ul>
+        </div>
+        
+        <div class="timeline-item">
+          <h3>Marketing Assistant</h3>
+          <div class="timeline-meta">
+            <span>Local Marketing Agency</span>
+            <span>Aug 2018 - May 2020</span>
+          </div>
+          <p class="timeline-description">
+            Supported marketing campaigns and website management for various clients.
+          </p>
+          <ul class="timeline-achievements">
+            <li>Maintained and updated client websites using WordPress and HTML/CSS</li>
+            <li>Created social media content that increased engagement by 25%</li>
+            <li>Assisted in the development of email marketing campaigns</li>
+            <li>Analyzed marketing data to provide insights for campaign improvement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+        <p>Let's work together</p>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>Feel free to reach out if you're looking for a developer, have a question, or just want to connect.</p>
+          <div class="contact-info-items">
+            <div class="contact-info-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>cgdesigns93@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Location</h4>
+                <p>Omaha, Nebraska, USA</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <i class="fas fa-share-alt"></i>
+              <div>
+                <h4>Social Media</h4>
+                <div class="social-links">
+                  <a href="https://github.com/cpeterson27" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/cassandra-peterson-15630b129/" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  <a href="https://www.behance.net/cassandrapeterson" class="social-link" target="_blank"><i class="fab fa-behance"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Send Me a Message</h3>
+          <form action="mailto:cgdesigns93@gmail.com" method="GET">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="body" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://github.com/cpeterson27" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/cassandra-peterson-15630b129/" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.behance.net/cassandrapeterson" class="social-link" target="_blank"><i class="fab fa-behance"></i></a>
+      </div>
+      <p>&copy; 2025 Cassandra Peterson. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
