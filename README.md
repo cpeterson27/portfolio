@@ -1,6 +1,3 @@
-# portfolio-site
-<<<<<<< HEAD
-
 This is a simplified, static HTML version of Cassandra Peterson's portfolio. This version:
 
 1. Uses plain HTML, CSS, and Font Awesome icons
@@ -45,7 +42,3 @@ You can easily customize this website by editing the `index.html` file:
 2. **Speed** – Fast loading with minimal resources
 3. **Compatibility** – Works on all browsers and hosting platforms
 4. **Ease of Deployment** – Just upload and it works
-5. **Long-term Stability** – No risk of breaking due to dependency updates
-=======
-# portfolio-site
->>>>>>> e2a93bb (first commit)
