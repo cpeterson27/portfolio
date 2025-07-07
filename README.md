@@ -41,4 +41,4 @@ You can easily customize this website by editing the `index.html` file:
 1. **Simplicity** – No build process or dependencies
 2. **Speed** – Fast loading with minimal resources
 3. **Compatibility** – Works on all browsers and hosting platforms
-4. **Ease of Deployment** – Just upload and it works
+   git 4. **Ease of Deployment** – Just upload and it works
