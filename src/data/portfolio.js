@@ -16,7 +16,7 @@ export const portfolioData = {
     linkedin:
       "https://www.linkedin.com/in/cassandrapeterson-software-engineer/",
     resume: "/assets/Resume - Cassandra Peterson.pdf",
-    image: "/images/cassandra-peterson.png",
+    image: "images/cassandra-peterson.png",
   },
   projects: [
     {
