@@ -1,0 +1,36 @@
+.contact-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-description {
+  font-size: 1.25rem;
+  color: #d1d5db;
+  margin-bottom: 3rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-link {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  color: #c084fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  transform: scale(1.1);
+}
