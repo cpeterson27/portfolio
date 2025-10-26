@@ -4,6 +4,40 @@
   border-radius: 1rem;
   padding: 2rem;
   border: 1px solid rgba(168, 85, 247, 0.2);
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .about-card {
+    grid-template-columns: 1fr 2fr;
+    align-items: start;
+  }
+}
+
+.about-image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 1rem;
+  border: 2px solid #a855f7;
+  transition: transform 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.02);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .about-text {
