@@ -16,13 +16,13 @@ export const portfolioData = {
     linkedin:
       "https://www.linkedin.com/in/cassandrapeterson-software-engineer/",
     resume: "assets/Resume - Cassandra Peterson.pdf",
-    image: "images/cassandra-peterson.png",
+    image: process.env.PUBLIC_URL + "/images/cassandra-peterson.png",
   },
   projects: [
     {
       id: 1,
       title: "About Me Portfolio",
-      image: "images/cassie-peterson.jpg",
+      image: process.env.PUBLIC_URL + "/images/cassie-peterson.jpg",
       alt: "Cassandra Peterson's Portfolio",
       description:
         "Portfolio showcasing a little about me and a few things I like to do",
@@ -33,7 +33,7 @@ export const portfolioData = {
     {
       id: 2,
       title: "Triple Peaks Coffee Shop",
-      image: "images/triple-peaks-library.jpg",
+      image: process.env.PUBLIC_URL + "/images/triple-peaks-library.jpg",
       alt: "Triple Peaks Coffee Shop",
       description:
         "Coffee shop landing page with a modern design and responsive layout",
@@ -44,7 +44,7 @@ export const portfolioData = {
     {
       id: 3,
       title: "Spots",
-      image: "images/spots.jpg",
+      image: process.env.PUBLIC_URL + "/images/spots.jpg",
       alt: "Spots",
       description:
         "Interactive web application that allows users to add and remove photos, like photos of other users, and make a few minor adjustments to their profile",
@@ -55,7 +55,7 @@ export const portfolioData = {
     {
       id: 4,
       title: "Simple To Do App",
-      image: "images/todo-app.png",
+      image: process.env.PUBLIC_URL + "/images/todo-app.png",
       alt: "Simple To Do App",
       description:
         " A minimalist, user-friendly to-do list application designed to help users manage daily tasks efficiently. Built using HTML, CSS, and JavaScript.",
@@ -66,7 +66,7 @@ export const portfolioData = {
     {
       id: 6,
       title: "What to Wear?",
-      image: "images/wtwr.png",
+      image: process.env.PUBLIC_URL + "/images/wtwr.png",
       alt: "What to Wear",
       description:
         "The idea of the application is pretty simple - we make a call to an API, which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user",
@@ -77,7 +77,7 @@ export const portfolioData = {
     {
       id: 7,
       title: "Starlight University",
-      image: "images/starlight.png",
+      image: process.env.PUBLIC_URL + "/images/starlight.png",
       alt: "Starlight University",
       description:
         "A modern, interactive web application designed to help new students navigate university life. Built with vanilla JavaScript, modular CSS, and webpack for optimal performance and maintainability",
@@ -88,7 +88,7 @@ export const portfolioData = {
     {
       id: 8,
       title: "Emoji Critic",
-      image: "images/emoji.png",
+      image: process.env.PUBLIC_URL + "/images/emoji.png",
       alt: "Emoji Critic",
       description:
         "This is a small React application built with Vite, used as a React Router demonstration by TripleTen's Software Engineering bootcamp",

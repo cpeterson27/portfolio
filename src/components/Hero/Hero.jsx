@@ -18,7 +18,10 @@ const Hero = ({ name, title, subtitle, bio, resume }) => {
             Get in Touch
           </a>
           <a href="#projects" className="btn btn-secondary">
-            View Work
+            View Full Stack
+          </a>
+          <a href="https://cgdesigns93.wixsite.com/cassandra-peterson" className="btn btn-secondary">
+            View UI/UX
           </a>
           <a href={resume} download className="resume-button">
             <Download size={20} /> Download Resume
