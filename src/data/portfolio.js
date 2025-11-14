@@ -96,6 +96,17 @@ export const portfolioData = {
       link: "https://cpeterson27.github.io/react-router-demo/",
       code: "git clone https://github.com/cpeterson27/react-router-demo.git",
     },
+       {
+      id: 9,
+      title: "BudgetBlox Balances",
+      image: process.env.PUBLIC_URL + "/images/budgetblox.png",
+      alt: "BudgetBlox Balances",
+      description:
+        "BudgetBlox helps users take control of their finances through clean expense tracking and easy-to-use budgeting features",
+      tags: ["Node.js", "HTML", "CSS", "Javascript", "React", "Vite", "MongoDB", "Cookie-parser", "CORS", "Vercel"],
+      link: "https://budgetblox-rxr8z03sm-cassies-projects-67fd5d41.vercel.app/dashboard",
+      code: "https://github.com/cpeterson27/budgetblox.git",
+    },
   ],
   education: [
     {
