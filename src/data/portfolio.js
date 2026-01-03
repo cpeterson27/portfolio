@@ -70,7 +70,7 @@ export const portfolioData = {
       alt: "What to Wear",
       description:
         "The idea of the application is pretty simple - we make a call to an API, which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user",
-      tags: ["Node.js", "React", "HTML", "CSS", "Javascript"],
+      tags: ["Node.js", "React", "HTML", "CSS", "Javascript", "APIs", "Vite", "MongoDB", "Google Cloud"],
       link: "https://cpeterson27.github.io/se_project_react/",
       code: "https://github.com/cpeterson27/se_project_react.git",
     },
@@ -106,6 +106,17 @@ export const portfolioData = {
       tags: ["Node.js", "HTML", "CSS", "Javascript", "React", "Vite", "MongoDB", "Cookie-parser", "CORS", "Vercel"],
       link: "https://budgetblox-rxr8z03sm-cassies-projects-67fd5d41.vercel.app/dashboard",
       code: "https://github.com/cpeterson27/budgetblox.git",
+    },
+    {
+      id: 10,
+      title: "News Explorer App",
+      image: process.env.PUBLIC_URL + "/images/newsexplorer.png",
+      alt: "News Explorer App",
+      description:
+        "A full-stack news aggregation application that allows users to search, save, and manage their favorite news articles.",
+      tags: ["Node.js", "HTML", "CSS", "Javascript", "React", "APIs", "MongoDB", "Express.js", "Google Cloud"],
+      link: "https://github.com/cpeterson27/News-Explorer-Frontend",
+      code: "git clone https://github.com/cpeterson27/News-Explorer-Frontend.git",
     },
   ],
   education: [
