@@ -11,7 +11,7 @@ export const portfolioData = {
       "I'm a passionate full-stack developer with a love for creating elegant solutions to complex problems. With experience in modern web technologies, I specialize in building responsive, user-friendly applications that make a difference.",
       "When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community. I believe in continuous learning and staying up-to-date with the latest industry trends.",
     ],
-    email: "cgdesigns93@gmail.com",
+    email: "cpeterson.dev@gmail.com",
     github: "https://github.com/cpeterson27",
     linkedin:
       "https://www.linkedin.com/in/cassandrapeterson-software-engineer/",
