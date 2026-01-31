@@ -118,6 +118,16 @@ export const portfolioData = {
       link: "https://github.com/cpeterson27/News-Explorer-Frontend",
       code: "git clone https://github.com/cpeterson27/News-Explorer-Frontend.git",
     },
+    {
+      id: 11,
+      title: "Standing Break Reminder",
+      image: process.env.PUBLIC_URL + "/images/standing-break-reminder.jpg",
+      alt: "Standing Break Reminder",
+      description:
+        "Contracted for and Published by Sabi Ventures LLC. Standing Break is a simple, lightweight Chrome extension that reminds you to stand up, stretch, or move during long periods at your desk.",
+      tags: ["Javascript", "React", "Chrome Extensions API", "Local Storage API", "Service Workers"],
+      link: "https://chromewebstore.google.com/detail/standing-break-reminder/lidfpoljnclliodaaboebnkkpemobmfm?pli=1"
+    },
   ],
   education: [
     {

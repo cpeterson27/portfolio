@@ -25,14 +25,16 @@ const ProjectCard = ({ project }) => {
         ))}
       </div>
       <div className="project-links">
-        <a href={project.link} className="project-link">
-          View Project <ExternalLink size={16} className="link-icon" />
-        </a>
-        <div>
+        {project.link && (
+          <a href={project.link} className="project-link">
+            View Project <ExternalLink size={16} className="link-icon" />
+          </a>
+        )}
+        {project.code && (
           <a href={project.code} className="project-code">
             View Code <ExternalLink size={16} className="link-icon" />
           </a>
-        </div>
+        )}
       </div>
     </div>
   );
