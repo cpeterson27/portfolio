@@ -1,9 +1,10 @@
+/* Skills Section */
 .skills-card {
-  background: rgba(30, 41, 59, 0.5);
+  background: var(--bg-card);
   backdrop-filter: blur(4px);
   border-radius: 1rem;
   padding: 2rem;
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  border: 1px solid var(--border);
 }
 
 .skills-grid {
@@ -14,17 +15,17 @@
 }
 
 .skill-badge {
-  background: linear-gradient(to right, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2));
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  color: white;
+  background: rgba(0, 112, 243, 0.2); 
+  border: 1px solid rgba(0, 112, 243, 0.3);
+  color: var(--text-primary);
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   font-size: 1.125rem;
   font-weight: 600;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
 
 .skill-badge:hover {
-  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 112, 243, 0.3);
   transform: scale(1.05);
 }

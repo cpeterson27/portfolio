@@ -1,3 +1,4 @@
+/* Hero Section */
 .hero {
   padding: 8rem 1rem 5rem;
 }
@@ -11,12 +12,12 @@
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
-  color: rgb(204, 176, 204);
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
 }
 
 .hero-name {
-  background: linear-gradient(to right, #c084fc, #f9a8d4);
+  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -24,7 +25,7 @@
 
 .hero-subtitle {
   font-size: 1.5rem;
-  color: #d1d5db;
+  color: var(--text-secondary);
   margin-bottom: 2rem;
   min-height: 2.25rem;
 }
@@ -33,24 +34,19 @@
   display: inline-block;
   width: 2px;
   height: 1em;
-  background-color: #c084fc;
+  background-color: var(--accent-primary);
   margin-left: 4px;
   animation: blink 1s infinite;
 }
 
 @keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .hero-description {
   font-size: 1.125rem;
-  color: #9ca3af;
+  color: var(--text-secondary);
   max-width: 700px;
   margin: 0 auto 3rem;
   line-height: 1.6;
@@ -63,55 +59,56 @@
   flex-wrap: wrap;
 }
 
+/* Buttons */
 .btn {
   padding: 0.75rem 2rem;
   border-radius: 9999px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s;
   display: inline-block;
+  transition: all 0.3s ease;
 }
 
 .btn-primary {
-  background: linear-gradient(to right, #a855f7, #ec4899);
+  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
   color: white;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 112, 243, 0.5);
   transform: scale(1.05);
 }
 
 .btn-secondary {
-  border: 2px solid #a855f7;
-  color: #c084fc;
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
   background: transparent;
 }
 
 .btn-secondary:hover {
-  background: rgba(168, 85, 247, 0.1);
+  background: rgba(0, 112, 243, 0.1);
 }
 
 .resume-button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(to right, #c084fc, #a855f7);
+  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .resume-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 112, 243, 0.4);
 }
 
+/* Responsive Hero Titles */
 @media (min-width: 640px) {
   .hero-title {
     font-size: 4rem;

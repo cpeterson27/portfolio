@@ -1,9 +1,10 @@
+/* About Section */
 .about-card {
-  background: rgba(30, 41, 59, 0.5);
+  background: var(--bg-card);
   backdrop-filter: blur(4px);
   border-radius: 1rem;
   padding: 2rem;
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  border: 1px solid var(--border);
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr;
@@ -26,7 +27,7 @@
   max-width: 300px;
   height: auto;
   border-radius: 1rem;
-  border: 2px solid #a855f7;
+  border: 2px solid var(--accent-primary);
   transition: transform 0.3s ease;
 }
 
@@ -41,7 +42,7 @@
 }
 
 .about-text {
-  color: #d1d5db;
+  color: var(--text-secondary);
   font-size: 1.125rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;

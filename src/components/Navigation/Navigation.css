@@ -1,11 +1,13 @@
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(12px);
+  background: rgba(0, 112, 243, 0.08); /* subtle blue tint for separation */
+  backdrop-filter: blur(14px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease;
 }
 
 .nav-container {
@@ -21,64 +23,62 @@
   height: 64px;
 }
 
+/* Logo Gradient Text */
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  background: linear-gradient(to right, #c084fc, #f9a8d4);
+  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* Desktop Navigation Links */
 .desktop-nav {
   display: none;
   gap: 2rem;
 }
 
-.nav-link {
-  color: #d1d5db;
+/* Links */
+.nav-link,
+.mobile-nav-link,
+.mobile-menu-btn {
+  color: rgba(30, 41, 59, 0.85); /* dark-grayish text for readability */
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
+  font-weight: 500;
 }
 
-.nav-link:hover {
-  color: #c084fc;
+/* Hover effect */
+.nav-link:hover,
+.mobile-nav-link:hover {
+  color: var(--accent-primary); /* still accent on hover */
 }
 
+/* Mobile menu button */
 .mobile-menu-btn {
   display: block;
   background: none;
   border: none;
-  color: #d1d5db;
   cursor: pointer;
 }
 
+/* Mobile menu container */
 .mobile-menu {
-  background: rgba(30, 41, 59, 0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(0, 112, 243, 0.08); /* subtle tint for separation */
+  backdrop-filter: blur(14px);
 }
 
 .mobile-menu-content {
   padding: 0.5rem;
 }
 
-.mobile-nav-link {
-  display: block;
-  padding: 0.75rem 1rem;
-  color: #d1d5db;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.mobile-nav-link:hover {
-  color: #c084fc;
-}
-
+/* Show desktop nav on larger screens */
 @media (min-width: 768px) {
   .desktop-nav {
     display: flex;
   }
-  
+
   .mobile-menu-btn {
     display: none;
   }

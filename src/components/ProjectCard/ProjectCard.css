@@ -1,15 +1,26 @@
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .project-card {
-  background: rgba(30, 41, 59, 0.5);
-  backdrop-filter: blur(4px);
+  background: var(--bg-card);
+  border: 2px solid var(--border);
   border-radius: 1rem;
   padding: 1.5rem;
-  border: 2px solid #a855f7;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #c084fc;
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: all 0.3s ease;
   transform-style: preserve-3d;
   perspective: 1000px;
   cursor: pointer;
@@ -17,9 +28,9 @@
 
 .project-card:hover {
   transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
-  box-shadow: 0 20px 25px -5px rgba(168, 85, 247, 0.1),
-    0 8px 10px -6px rgba(168, 85, 247, 0.1);
-  border-color: #c084fc;
+  box-shadow: 0 20px 25px -5px rgba(0,112,243,0.1),
+              0 8px 10px -6px rgba(0,112,243,0.1);
+  border-color: var(--accent-primary);
 }
 
 .project-img {
@@ -36,22 +47,17 @@
   transform: translateZ(20px);
 }
 
-.project-card:hover {
-  border-color: rgba(168, 85, 247, 0.4);
-  transform: scale(1.05);
-}
-
 .project-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
+  color: var(--text-primary);
   margin-bottom: 0.75rem;
   text-align: center;
   width: 100%;
 }
 
 .project-description {
-  color: #d1d5db;
+  color: var(--text-secondary);
   margin-bottom: 1rem;
   line-height: 1.5;
   text-align: center;
@@ -67,6 +73,14 @@
   width: 100%;
 }
 
+.tag {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--accent-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
 .project-links {
   display: flex;
   flex-wrap: wrap;
@@ -76,37 +90,19 @@
   width: 100%;
 }
 
-.tag {
-  background: rgba(0, 0, 0, 0.2);
-  color: #d8b4fe;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  color: #d1d5db;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
+.project-link,
 .project-code {
   display: inline-flex;
   align-items: center;
-  color: #d1d5db;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.3s;
   cursor: pointer;
 }
 
-.project-link:hover {
-  color: #d8b4fe;
-}
-
+.project-link:hover,
 .project-code:hover {
-  color: #d8b4fe;
+  color: var(--accent-primary);
 }
 
 .link-icon {

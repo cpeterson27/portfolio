@@ -1,0 +1,19 @@
+:root {
+  --bg: #f5f5f5;
+  --bg-card: rgba(255, 255, 255, 0.6);
+  --text-primary: #111;
+  --text-secondary: #555;
+  --accent-primary: #0070f3;
+  --accent-secondary: #00c2cb;
+  --border: rgba(0, 112, 243, 0.2);
+}
+
+[data-theme="dark"] {
+  --bg: #1e1e1e;
+  --bg-card: rgba(30, 41, 59, 0.6);
+  --text-primary: #f5f5f5;
+  --text-secondary: #c1c1c1;
+  --accent-primary: #0070f3;
+  --accent-secondary: #00c2cb;
+  --border: rgba(0, 112, 243, 0.3);
+}
