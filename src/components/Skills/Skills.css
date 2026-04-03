@@ -1,31 +1,33 @@
-/* Skills Section */
 .skills-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(4px);
-  border-radius: 1rem;
   padding: 2rem;
-  border: 1px solid var(--border);
 }
 
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
+  gap: 0.9rem;
+  justify-content: flex-start;
 }
 
 .skill-badge {
-  background: rgba(0, 112, 243, 0.2); 
-  border: 1px solid rgba(0, 112, 243, 0.3);
+  background: rgba(15, 109, 255, 0.08);
+  border: 1px solid rgba(15, 109, 255, 0.12);
   color: var(--text-primary);
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-size: 1.125rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 18px;
+  font-size: 1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .skill-badge:hover {
-  box-shadow: 0 10px 25px rgba(0, 112, 243, 0.3);
-  transform: scale(1.05);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    justify-content: center;
+  }
 }

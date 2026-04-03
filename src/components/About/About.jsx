@@ -5,10 +5,14 @@ const About = ({ bio, image }) => {
   return (
     <section id="about" className="section">
       <div className="section-container">
-        <h2 className="section-title" data-aos="fade-down">
-          About Me
-        </h2>
-        <div className="about-card" data-aos="fade-up">
+        <div className="section-header" data-aos="fade-down">
+          <div className="section-kicker">About</div>
+          <h2 className="section-title">A developer with a design-informed eye for detail.</h2>
+          <p className="section-description">
+            I build interfaces that are approachable for users and practical for teams to maintain.
+          </p>
+        </div>
+        <div className="about-card surface-card" data-aos="fade-up">
           <div
             className="about-image-container"
             data-aos="fade-right"
@@ -21,6 +25,9 @@ const About = ({ bio, image }) => {
             data-aos="fade-left"
             data-aos-delay="400"
           >
+            <div className="about-intro">
+              Software engineer with a background in UI and UX design.
+            </div>
             {bio.map((paragraph, index) => (
               <p key={index} className="about-text">
                 {paragraph}

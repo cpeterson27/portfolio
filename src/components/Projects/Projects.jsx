@@ -6,7 +6,13 @@ const Projects = ({ projects }) => {
   return (
     <section id="projects" className="section">
       <div className="section-container-wide">
-        <h2 className="section-title">Featured Projects</h2>
+        <div className="section-header">
+          <div className="section-kicker">Selected Work</div>
+          <h2 className="section-title">Projects that show both technical range and product thinking.</h2>
+          <p className="section-description">
+            A mix of full-stack builds, interface-driven work, and practical tools designed around real user needs.
+          </p>
+        </div>
         <div className="projects-grid">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />

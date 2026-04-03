@@ -6,10 +6,10 @@ export const portfolioData = {
   personalInfo: {
     name: "Cassandra Peterson",
     title: "Software Engineer",
-    subtitle: "React Enthusiast | Problem Solver",
+    subtitle: "Full-Stack Developer with a UI/UX Background",
     bio: [
-      "I'm a passionate full-stack developer with a love for creating elegant solutions to complex problems. With experience in modern web technologies, I specialize in building responsive, user-friendly applications that make a difference.",
-      "When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community. I believe in continuous learning and staying up-to-date with the latest industry trends.",
+      "I build responsive, user-centered web applications with a strong focus on clarity, usability, and maintainable code. My background in both software engineering and design helps me translate ideas into polished digital products that feel intentional from the first interaction to the last detail.",
+      "I enjoy working across the stack, collaborating closely with teams, and solving real product problems with practical, thoughtful solutions. Whether I am refining an interface or building application logic, I care deeply about creating experiences that are reliable, accessible, and easy to use.",
     ],
     email: "cpeterson.dev@gmail.com",
     github: "https://github.com/cpeterson27",
@@ -25,7 +25,7 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/mrbeast.png",
       alt: "Interactive Media Dashboard",
       description:
-        " An interactive media dashboard designed to showcase the intersection of design fidelity and engineering execution. Built directly from a Figma mockup, this project demonstrates the creation of reusable, responsive, and accessible components with smooth motion and high performance.",
+        "An interactive dashboard built from a Figma concept to demonstrate design accuracy, reusable component architecture, accessibility, and polished motion across responsive breakpoints.",
       tags: [
         "Next.js",
         "React",
@@ -43,7 +43,7 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/standing-break-reminder.jpg",
       alt: "Standing Break Reminder",
       description:
-        "Contracted for and Published by Sabi Ventures LLC. Standing Break is a simple, lightweight Chrome extension that reminds you to stand up, stretch, or move during long periods at your desk.",
+        "A lightweight Chrome extension, contracted and published by Sabi Ventures LLC, that encourages healthier work habits with timely reminders to stand, stretch, and move throughout the day.",
       tags: [
         "Javascript",
         "React",
@@ -59,20 +59,20 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/newsexplorer.png",
       alt: "News Explorer App",
       description:
-        "A full-stack news aggregation application that allows users to search, save, and manage their favorite news articles.",
+        "A full-stack news application that lets users search current stories, save articles, and manage a personalized reading list through an organized account experience.",
       tags: [
         "Node.js",
         "HTML",
         "CSS",
-        "Javascript",
+        "JavaScript",
         "React",
-        "APIs",
+        "REST APIs",
         "MongoDB",
         "Express.js",
         "Google Cloud",
       ],
       link: "https://github.com/cpeterson27/News-Explorer-Frontend",
-      code: "git clone https://github.com/cpeterson27/News-Explorer-Frontend.git",
+      code: "https://github.com/cpeterson27/News-Explorer-Frontend",
     },
 
     {
@@ -81,12 +81,12 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/budgetblox.png",
       alt: "BudgetBlox Balances",
       description:
-        "BudgetBlox helps users take control of their finances through clean expense tracking and easy-to-use budgeting features",
+        "A budgeting application designed to help users track expenses, monitor balances, and build healthier financial habits through a clean and approachable dashboard experience.",
       tags: [
         "Node.js",
         "HTML",
         "CSS",
-        "Javascript",
+        "JavaScript",
         "React",
         "Vite",
         "MongoDB",
@@ -103,8 +103,8 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/todo-app.png",
       alt: "Simple To Do App",
       description:
-        " A minimalist, user-friendly to-do list application designed to help users manage daily tasks efficiently. Built using HTML, CSS, and JavaScript.",
-      tags: ["HTML5", "CSS", "Javascript"],
+        "A streamlined to-do list application focused on simplicity, clear interactions, and efficient day-to-day task management.",
+      tags: ["HTML5", "CSS", "JavaScript"],
       link: "https://cpeterson27.github.io/se_project_todo-app",
       code: "https://github.com/cpeterson27/se_project_todo-app.git",
     },
@@ -114,14 +114,14 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/wtwr.png",
       alt: "What to Wear",
       description:
-        "The idea of the application is pretty simple - we make a call to an API, which then responds with the daily weather forecast. We collect the weather data, process it, and then based on the forecast, we recommend suitable clothing to the user",
+        "A weather-based application that fetches forecast data, processes conditions, and recommends clothing choices based on the day’s expected temperature and environment.",
       tags: [
         "Node.js",
         "React",
         "HTML",
         "CSS",
-        "Javascript",
-        "APIs",
+        "JavaScript",
+        "REST APIs",
         "Vite",
         "MongoDB",
         "Google Cloud",
@@ -135,8 +135,8 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/starlight.png",
       alt: "Starlight University",
       description:
-        "A modern, interactive web application designed to help new students navigate university life. Built with vanilla JavaScript, modular CSS, and webpack for optimal performance and maintainability",
-      tags: ["Node.js", "HTML", "CSS", "Javascript"],
+        "A campus guide web application created to help new students navigate university life through an organized, interactive, and responsive interface.",
+      tags: ["Node.js", "HTML", "CSS", "JavaScript"],
       link: "https://cpeterson27.github.io/Campus-Guide/",
       code: "https://github.com/cpeterson27/Campus-Guide.git",
     },
@@ -146,10 +146,10 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/emoji.png",
       alt: "Emoji Critic",
       description:
-        "This is a small React application built with Vite, used as a React Router demonstration by TripleTen's Software Engineering bootcamp",
-      tags: ["Node.js", "HTML", "CSS", "Javascript", "React"],
+        "A small React and Vite application built as a React Router demonstration, showcasing client-side navigation and structured component composition.",
+      tags: ["Node.js", "HTML", "CSS", "JavaScript", "React"],
       link: "https://cpeterson27.github.io/react-router-demo/",
-      code: "git clone https://github.com/cpeterson27/react-router-demo.git",
+      code: "https://github.com/cpeterson27/react-router-demo",
     },
     {
       id: 9,
@@ -157,8 +157,8 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/spots.jpg",
       alt: "Spots",
       description:
-        "Interactive web application that allows users to add and remove photos, like photos of other users, and make a few minor adjustments to their profile",
-      tags: ["HTML5", "CSS3", "Javascript"],
+        "An interactive social-style photo app where users can add and remove images, like posts, and update profile details through a dynamic interface.",
+      tags: ["HTML5", "CSS3", "JavaScript"],
       link: "https://cpeterson27.github.io/se_project_spots",
       code: "https://github.com/cpeterson27/se_project_spots.git",
     },
@@ -168,7 +168,7 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/triple-peaks-library.jpg",
       alt: "Triple Peaks Coffee Shop",
       description:
-        "Coffee shop landing page with a modern design and responsive layout",
+        "A responsive landing page for a coffee shop brand, designed to balance visual appeal with clean layout structure and strong front-end fundamentals.",
       tags: ["HTML5", "CSS", "BEM Structure"],
       link: "https://cpeterson27.github.io/se_project_coffeeshop",
       code: "https://github.com/cpeterson27/se_project_coffeeshop.git",
@@ -179,7 +179,7 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/cassie-peterson.jpg",
       alt: "Cassandra Peterson's Portfolio",
       description:
-        "Portfolio showcasing a little about me and a few things I like to do",
+        "An early personal portfolio project created to introduce my background, interests, and design sensibility through a simple web presence.",
       tags: ["HTML", "CSS"],
       link: "https://cpeterson27.github.io/1st-Tripleten-Portfolio-Page/",
       code: "https://github.com/cpeterson27/1st-Tripleten-Portfolio-Page.git",
@@ -191,33 +191,36 @@ export const portfolioData = {
       school: "TripleTen",
       date: "2023 - 2024",
       description:
-        "Full-stack software engineering program covering web development, React, Node.js, and MongoDB.",
+        "Completed a full-stack software engineering program focused on modern web development, including React, Node.js, Express, APIs, databases, and collaborative development practices.",
     },
     {
-      degree: "Bachelors Degree",
+      degree: "Bachelor's Degree",
       school: "Miami Art Institute",
       date: "2021 - 2023",
       description:
-        "Art Institute focusing on user interface (UI) and user experience (UX) design, proficiency in industry-standard tools like Adobe XD, Photoshop, Illustrator, and InDesign.",
+        "Studied user interface and user experience design with hands-on experience in Adobe XD, Photoshop, Illustrator, and InDesign, strengthening my foundation in visual communication and product presentation.",
     },
     {
-      degree: "Associates Degree",
+      degree: "Associate Degree",
       school: "Independence University",
       date: "2016 - 2017",
       description:
-        "Institution addressing proficiency in visual communication, mastering industry-standard tools like Adobe Photoshop, Illustrator, and InDesign to create compelling designs across print and digital media.",
+        "Built a foundation in visual communication and digital design, developing proficiency in Adobe creative tools for both print and digital media work.",
     },
   ],
   skills: [
     "HTML5",
     "CSS3",
-    "Javascript",
+    "JavaScript",
     "React",
     "Node.js",
     "Git",
     "Sass",
     "REST APIs",
     "MongoDB",
+    "Express.js",
+    "Responsive Design",
+    "UI/UX Design",
   ],
 };
 

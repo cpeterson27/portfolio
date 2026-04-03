@@ -11,34 +11,40 @@
 
 .app-container {
   min-height: 100vh;
-  background: linear-gradient(45deg, var(--bg), var(--bg-card), var(--bg));
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(30, 144, 255, 0.14), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(16, 185, 129, 0.1), transparent 25%),
+    linear-gradient(180deg, #f7fafc 0%, #eef4fb 45%, #f9fbfd 100%);
 }
 
-
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.app-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 90%);
+  z-index: 0;
 }
 
 .section {
-  padding: 5rem 1rem;
+  position: relative;
+  z-index: 1;
+  padding: 6rem 1.5rem;
 }
 
 .section-container {
-  max-width: 900px;
+  max-width: 1120px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  gap: 1.5rem;
 }
 
 .section-container-wide {
@@ -46,14 +52,62 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.section-header {
+  max-width: 680px;
+  margin-bottom: 1.5rem;
+}
+
+.section-kicker {
+  display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--accent-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-soft);
 }
 
 .section-title {
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
   color: var(--text-primary);
-  margin-bottom: 3rem;
-  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.05;
 }
 
+.section-description {
+  max-width: 640px;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.surface-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(18px);
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 4.5rem 1rem;
+  }
+
+  .section-header {
+    margin-bottom: 1rem;
+  }
+}
