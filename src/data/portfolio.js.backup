@@ -20,51 +20,23 @@ export const portfolioData = {
   projects: [
     {
       id: 14,
-      title:
-        "Sparkle Bows Full-Stack eCommerce Platform with Stripe, shipping, and admin tools",
-      images: [
-        process.env.PUBLIC_URL + "/images/sparklebows-board.png",
-        process.env.PUBLIC_URL + "/images/sparklebows-mockup.png",
-        process.env.PUBLIC_URL + "/assets/sparkle_bows_layout_design.html",
-        process.env.PUBLIC_URL + "/assets/sparkle_bows_wireframes.html",
-        process.env.PUBLIC_URL + "/assets/sparkle_bows_moodboard.html",
-      ],
-      alt: "Sparkle Bows eCommerce",
+      title: "Sparkle Bows Full-Stack eCommerce Platform with Stripe, shipping, and admin tools",
+      image: process.env.PUBLIC_URL + "/images/mrbeast.png",
+      alt: "Interactive Media Dashboard",
       description:
-        "Full-stack eCommerce platform with Stripe payments, Shippo shipping, admin dashboard, product management, user authentication, and marketing automation.",
+        "An interactive dashboard built from a Figma concept to demonstrate design accuracy, reusable component architecture, accessibility, and polished motion across responsive breakpoints.",
       tags: [
-        // Frontend
-        "Cloudinary",
-
-        // Backend
-        "Node.js",
-        "Express.js",
-        "MongoDB & Mongoose",
-        "JWT Authentication",
-        "Nodemailer & Resend",
-        "Shippo API",
-
-        // Payments / E-commerce
-        "Stripe Payment Intents & Tax",
-
-        // Marketing / Analytics
-        "Google Analytics 4 (GA4)",
-        "Google Tag Manager (GTM)",
-        "Klaviyo",
-
-        // Security / Authentication
-        "Email & Google OAuth login",
-        "Optional Two-Factor Authentication (2FA)",
-
-        // SEO & Deployment
-        "Render deployment",
-        "Cloudflare DNS",
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "TypeScript",
+        "shadcn/ui",
+        "Framer Motion",
       ],
-      link: "https://www.sparklebows.shop/",
-      code: "https://github.com/cpeterson27/sparkle-bows-frontend.git",
-      backendCode: "https://github.com/cpeterson27/sparkle-bows-backend.git",
+      link: "https://mrbeast-dashboard.vercel.app/",
+      code: "https://github.com/cpeterson27/mrbeast-dashboard.git",
     },
-    {
+     {
       id: 13,
       title: "Interactive Media Dashboard",
       image: process.env.PUBLIC_URL + "/images/mrbeast.png",
@@ -159,7 +131,7 @@ export const portfolioData = {
       image: process.env.PUBLIC_URL + "/images/wtwr.png",
       alt: "What to Wear",
       description:
-        "A weather-based application that fetches forecast data, processes conditions, and recommends clothing choices based on the day's expected temperature and environment.",
+        "A weather-based application that fetches forecast data, processes conditions, and recommends clothing choices based on the day&#39;s expected temperature and environment.",
       tags: [
         "Node.js",
         "React",
@@ -222,7 +194,7 @@ export const portfolioData = {
       id: 11,
       title: "About Me Portfolio",
       image: process.env.PUBLIC_URL + "/images/cassie-peterson.jpg",
-      alt: "Cassandra Peterson's Portfolio",
+      alt: "Cassandra Peterson&#39;s Portfolio",
       description:
         "An early personal portfolio project created to introduce my background, interests, and design sensibility through a simple web presence.",
       tags: ["HTML", "CSS"],
@@ -234,14 +206,14 @@ export const portfolioData = {
     {
       degree: "Software Engineering Certificate",
       school: "TripleTen",
-      date: "2025 - 2026",
+      date: "2023 - 2024",
       description:
         "Completed a full-stack software engineering program focused on modern web development, including React, Node.js, Express, APIs, databases, and collaborative development practices.",
     },
     {
-      degree: "Bachelor's Degree",
+      degree: "Bachelor&#39;s Degree",
       school: "Miami Art Institute",
-      date: "2024 - 2020",
+      date: "2021 - 2023",
       description:
         "Studied user interface and user experience design with hands-on experience in Adobe XD, Photoshop, Illustrator, InDesign, strengthening my foundation in visual communication and product presentation.",
     },

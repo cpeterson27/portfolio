@@ -1,0 +1,51 @@
+import React, { useState } from "react";
+import { Github, Linkedin, Mail, ExternalLink, Menu, X } from "lucide-react";
+
+export const portfolioData = {
+  personalInfo: {
+    name: "Cassandra Peterson",
+    title: "Software Engineer",
+    subtitle: "Full-Stack Developer with a UI/UX Background",
+    bio: [
+      "I build responsive, user-centered web applications with a strong focus on clarity, usability, and maintainable code. My background in both software engineering and design helps me translate ideas into polished digital products that feel intentional from the first interaction to the last detail.",
+      "I enjoy working across the stack, collaborating closely with teams, and solving real product problems with practical, thoughtful solutions. Whether I am refining an interface or building application logic, I care deeply about creating experiences that are reliable, accessible, and easy to use.",
+    ],
+    email: "cpeterson.dev@gmail.com",
+    github: "https://github.com/cpeterson27",
+    linkedin:
+      "https://www.linkedin.com/in/cassandrapeterson-software-engineer/",
+    resume: "assets/ResumeCassandraPeterson.pdf",
+    image: process.env.PUBLIC_URL + "/images/cassandra-peterson.png",
+  },
+  projects: [
+    {
+      id: 14,
+      title:
+        "Sparkle Bows Full-Stack eCommerce Platform with Stripe, shipping, and admin tools",
+      images: [
+        process.env.PUBLIC_URL + "/images/sparklebows-board.png",
+        process.env.PUBLIC_URL + "/images/sparklebows-mockup.png"
+      ],
+      alt: "Sparkle Bows eCommerce",
+      description:
+        "Full-stack eCommerce platform with Stripe payments, Shippo shipping, admin dashboard, product management, user authentication, and marketing automation.",
+      tags: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Stripe",
+        "Shippo",
+        "Cloudinary",
+        "JWT Auth",
+        "Klaviyo",
+        "Vercel"
+      ],
+      link: "https://www.sparklebows.shop/",
+      code: "https://github.com/cpeterson27/sparkle-bows-frontend.git",
+      backendCode: "https://github.com/cpeterson27/sparkle-bows-backend.git"
+    },
+    // ... rest unchanged
+  ],
+  // ... rest of file unchanged
+};

@@ -1,12 +1,12 @@
 import React from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { GitHub, LinkedIn, Mail } from "lucide-react";
 import "./Contact.css";
 
 const Contact = ({ email, github, linkedin }) => {
   const socialLinks = [
     { href: `mailto:${email}`, icon: Mail, label: "Email" },
-    { href: github, icon: Github, label: "GitHub" },
-    { href: linkedin, icon: Linkedin, label: "LinkedIn" },
+    { href: github, icon: GitHub, label: "GitHub" },
+    { href: linkedin, icon: LinkedIn, label: "LinkedIn" },
   ];
 
   return (

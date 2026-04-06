@@ -1,0 +1,11 @@
+.project-frontend {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  border-color: rgba(15, 109, 255, 0.12);
+}
+
+.project-backend {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  border-color: rgba(16 185 129, 0.4);
+}

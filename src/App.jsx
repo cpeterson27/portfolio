@@ -11,6 +11,9 @@ import { portfolioData } from "./data/portfolio";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./App.css";
+import { ImageModalProvider } from "./contexts/ImageModalContext";
+import ImageModal from "./components/ImageModal/ImageModal";
+
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { personalInfo, projects, skills, education } = portfolioData;
@@ -24,36 +27,39 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="app-container">
-      <Navigation
-        mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen}
-        name={personalInfo.name}
-      />
+    <ImageModalProvider>
+      <ImageModal />
+      <div className="app-container">
+        <Navigation
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+          name={personalInfo.name}
+        />
 
-      <Hero
-        name={personalInfo.name}
-        title={personalInfo.title}
-        subtitle={personalInfo.subtitle}
-        bio={personalInfo.bio}
-        resume={personalInfo.resume}
-      />
+        <Hero
+          name={personalInfo.name}
+          title={personalInfo.title}
+          subtitle={personalInfo.subtitle}
+          bio={personalInfo.bio}
+          resume={personalInfo.resume}
+        />
 
-      <About bio={personalInfo.bio} image={personalInfo.image} />
+        <About bio={personalInfo.bio} image={personalInfo.image} />
 
-      <Projects projects={projects} />
+        <Projects projects={projects} />
 
-      <Skills skills={skills} />
+        <Skills skills={skills} />
 
-      <Education education={education} />
+        <Education education={education} />
 
-      <Contact
-        email={personalInfo.email}
-        github={personalInfo.github}
-        linkedin={personalInfo.linkedin}
-      />
+        <Contact
+          email={personalInfo.email}
+          github={personalInfo.github}
+          linkedin={personalInfo.linkedin}
+        />
 
-      <Footer name={personalInfo.name} />
-    </div>
+        <Footer name={personalInfo.name} />
+      </div>
+    </ImageModalProvider>
   );
 }
