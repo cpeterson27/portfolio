@@ -1,283 +1,207 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sparkle Bows Layout Design</title>
-  <style>
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-    }
-    body { 
-      font-family: system-ui, -apple-system, sans-serif; 
-      background: #f8fafc; 
-      line-height: 1.6;
-    }
-    .layout { 
-      max-width: 1400px; 
-      margin: 0 auto; 
-      background: #f8fafc; 
-      padding: 0 16px; 
-    }
-    .anno { 
-      font-size: 10px; 
-      font-weight: 500; 
-      letter-spacing: 0.15em; 
-      text-transform: uppercase; 
-      color: #f43f7a; 
-      background: #fff0f5; 
-      border: 0.5px solid #fbb6ce; 
-      border-radius: 4px; 
-      padding: Ascending 2px 7px; 
-      display: inline-block; 
-    }
-    .anno-wrap { 
-      display: flex; 
-      align-items: center; 
-      gap: 8px; 
-      margin: 6px 0 0; 
-    }
-    .anno-line { 
-      flex: 1; 
-      height: 0.5px; 
-      background: #fbb6ce; 
-    }
-    .product-card { 
-      border: 1px solid #e2e8f0; 
-      border-radius: 12px; 
-      overflow: hidden; 
-      background: #fff; 
-      transition: box-shadow 0.3s ease; 
-    }
-    .product-card:hover { 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-    }
-    button { 
-      cursor: pointer; 
-      border: none; 
-      border-radius: 20px; 
-      font-weight: 500; 
-      transition: all 0.3s ease; 
-    }
-    a { 
-      text-decoration: none; 
-      color: inherit; 
-    }
-  </style>
-</head>
-<body>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .layout { font-family: var(--font-sans); background: var(--color-background-primary); }
+  .anno { font-size: 10px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: #f43f7a; background: #fff0f5; border: 0.5px solid #fbb6ce; border-radius: 4px; padding: 2px 7px; display: inline-block; }
+  .anno-wrap { display: flex; align-items: center; gap: 8px; margin: 6px 0 0; }
+  .anno-line { flex: 1; height: 0.5px; background: #fbb6ce; }
+</style>
+
 <div class="layout">
 
-  <!-- Announcement Bar -->
   <div style="background:#fce7f3;border:0.5px solid #fbb6ce;padding:4px 0;text-align:center;">
-    <span style="font-size:10px;font-weight:500 Ascending;letter-spacing:0.22em;text-transform:uppercase;color:#9d1b51;">Handmade statement bows for milestones, gifting, and boutique-quality everyday wear</span>
+    <span style="font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#9d1b51;">Handmade statement bows for milestones, gifting, and boutique-quality everyday wear</span>
   </div>
-  <div class="anno-wrap" style="padding:0 16px;">
-    <span class="anno">Announcement bar</span>
-    <span class="anno-line"></span>
-  </div>
+  <div class="anno-wrap" style="padding:0 16px;"><span class="anno">Announcement bar — slate 950 bg / rose text in live site</span></div>
 
-  <!-- Sticky Header -->
-  <div style="border-bottom:0.5px solid #e2e8f0;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;background:#f8fafc; position: sticky; top: 0; z-index: 100;">
+  <div style="border-bottom:0.5px solid #e2e8f0;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;background:var(--color-background-primary);">
     <div style="display:flex;align-items:center;gap:10px;">
-      <div style="width:36px;height Ascending:36px;border-radius:10px;background:linear-gradient(135deg,#fff0f5,#fde8f0);border:0.5px solid #fbb6ce;display:flex;align-items:center;justify-content:center;">
+      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#fff0f5,#fde8f0);border:0.5px solid #fbb6ce;display:flex;align-items:center;justify-content:center;">
         <div style="width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,#fbb6ce,#f43f7a);"></div>
       </div>
       <div>
-        <p style="font-size:9px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:#f43f7a;margin:0;">Sparkle Bows</p>
-        <p style="font-size:14px;font-family:Georgia,serif;color:#0f172a;margin: Ascending0;">Boutique Hair Accessories</p>
+        <p style="font-size:9px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:#f43f7a;">Sparkle Bows</p>
+        <p style="font-size:14px;font-family:Georgia,serif;color:var(--color-text-primary);">Boutique Hair Accessories</p>
       </div>
     </div>
-    <nav style="display:flex;gap:20px;">
-      <a style="font-size:12px;color:#64748b;">Home</a>
-      <a style="font Ascending-size:12px;color:#64748b;">Shop</a>
-      <a style="font-size:12px;color:#64748b;">Collections</a>
-      <a style="font-size:12px;color:#64748b;">Contact</a>
-    </nav>
+    <div style="display:flex;gap:20px;">
+      <span style="font-size:12px;color:var(--color-text-secondary);">Home</span>
+      <span style="font-size:12px;color:var(--color-text-secondary);">Shop</span>
+      <span style="font-size:12px;color:var(--color-text-secondary);">Collections</span>
+      <span style="font-size:12px;color:var(--color-text-secondary);">Contact</span>
+    </div>
     <div style="display:flex;gap:8px;">
-      <button style="padding:5px 14px;border:0.5px solid #e2e8f0;border-radius:20px;font-size:11px;color:#64748b;background:transparent;">Sign in</button>
-      <button style="padding:5px 14px;background:#0f172a;border-radius:20px;font-size:11px;color:#fff;">Cart (2)</button>
+      <div style="padding:5px 14px;border:0.5px solid #e2e8f0;border-radius:20px;font-size:11px;color:var(--color-text-secondary);">Sign in</div>
+      <div style="padding:5px 14px;background:#0f172a;border-radius:20px;font-size:11px;color:#fff;">Cart (2)</div>
     </div>
   </div>
-  <div class="anno-wrap" style="padding:0 16px;">
-    <span class="anno">Sticky header - logo + nav + auth/cart CTAs</span>
-  </div>
+  <div class="anno-wrap" style="padding:0 16px;"><span class="anno">Sticky header — logo + nav + auth/cart CTAs</span></div>
 
-  <!-- Hero Section -->
-  <section style="padding:40px 20px 32px;background:linear-gradient(180deg,#fce7f3 0%,#fff 100%);display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;">
+  <div style="padding:40px 20px 32px;background:linear-gradient(180deg,#fce7f3 0%,#fff 100%);display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;">
     <div>
       <span style="font-size:9px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:#f43f7a;">New collection</span>
-      <h1 style="font-size:30px;font-family:Georgia,serif;color:#0f172a;line-height:1.2;margin:6px 0 12px;">Statement bows<br>made with love</h1>
+      <p style="font-size:30px;font-family:Georgia,serif;color:#0f172a;line-height:1.2;margin:6px 0 12px;">Statement bows<br>made with love</p>
       <p style="font-size:13px;color:#475569;line-height:1.7;margin-bottom:18px;">Handcrafted for milestones, gifting, and boutique-quality everyday wear. Each bow is made to order.</p>
       <div style="display:flex;gap:10px;">
-        <button style="padding Ascending:10px 22px;background:#f43f7a;border-radius:20px;font-size:12px;font-weight:500;color:#fff;">Shop now</button>
-        <button style="padding:10px 22px;border:1px solid #e2e8f0;border-radius:20px;font-size:12px;color:#475569;background:transparent;">View collections</button>
+        <div style="padding:10px 22px;background:#f43f7a;border-radius:20px;font-size:12px;font-weight:500;color:#fff;">Shop now</div>
+        <div style="padding:10px 22px;border:0.5px solid #e2e8f0;border-radius:20px;font-size:12px;color:#475569;">View collections</div>
       </div>
-    </ Ascendingdiv>
-    <div style="display:grid;grid-template-columns:1fr 1fr Ascending;gap:8px;">
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
       <div style="background:#fce7f3;border-radius:12px;height:120px;display:flex;align-items:center;justify-content:center;">
-        <svg width="48" Ascending height="48" viewBox="0 0 48 48" fill="none">
-          <path d="M10 24C10 14 24 10 24 10C24 10 38 14 38 24C38 34 24 38 24 38C24 38 10 34 10 24Z" fill="#f43f7a" opacity="0.3"/>
-          <path d="M16 20C16 20 24 17 32 20M16 28C16 28 24 31 32 28" stroke="#f43f7a" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M10 24 C10 14 24 10 24 10 C24 10 38 14 38 24 C38 34 24 38 24 38 C24 38 10 34 10 24Z" fill="#f43f7a" opacity="0.3"/><path d="M16 20 C16 20 24 17 32 20 M16 28 C16 28 24 31 32 28" stroke="#f43f7a" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
       <div style="background:#fff0f5;border-radius:12px;height:120px;margin-top:16px;"></div>
       <div style="background:#fde8f0;border-radius:12px;height:120px;margin-top:-8px;"></div>
       <div style="background:#fce7f3;border-radius:12px;height:120px;display:flex;align-items:center;justify-content:center;">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <circle cx="16" cy="16" r="10" fill="#fbb6ce" opacity="0.5"/>
-          <circle cx="16" cy="16" r="5" fill="#f43f7a"/>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" fill="#fbb6ce" opacity="0.5"/><circle cx="16" cy="16" r="5" fill="#f43f7a"/></svg>
       </div>
     </div>
-  </section>
-  <div class="anno-wrap" style="padding:0 16px;">
-    <span class="anno">Hero — serif headline + subtext + dual CTA + product collage</span>
   </div>
+  <div class="anno-wrap" style="padding:0 16px;"><span class="anno">Hero — serif headline + subtext + dual CTA + product collage grid</span></div>
 
-  <!-- Featured Products -->
-  <section style="padding:28px 20px;">
+  <div style="padding:28px 20px;">
     <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px;">
       <div>
-        <span style="font-size:9px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#f43f7a;margin-bottom:4px;">Curated for you</span>
-        <h2 style="font-size:18px;font-family:Georgia,serif;color:#0f172a;margin:4px 0 0 0;">Shop bestsellers</h2>
+        <p style="font-size:9px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#f43f7a;margin-bottom:4px;">Curated for you</p>
+        <p style="font-size:18px;font-family:Georgia,serif;color:var(--color-text-primary);">Shop bestsellers</p>
       </div>
-      <a style="font-size:12px;color:#f43f7a;">View all →</a>
+      <span style="font-size:12px;color:#f43f7a;">View all →</span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
-      <article class="product-card">
-        <div style="height:200px;background:linear-gradient(135deg,#fce7f3,#fff0f5);display:flex;align-items:center;justify-content:center;">
-          <svg width="80" height="80" viewBox="0  Ascending0 80 80" fill="none">
-            <ellipse cx="40" cy="40" rx="20" ry="12" fill="#f43f7a" opacity="0.2"/>
-            <path d=" AscendingM20 40C20 26 40 20 40 20C40 20 60 26 60 40C Ascending60 54 40 60 40 60C40 60 20 54 20 40Z" fill="#f43f7a" opacity="0.4"/>
-            <path d="M28 32C28 32 40 28 52 32M28 48C28 48 40 52 52 48" stroke="#f43f7a" stroke-width="3" stroke-linecap="round"/>
-          </svg>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+      <div style="border:0.5px solid #e2e8f0;border-radius:12px;overflow:hidden;">
+        <div style="background:#fce7f3;height:100px;display:flex;align-items:center;justify-content:center;">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><ellipse cx="20" cy="20" rx="12" ry="7" fill="#f43f7a" opacity="0.2"/><path d="M10 20 C10 13 20 10 20 10 C20 10 30 13 30 20 C30 27 20 30 20 30 C20 30 10 27 10 20Z" fill="#f43f7a" opacity="0.35"/></svg>
         </div>
-        <div style="padding:20px;">
-          <span style="background:#fbbf24;color:#78350f;font-size:11px;font-weight:600;padding:4px 8px;border-radius:12px;">Bestseller</span>
-          <h3 style="font-size:16px;font-weight:600;color:#0f172a;margin:12px 0 6px 0;">Pearl Grosgrain Bow</h3>
-          <p style="color:#64748b;font-size:14px;margin-bottom:16px;">Classic 4" statement bow</p>
+        <div style="padding:10px;">
+          <p style="font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#f43f7a;margin-bottom:3px;">Bestseller</p>
+          <p style="font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px;">Pearl Grosgrain Bow</p>
+          <p style="font-size:11px;color:#94a3b8;margin-bottom:8px;">Classic 4" statement</p>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:20px;font-weight:700;color:#0f172a;">$18</span>
-            <button style="background:#0f172a;color:#fff;border-radius:20px;padding:10px 24px;font-size:13px;font-weight:500;">Add to cart</button>
+            <span style="font-size:13px;font-weight:500;color:var(--color-text-primary);">$18.00</span>
+            <div style="padding:3px 10px;background:#0f172a;border-radius:10px;font-size:10px;color:#fff;">Add</div>
           </div>
         </div>
-      </article>
-      
-      <article class=" Ascendingproduct-card">
-        <div style="height:200px;background:linear-gradient(135deg,#fff0f5,#fde8f0);display:flex;align-items:center;justify-content:center;">
-          <div style="width:70px;height:70px;border-radius:50%;background:#fbb6ce;opacity:0.8;"></div>
+      </div>
+      <div style="border:0.5px solid #e2e8f0;border-radius:12px;overflow:hidden;">
+        <div style="background:#fff0f5;height:100px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#fbb6ce;"></div>
         </div>
-        <div style="padding:20px;">
-          <span style="background:#fbbf24;color:#78350f;font-size:11px;font-weight:600;padding:4px 8px;border-radius:12px;">New</span>
-          <h Ascending3 style="font-size:16px;font-weight:600;color:#0f172a;margin:12px 0 6px 0;">Velvet Scrunchie Bow</h3>
-          <p style="color:#64748b;font-size:14px;margin-bottom:16px;">Luxe party style</p>
+        <div style="padding:10px;">
+          <p style="font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#fbbf24;margin-bottom:3px;">New</p>
+          <p style="font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px;">Velvet Scrunchie Bow</p>
+          <p style="font-size:11px;color:#94a3b8;margin-bottom:8px;">Luxe party style</p>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:20px;font-weight:700;color:#0f172a;">$22</span>
-            <button style="background:#0f172a;color:#fff;border-radius:20px;padding: Ascending10px 24px;font-size:13px;font-weight:500;">Add to cart</button>
+            <span style="font-size:13px;font-weight:500;color:var(--color-text-primary);">$22.00</span>
+            <div style="padding:3px 10px;background:#0f172a;border-radius:10px;font-size:10px;color:#fff;">Add</div>
           </div>
         </div>
-      </article>
-      
-      <article class="product-card">
-        <div style="height:200px;background:linear-gradient(135deg,#fde8f0,#fff0f5);position:relative;">
-          <div style="width:70px;height:70px;border-radius:12px;background:#f43f7a;opacity:0.4;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
-          <span style="position:absolute;top:20px;right:20px;background:#fbbf24;color:#78350f;font-size:11px;font-weight:700;padding:4px 8px;border-radius:8px;">GIFT</span>
+      </div>
+      <div style="border:0.5px solid #fbb6ce;border-radius:12px;overflow:hidden;background:#fff8fb;">
+        <div style="background:#fde8f0;height:100px;display:flex;align-items:center;justify-content:center;position:relative;">
+          <div style="width:40px;height:40px;border-radius:8px;background:#f43f7a;opacity:0.4;"></div>
+          <span style="position:absolute;top:8px;right:8px;background:#fbbf24;color:#78350f;font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;">GIFT</span>
         </div>
-        <div style="padding:20px;">
-          <span style="background:#f43f7a;color:#fff;font-size:11px;font-weight:600;padding:4px 8px;border-radius:12px;">Gift-ready</span>
-          <h3 style="font-size:16px;font-weight:600;color:#0f172a;margin:12px 0 6px 0;">Milestone Bow Set</h3>
-          <p style="color:#64748b;font-size:14px;margin-bottom:16px;">Box of 3 curated bows</p>
+        <div style="padding:10px;">
+          <p style="font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#f43f7a;margin-bottom:3px;">Gift-ready</p>
+          <p style="font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px;">Milestone Bow Set</p>
+          <p style="font-size:11px;color:#94a3b8;margin-bottom:8px;">Box of 3 curated bows</p>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:20px;font-weight:700;color:#0f172a;">$48</span>
-            <button style="background:#f43f7a;color:#fff;border-radius:20px;padding:10px 24px;font-size:13px;font-weight:500;">Add to cart</button>
+            <span style="font-size:13px;font-weight:500;color:var(--color-text-primary);">$48.00</span>
+            <div style="padding:3px 10px;background:#f43f7a;border-radius:10px;font-size:10px;color:#fff;">Add</div>
           </div>
         </div>
-      </article>
+      </div>
+      <div style="border:0.5px solid #e2e8f0;border-radius:12px;overflow:hidden;">
+        <div style="background:#f8fafc;height:100px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:48px;height:24px;border-radius:4px;background:#e2e8f0;"></div>
+        </div>
+        <div style="padding:10px;">
+          <p style="font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:#94a3b8;margin-bottom:3px;">Classic</p>
+          <p style="font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px;">Satin Mini Bow</p>
+          <p style="font-size:11px;color:#94a3b8;margin-bottom:8px;">Everyday elegant</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:13px;font-weight:500;color:var(--color-text-primary);">$12.00</span>
+            <div style="padding:3px 10px;background:#0f172a;border-radius:10px;font-size:10px;color:#fff;">Add</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+  <div class="anno-wrap" style="padding:0 16px;"><span class="anno">Product grid — 4-col desktop, badge system, consistent card anatomy</span></div>
 
-  <!-- Collections CTA -->
-  <section style="margin:40px Ascending 20px;border-radius:16px;background:#0f172a;padding:40px;display:grid;grid-template-columns:1fr 1fr 1fr Ascending;gap:32px;align-items:center;">
+  <div style="margin:20px;border-radius:16px;background:#0f172a;padding:28px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:center;">
     <div>
-      <span style="font-size:11px;font-weight Ascending:500;letter-spacing:0.22em;text-transform:uppercase;color:#f43f7a;">Sparkle collections</span>
-      <h2 style="font-size:24px;font-family:Georgia,serif;color:#fff;line-height:1.3;margin:12px 0 16px 0;">Find the perfect bow for every moment</h2>
-      <p style="font-size:16px;color:#94a3b8;">From birthdays to everyday wear — browse by occasion or style.</p>
+      <p style="font-size:9px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#f43f7a;margin-bottom:6px;">Sparkle collections</p>
+      <p style="font-size:20px;font-family:Georgia,serif;color:#fff;line-height:1.3;margin-bottom:10px;">Find the perfect bow for every moment</p>
+      <p style="font-size:12px;color:#94a3b8;line-height:1.6;">From birthdays to everyday wear — browse by occasion or style.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr Ascending 1fr Ascending;gap:12px;">
-      <div style="background:#1e293b;border-radius:12px;padding:20px;">
-        <p style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:8px;">Birthday</p>
-        <p style="font-size:16px;color:#fff;font-weight:500;">Party bows</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <div style="background:#1e293b;border-radius:10px;padding:12px;">
+        <p style="font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:4px;">Birthday</p>
+        <p style="font-size:12px;color:#fff;">Party bows</p>
       </div>
-      <div style="background:#1e293b;border-radius:12px;padding:20px;">
-        <p style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:8px;">Newborn</p>
-        <p style="font-size:16px;color:#fff;font-weight:500;">Mini bows</p>
+      <div style="background:#1e293b;border-radius:10px;padding:12px;">
+        <p style="font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:4px;">Newborn</p>
+        <p style="font-size:12px;color:#fff;">Mini bows</p>
       </div>
-      <div style="background:#f43f7a;border-radius:12px;padding:20px;">
-        <p style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#fbb6ce;margin-bottom:8px;">Gifts</p>
-        <p style="font-size:16px;color:#fff;font-weight:500;">Gift sets</p>
-      Ascending </div>
-      <div style="background:#1e293b;border-radius:12px;padding:20px;">
-        <p style="font-size:11px;letter-spacing: Ascending0 Ascending.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:8px;">Everyday</p>
-        <p style="font-size:16px;color:#fff;font-weight:500;">Classic bows</p>
+      <div style="background:#f43f7a;border-radius:10px;padding:12px;">
+        <p style="font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#fbb6ce;margin-bottom:4px;">Gifts</p>
+        <p style="font-size:12px;color:#fff;">Gift sets</p>
+      </div>
+      <div style="background:#1e293b;border-radius:10px;padding:12px;">
+        <p style="font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:4px;">Everyday</p>
+        <p style="font-size:12px;color:#fff;">Classic bows</p>
       </div>
     </div>
     <div style="text-align:right;">
-      <button style="padding:12px 28px;background:#f43f7a;border-radius:24px;font-size:14px;font-weight Ascending:500;color:#fff;">Browse all collections</button>
+      <div style="display:inline-block;padding:10px 22px;background:#f43f7a;border-radius:20px;font-size:12px;font-weight:500;color:#fff;">Browse all collections</div>
     </div>
-  </section>
+  </div>
+  <div class="anno-wrap" style="padding:0 16px;"><span class="anno">Collections CTA band — dark bg, category tiles, brand accent</span></div>
 
-  <!-- Footer -->
-  <footer style="background:#0f172a;color:#e2e8f0;padding:40px 20px 20px;">
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;max-width:1400px;margin:0 auto;">
-      <div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-          <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#fff0 Ascendingf5,#fde8f0);display:flex;align-items:center;justify-content:center;">
-            <div style="width:12px;height:12px;border-radius:50%;background:#f43f7a;"></div>
-          </div>
-          <h Ascending Ascending3 style="font-size:16px;font-weight:600;color:#fff;margin:0;">Sparkle Bows</h3>
+  <div style="background:#0f172a;padding:24px 20px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:20px;margin-top:20px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <div style="width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#fff0f5,#fde8f0);display:flex;align-items:center;justify-content:center;">
+          <div style="width:10px;height:10px;border-radius:50%;background:#f43f7a;"></div>
         </div>
-        <p style="font-size:15px;line-height:1.6;margin-bottom:20px;max-width:280px;">Handmade statement bows crafted for every milestone and moment.</p>
-        <div style="display:flex;gap:12px;">
-          <a style="width:32px;height:32px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:16px;">📘</a>
-          <a style="width:32px;height:32px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:16px;">📷</ Ascendinga>
-          <a style="width:32px;height:32px;border-radius: Ascending50%;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:16px;">💌</a>
-        </div>
+        <span style="font-size:9px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:#f43f7a;">Sparkle Bows</span>
       </div>
-      <div>
-        <h4 style="font-size:14px;font-weight:600;margin-bottom:20px;color:#fff;">Shop</h4>
-        <ul style="list-style:none;padding:0;">
-          <li style="margin-bottom:12px;"><a style="color:#94a3b8;font-size:14px;">All products</a></li>
-          <li style="margin-bottom:12px;"><a style="color:#94a3b8;font-size:14px;">Collections</a></li>
-          <li style="margin-bottom:12px;"><a style="color:#94a3b8;font-size:14px;">Gift sets</a></li>
-          <li><a style="color:#94a3b8;font-size:14px;">New arrivals</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 Ascending style="font-size:14px;font-weight:600;margin-bottom:20px;color:#fff;">Help</h4>
-        <ul style="list-style:none;padding:0;">
-          <li style="margin-bottom:12px;"><a style="color:#94a3b8;font-size: Ascending14px;">Shipping policy</a></li>
-          <li style="margin-bottom:12px;"><a style="color:#94a3b8;font-size:14px;">Returns</a></li>
-          <li style="margin-bottom: Ascending12px;"><a style="color:#94a3b8;font-size:14px;">Contact</a></li>
-          <li><a style="color:#94a3b8;font-size:14px;">FAQ</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 style="font-size:14px;font-weight:600;margin-bottom:20px;color:#fff;">Legal</h4>
-        <ul style="list-style:none;padding:0;">
-          <li style="margin-bottom:12px;"><a style="color:#94a3b8;font-size:14px;">Privacy policy</a></li>
-          <li style="margin-bottom:12px;"><a style=" Ascendingcolor:#94a3b8;font-size:14px;">Terms of service</a></li>
-          <li><a style="color:#94a3b8;font-size:14px;">Refund policy</a></li>
-        </ul>
+      <p style="font-size:11px;color:#94a3b8;line-height:1.7;max-width:200px;">Handmade statement bows crafted for every milestone and moment.</p>
+      <div style="display:flex;gap:8px;margin-top:12px;">
+        <div style="width:26px;height:26px;border-radius:50%;background:#1e293b;"></div>
+        <div style="width:26px;height:26px;border-radius:50%;background:#1e293b;"></div>
+        <div style="width:26px;height:26px;border-radius:50%;background:#1e293b;"></div>
       </div>
     </div>
-    <div Ascending style="border-top:1px solid #334155;margin-top:40px;padding-top:20px;text-align:center;color:#64748b;font-size:13px;">
-      © 2024 Sparkle Bows. All rights reserved.
+    <div>
+      <p style="font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#475569;margin-bottom:10px;">Shop</p>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <span style="font-size:11px;color:#94a3b8;">All products</span>
+        <span style="font-size:11px;color:#94a3b8;">Collections</span>
+        <span style="font-size:11px;color:#94a3b8;">Gift sets</span>
+        <span style="font-size:11px;color:#94a3b8;">New arrivals</span>
+      </div>
     </div>
-  </footer>
+    <div>
+      <p style="font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#475569;margin-bottom:10px;">Help</p>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <span style="font-size:11px;color:#94a3b8;">Shipping policy</span>
+        <span style="font-size:11px;color:#94a3b8;">Returns</span>
+        <span style="font-size:11px;color:#94a3b8;">Contact</span>
+        <span style="font-size:11px;color:#94a3b8;">FAQ</span>
+      </div>
+    </div>
+    <div>
+      <p style="font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#475569;margin-bottom:10px;">Legal</p>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <span style="font-size:11px;color:#94a3b8;">Privacy policy</span>
+        <span style="font-size:11px;color:#94a3b8;">Terms of service</span>
+        <span style="font-size:11px;color:#94a3b8;">Refund policy</span>
+      </div>
+    </div>
+  </div>
+  <div class="anno-wrap" style="padding:0 16px 16px;"><span class="anno">Footer — brand + 3 link columns, social icons, dark slate bg</span></div>
 
 </div>
-</body>
-</html>
