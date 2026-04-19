@@ -1,59 +1,156 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Sparkle Bows Moodboard</title>
-    <style>
-      .mb-root {
-        font-family:
-          system-ui,
-          -apple-system,
-          sans-serif;
-        padding: 2rem 0;
-        background: #f8fafc;
-      }
-      .section-label {
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: #64748b;
-        margin: 0 0 12px;
-      }
-      .card {
-        background: white;
-        border: 0.5px solid #e2e8f0;
-        border-radius: 12px;
-        padding: 1.25rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="mb-root">
-      <p
-        style="
-          font-size: 22px;
-          font-weight: 500;
-          color: #0f172a;
-          margin: 0 0 4px;
-        "
-      >
-        Sparkle Bows — mood board
-      </p>
-      <p style="font-size: 14px; color: #64748b; margin: 0 0 2rem">
-        Brand identity, palette, typography and texture direction
-      </p>
 
-      <!-- Full original moodboard content here -->
-      <div
-        style="
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 16px;
-          margin-bottom: 16px;
-        "
-      >
-        <!-- Palette, typography, etc. -->
+<style>
+  .mb-root { font-family: var(--font-sans); padding: 2rem 0; }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-text-secondary); margin: 0 0 12px; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; }
+</style>
+
+<div class="mb-root">
+  <p style="font-size:22px;font-weight:500;color:var(--color-text-primary);margin:0 0 4px;">Sparkle Bows — mood board</p>
+  <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 2rem;">Brand identity, palette, typography and texture direction</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;">
+
+    <div class="card" style="grid-row:span 2;">
+      <p class="section-label">Color palette</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="height:56px;border-radius:8px;background:#f43f7a;display:flex;align-items:center;padding:0 14px;">
+          <span style="font-size:12px;font-weight:500;color:#fff;">Rose 500 — primary</span>
+        </div>
+        <div style="height:48px;border-radius:8px;background:#fb7ab0;display:flex;align-items:center;padding:0 14px;">
+          <span style="font-size:12px;font-weight:500;color:#7b1044;">Rose 300 — accent</span>
+        </div>
+        <div style="height:48px;border-radius:8px;background:#fff0f5;display:flex;align-items:center;padding:0 14px;">
+          <span style="font-size:12px;font-weight:500;color:#9d1b51;">Rose 50 — soft bg</span>
+        </div>
+        <div style="height:48px;border-radius:8px;background:#fbbf24;display:flex;align-items:center;padding:0 14px;">
+          <span style="font-size:12px;font-weight:500;color:#78350f;">Amber 400 — spark</span>
+        </div>
+        <div style="height:48px;border-radius:8px;background:#0f172a;display:flex;align-items:center;padding:0 14px;">
+          <span style="font-size:12px;font-weight:500;color:#e2e8f0;">Slate 950 — deep</span>
+        </div>
+        <div style="height:48px;border-radius:8px;background:#f8fafc;border:0.5px solid #e2e8f0;display:flex;align-items:center;padding:0 14px;">
+          <span style="font-size:12px;font-weight:500;color:#475569;">White — base</span>
+        </div>
       </div>
     </div>
-  </body>
-</html>
+
+    <div class="card">
+      <p class="section-label">Typography</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div>
+          <p style="font-size:11px;color:var(--color-text-secondary);margin:0 0 2px;">Display / hero — serif</p>
+          <p style="font-size:26px;font-weight:400;font-family:Georgia,serif;color:var(--color-text-primary);margin:0;line-height:1.2;">Boutique Hair Accessories</p>
+        </div>
+        <div>
+          <p style="font-size:11px;color:var(--color-text-secondary);margin:0 0 2px;">Brand name — sans caps</p>
+          <p style="font-size:12px;font-weight:500;letter-spacing:0.28em;color:#f43f7a;text-transform:uppercase;margin:0;">Sparkle Bows</p>
+        </div>
+        <div>
+          <p style="font-size:11px;color:var(--color-text-secondary);margin:0 0 2px;">Body — sans regular</p>
+          <p style="font-size:14px;color:var(--color-text-primary);margin:0;line-height:1.6;">Handmade statement bows for milestones, gifting, and everyday wear.</p>
+        </div>
+        <div>
+          <p style="font-size:11px;color:var(--color-text-secondary);margin:0 0 2px;">Label — caps tight</p>
+          <p style="font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-text-secondary);margin:0;">New arrivals · bestsellers</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="section-label">Brand feel</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <span style="background:#fff0f5;color:#9d1b51;font-size:12px;font-weight:500;padding:6px 12px;border-radius:20px;border:0.5px solid #fbb6ce;">Handcrafted</span>
+        <span style="background:#fff0f5;color:#9d1b51;font-size:12px;font-weight:500;padding:6px 12px;border-radius:20px;border:0.5px solid #fbb6ce;">Boutique</span>
+        <span style="background:#fffbeb;color:#78350f;font-size:12px;font-weight:500;padding:6px 12px;border-radius:20px;border:0.5px solid #fde68a;">Sparkly</span>
+        <span style="background:#fff0f5;color:#9d1b51;font-size:12px;font-weight:500;padding:6px 12px;border-radius:20px;border:0.5px solid #fbb6ce;">Celebratory</span>
+        <span style="background:#f8fafc;color:#475569;font-size:12px;font-weight:500;padding:6px 12px;border-radius:20px;border:0.5px solid #e2e8f0;">Minimal layout</span>
+        <span style="background:#fff0f5;color:#9d1b51;font-size:12px;font-weight:500;padding:6px 12px;border-radius:20px;border:0.5px solid #fbb6ce;">Gift-ready</span>
+        <span style="background:#fffbeb;color:#78350f;font-size:12px;font-weight:500;padding:6px 12px;border-radius:20px;border:0.5px solid #fde68a;">Premium feel</span>
+        <span style="background:#f8fafc;color:#475569;font-size:12px;font-weight:500;padding:6px 12px;border-radius:20px;border:0.5px solid #e2e8f0;">Clean & airy</span>
+      </div>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:10px;">
+      <p class="section-label">UI components</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button style="background:#0f172a;color:#fff;border:none;border-radius:20px;padding:8px 18px;font-size:13px;font-weight:500;cursor:pointer;">Add to cart</button>
+        <button style="background:transparent;color:#0f172a;border:0.5px solid #cbd5e1;border-radius:20px;padding:8px 18px;font-size:13px;font-weight:500;cursor:pointer;">Sign in</button>
+        <button style="background:#f43f7a;color:#fff;border:none;border-radius:20px;padding:8px 18px;font-size:13px;font-weight:500;cursor:pointer;">Shop now</button>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <span style="background:#fde68a;color:#78350f;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">NEW</span>
+        <span style="background:#fbb6ce;color:#7b1044;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">BESTSELLER</span>
+        <span style="background:#0f172a;color:#fde68a;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;">GIFT</span>
+      </div>
+      <div style="background:#fff0f5;border:0.5px solid #fbb6ce;border-radius:8px;padding:10px 12px;">
+        <p style="font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#f43f7a;margin:0 0 4px;">Announcement bar</p>
+        <p style="font-size:12px;color:#9d1b51;margin:0;">Handmade statement bows for milestones, gifting, and everyday wear</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div class="card">
+      <p class="section-label">Product card pattern</p>
+      <div style="display:flex;gap:12px;">
+        <div style="width:100px;height:100px;border-radius:12px;background:linear-gradient(135deg,#fff0f5,#fde8f0);border:0.5px solid #fbb6ce;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <ellipse cx="20" cy="20" rx="14" ry="8" fill="#f43f7a" opacity="0.15"/>
+            <path d="M8 20 C8 12 20 8 20 8 C20 8 32 12 32 20 C32 28 20 32 20 32 C20 32 8 28 8 20Z" fill="#f43f7a" opacity="0.4"/>
+            <path d="M14 16 C14 16 20 14 26 16 M14 24 C14 24 20 26 26 24" stroke="#f43f7a" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div style="flex:1;">
+          <p style="font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#f43f7a;margin:0 0 4px;">Bestseller</p>
+          <p style="font-size:15px;font-weight:500;color:var(--color-text-primary);margin:0 0 4px;">Pearl Grosgrain Bow</p>
+          <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 10px;">Classic 4" statement bow</p>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="font-size:16px;font-weight:500;color:var(--color-text-primary);">$18.00</span>
+            <button style="background:#0f172a;color:#fff;border:none;border-radius:20px;padding:5px 14px;font-size:12px;cursor:pointer;">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="section-label">Spacing & radius tokens</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px;">
+        <div>
+          <p style="color:var(--color-text-secondary);margin:0 0 6px;">Border radius</p>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:28px;height:16px;background:#f43f7a;border-radius:4px;"></div>
+              <span style="color:var(--color-text-primary);">rx-md — 8px</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:28px;height:16px;background:#f43f7a;border-radius:8px;"></div>
+              <span style="color:var(--color-text-primary);">rx-lg — 12px</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:28px;height:16px;background:#f43f7a;border-radius:20px;"></div>
+              <span style="color:var(--color-text-primary);">pill — buttons</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p style="color:var(--color-text-secondary);margin:0 0 6px;">Spacing scale</p>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:8px;height:8px;background:#fbb6ce;border-radius:2px;"></div>
+              <span style="color:var(--color-text-primary);">8px — tight</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:16px;height:8px;background:#f43f7a;border-radius:2px;"></div>
+              <span style="color:var(--color-text-primary);">16px — base</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:32px;height:8px;background:#9d1b51;border-radius:2px;"></div>
+              <span style="color:var(--color-text-primary);">32px — section</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
