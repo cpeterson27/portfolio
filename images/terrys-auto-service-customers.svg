@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">Terry's Auto Service customers</title>
+  <desc id="desc">Customer directory with verified emails, contact information, activity, and actions.</desc>
+  <rect width="1200" height="780" fill="#f5f6f8"/>
+  <rect width="1200" height="72" fill="#050914"/>
+  <text x="96" y="46" fill="#fff" font-family="Arial,sans-serif" font-size="28" font-weight="900">TERRY'S <tspan fill="#ef4444">AUTO</tspan> SERVICE</text>
+  <g transform="translate(96 112)">
+    <rect width="1000" height="136" rx="8" fill="#050914"/>
+    <text x="28" y="48" fill="#bfdbfe" font-family="Arial,sans-serif" font-size="18" font-weight="800">CUSTOMER DIRECTORY</text>
+    <text x="28" y="92" fill="#fff" font-family="Arial,sans-serif" font-size="38" font-weight="900">Customers</text>
+    <text x="28" y="122" fill="#d1d5db" font-family="Arial,sans-serif" font-size="18">View contact details, account status, appointments, and invoice activity.</text>
+  </g>
+  <g transform="translate(96 286)" font-family="Arial,sans-serif">
+    <g fill="#fff" stroke="#e0e4ea"><rect width="310" height="90" rx="8"/><rect x="335" width="310" height="90" rx="8"/><rect x="670" width="310" height="90" rx="8"/></g>
+    <g fill="#475569" font-size="17"><text x="24" y="36">Active Customers</text><text x="359" y="36">Verified Emails</text><text x="694" y="36">Customer Invoice Total</text></g>
+    <g fill="#0f172a" font-size="38" font-weight="900"><text x="24" y="72">2</text><text x="359" y="72">1</text><text x="694" y="72">$0.00</text></g>
+  </g>
+  <g transform="translate(96 408)">
+    <rect width="1000" height="56" rx="8" fill="#fff" stroke="#e0e4ea"/>
+    <text x="54" y="36" fill="#94a3b8" font-family="Arial,sans-serif" font-size="18" font-weight="700">Search by name, email, or phone...</text>
+  </g>
+  <g transform="translate(96 492)">
+    <rect width="1000" height="160" rx="8" fill="#fff" stroke="#e0e4ea"/>
+    <rect width="1000" height="48" fill="#f8fafc"/>
+    <g fill="#0f172a" font-family="Arial,sans-serif" font-size="16" font-weight="900"><text x="24" y="31">Customer</text><text x="310" y="31">Contact</text><text x="590" y="31">Activity</text><text x="780" y="31">Joined</text><text x="926" y="31">Actions</text></g>
+    <line x1="0" x2="1000" y1="48" y2="48" stroke="#e0e4ea"/><line x1="0" x2="1000" y1="104" y2="104" stroke="#e0e4ea"/>
+    <g fill="#0f172a" font-family="Arial,sans-serif" font-size="17"><text x="70" y="82" font-weight="900">Test</text><text x="310" y="82" fill="#c81e1e">cgdesigns93@gmail.com</text><text x="590" y="76">0 appointments</text><text x="590" y="98">0 invoices - $0.00</text><text x="780" y="82">May 5, 2026</text><text x="70" y="138" font-weight="900">Test</text><text x="310" y="138" fill="#c81e1e">test@test.com</text><text x="590" y="132">0 appointments</text><text x="590" y="154">0 invoices - $0.00</text><text x="780" y="138">May 4, 2026</text></g>
+    <g fill="#ecfdf5"><rect x="70" y="88" width="100" height="24" rx="4"/></g><text x="80" y="105" fill="#047857" font-family="Arial,sans-serif" font-size="13" font-weight="900">Email verified</text>
+    <g fill="#fff7ed"><rect x="70" y="144" width="128" height="24" rx="4"/></g><text x="80" y="161" fill="#a16207" font-family="Arial,sans-serif" font-size="13" font-weight="900">Email not verified</text>
+  </g>
+</svg>
