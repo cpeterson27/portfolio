@@ -70,7 +70,7 @@ const ImageModal = () => {
         ) : (
           <img
             src={images[currentIndex]}
-            alt={`${project?.title} - Image ${currentIndex + 1}`}
+            alt={`${project?.title} preview ${currentIndex + 1}`}
             className="modal-image"
           />
         )}

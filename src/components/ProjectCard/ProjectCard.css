@@ -1,12 +1,8 @@
 .project-card {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.95),
-    rgba(246, 250, 255, 0.8)
-  );
+  background: #ffffff;
   border: 1px solid var(--border);
-  border-radius: 28px;
-  padding: 1.4rem;
+  border-radius: 8px;
+  padding: 1rem;
   color: var(--text-primary);
   display: flex;
   flex-direction: column;
@@ -21,18 +17,18 @@
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
   border-color: var(--border-strong);
 }
 
 .project-img {
   width: 100%;
-  height: 220px;
+  height: 230px;
   object-fit: cover;
-  margin: 0 0 1.25rem;
-  border-radius: 20px;
-  border: 1px solid rgba(15, 109, 255, 0.08);
+  margin: 0 0 1.15rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
   transition: transform 0.35s ease;
   cursor: pointer;
 }
@@ -42,11 +38,12 @@
 }
 
 .project-title {
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: 1.32rem;
+  font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 0.75rem;
   line-height: 1.2;
+  letter-spacing: 0;
 }
 
 .project-description {
@@ -63,10 +60,10 @@
 }
 
 .tag {
-  background: rgba(15, 109, 255, 0.08);
-  color: var(--accent-deep);
+  background: rgba(37, 99, 235, 0.08);
+  color: #1e40af;
   padding: 0.42rem 0.8rem;
-  border-radius: 9999px;
+  border-radius: 8px;
   font-size: 0.82rem;
   font-weight: 600;
 }
@@ -89,8 +86,8 @@
   text-decoration: none;
   cursor: pointer;
   padding: 0.8rem 1rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(15, 109, 255, 0.12);
+  border-radius: 8px;
+  border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.86);
   transition:
     transform 0.25s ease,
@@ -107,8 +104,8 @@
 }
 
 .project-backend {
-  border-color: rgba(34, 197, 94, 0.3);
-  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(6, 182, 212, 0.28);
+  background: rgba(6, 182, 212, 0.08);
 }
 
 @media (max-width: 640px) {

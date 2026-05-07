@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">Terry's Auto Service invoices</title>
+  <desc id="desc">Invoice management page with invoice table, statuses, due dates, and new invoice button.</desc>
+  <rect width="1200" height="780" fill="#f5f6f8"/>
+  <rect width="1200" height="72" fill="#050914"/>
+  <text x="96" y="46" fill="#fff" font-family="Arial,sans-serif" font-size="28" font-weight="900">TERRY'S <tspan fill="#ef4444">AUTO</tspan> SERVICE</text>
+  <text x="96" y="152" fill="#0f172a" font-family="Arial,sans-serif" font-size="42" font-weight="900">Invoices</text>
+  <rect x="880" y="110" width="150" height="50" rx="8" fill="#c81e1e"/><text x="916" y="142" fill="#fff" font-family="Arial,sans-serif" font-size="18" font-weight="900">New Invoice</text>
+  <g transform="translate(96 202)">
+    <rect width="934" height="246" rx="8" fill="#fff" stroke="#e0e4ea"/>
+    <rect width="934" height="56" rx="8" fill="#f8fafc"/>
+    <g fill="#0f172a" font-family="Arial,sans-serif" font-size="16" font-weight="900"><text x="24" y="36">Invoice #</text><text x="205" y="36">Customer</text><text x="632" y="36">Amount</text><text x="744" y="36">Status</text><text x="836" y="36">Actions</text></g>
+    <line x1="0" x2="934" y1="56" y2="56" stroke="#e0e4ea"/><line x1="0" x2="934" y1="150" y2="150" stroke="#e0e4ea"/>
+    <g fill="#0f172a" font-family="Arial,sans-serif" font-size="16"><text x="24" y="96">INV-202605-6865</text><text x="205" y="90">Deleted Customer</text><text x="205" y="116">deleted-69f6db99944cb29facd6ea46@deleted.local</text><text x="632" y="100">$61.70</text><text x="24" y="190">INV-202605-5463</text><text x="205" y="184">Deleted Customer</text><text x="205" y="210">deleted-69f6db99944cb29facd6ea46@deleted.local</text><text x="632" y="194">$43.30</text></g>
+    <g fill="#fff" stroke="#cbd5e1"><rect x="744" y="76" width="88" height="34" rx="4"/><rect x="744" y="170" width="88" height="34" rx="4"/></g>
+    <g fill="#0f172a" font-family="Arial,sans-serif" font-size="15"><text x="760" y="98">Paid</text><text x="760" y="192">Sent</text></g>
+    <g fill="#c81e1e" font-family="Arial,sans-serif" font-size="16" font-weight="700"><text x="848" y="100">View</text><text x="848" y="194">View</text></g>
+  </g>
+</svg>

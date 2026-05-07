@@ -135,7 +135,7 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: 0 8px 24px rgba(15, 118, 255, 0.3);
-  letter-spacing: 0.025em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -234,7 +234,7 @@
   font-weight: 700;
   margin-top: 1.5rem;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
 }
 
 .modal-title {

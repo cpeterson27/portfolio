@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(247, 250, 252, 0.72);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(18px);
   z-index: 1000;
   border-bottom: 1px solid var(--border);
@@ -24,12 +24,11 @@
 }
 
 .logo {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: var(--accent-deep);
 }
 
 .desktop-nav {
@@ -54,18 +53,18 @@
 
 .nav-link {
   padding: 0.75rem 1rem;
-  border-radius: 999px;
+  border-radius: 8px;
 }
 
 .nav-link:hover {
-  background: rgba(15, 109, 255, 0.08);
+  background: rgba(37, 99, 235, 0.08);
 }
 
 .mobile-menu-btn {
   display: block;
   width: 46px;
   height: 46px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.65);
   border: 1px solid var(--border);
   cursor: pointer;
@@ -75,7 +74,7 @@
 .mobile-menu {
   margin: 0 1rem 1rem;
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow-soft);
@@ -89,11 +88,11 @@
 
 .mobile-nav-link {
   padding: 0.95rem 1rem;
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 .mobile-nav-link:hover {
-  background: rgba(15, 109, 255, 0.08);
+  background: rgba(37, 99, 235, 0.08);
 }
 
 @media (min-width: 768px) {

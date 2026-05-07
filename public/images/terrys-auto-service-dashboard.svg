@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">Terry's Auto Service dashboard</title>
+  <desc id="desc">Admin dashboard preview with stats, booking schedule, and appointment calendar.</desc>
+  <rect width="1200" height="780" fill="#f5f6f8"/>
+  <rect width="1200" height="72" fill="#050914"/>
+  <text x="100" y="46" fill="#fff" font-family="Arial,sans-serif" font-size="28" font-weight="900">TERRY'S <tspan fill="#ef4444">AUTO</tspan> SERVICE</text>
+  <g transform="translate(100 116)">
+    <rect width="1000" height="128" rx="8" fill="#050914"/>
+    <text x="28" y="48" fill="#bfdbfe" font-family="Arial,sans-serif" font-size="18" font-weight="800">TERRY'S AUTO SERVICE</text>
+    <text x="28" y="92" fill="#fff" font-family="Arial,sans-serif" font-size="36" font-weight="900">Welcome back, Terry</text>
+    <text x="28" y="120" fill="#d1d5db" font-family="Arial,sans-serif" font-size="18">Manage appointments, records, gallery work, and booking availability.</text>
+  </g>
+  <g transform="translate(100 280)" font-family="Arial,sans-serif">
+    <g fill="#fff" stroke="#e0e4ea"><rect width="220" height="88" rx="8"/><rect x="260" width="220" height="88" rx="8"/><rect x="520" width="220" height="88" rx="8"/><rect x="780" width="220" height="88" rx="8"/></g>
+    <g fill="#475569" font-size="17"><text x="24" y="36">Total Invoices</text><text x="284" y="36">Revenue</text><text x="544" y="36">Appointments</text><text x="804" y="36">Expenses This Month</text></g>
+    <g fill="#0f172a" font-size="34" font-weight="900"><text x="24" y="70">2</text><text x="284" y="70">$104.70</text><text x="544" y="70">7</text><text x="804" y="70">$53.00</text></g>
+  </g>
+  <g transform="translate(100 405)">
+    <rect width="1000" height="260" rx="8" fill="#fff" stroke="#e0e4ea"/>
+    <text x="28" y="48" fill="#0f172a" font-family="Arial,sans-serif" font-size="26" font-weight="900">Online Booking Schedule</text>
+    <text x="28" y="78" fill="#475569" font-family="Arial,sans-serif" font-size="18">Choose days, hours, and appointment spacing customers can request online.</text>
+    <rect x="28" y="100" width="620" height="38" rx="4" fill="#eaf2ff" stroke="#bfdbfe"/>
+    <text x="44" y="125" fill="#123b87" font-family="Arial,sans-serif" font-size="16" font-weight="700">Monday, Tuesday, Wednesday, Thursday, Friday from 9:00 AM to 3:00 PM</text>
+    <g transform="translate(28 162)" fill="#eff6ff" stroke="#93c5fd">
+      <rect width="96" height="62" rx="7"/><rect x="112" width="96" height="62" rx="7"/><rect x="224" width="96" height="62" rx="7"/><rect x="336" width="96" height="62" rx="7"/><rect x="448" width="96" height="62" rx="7"/>
+    </g>
+    <g transform="translate(56 198)" fill="#1e3a8a" font-family="Arial,sans-serif" font-size="18" font-weight="900"><text>Mon</text><text x="112">Tue</text><text x="224">Wed</text><text x="336">Thu</text><text x="448">Fri</text></g>
+    <g transform="translate(700 154)" fill="#f8fafc" stroke="#e0e4ea"><rect width="260" height="82" rx="8"/></g>
+    <text x="728" y="192" fill="#0f172a" font-family="Arial,sans-serif" font-size="21" font-weight="900">Customer time preview</text>
+    <text x="728" y="222" fill="#047857" font-family="Arial,sans-serif" font-size="18">9:00 AM  10:00 AM  11:00 AM</text>
+  </g>
+</svg>

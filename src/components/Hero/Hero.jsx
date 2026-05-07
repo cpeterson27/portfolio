@@ -13,7 +13,6 @@ const Hero = ({ name, title, subtitle, bio, resume }) => {
     <section className="hero">
       <div className="hero-container">
         <div className="hero-copy" data-aos="fade-up">
-          <div className="hero-eyebrow">Portfolio 2026</div>
           <h1 className="hero-title">
             Building digital experiences that feel thoughtful, polished, and reliable.
           </h1>
@@ -45,7 +44,7 @@ const Hero = ({ name, title, subtitle, bio, resume }) => {
               target="_blank"
               rel="noreferrer"
             >
-              View UI/UX Work
+              View Web Design Work
             </a>
             <a href={resume} download className="resume-button">
               <Download size={18} /> Resume
