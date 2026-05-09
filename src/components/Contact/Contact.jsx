@@ -21,12 +21,12 @@ const Contact = ({ email, github, linkedin }) => {
       <div className="contact-container surface-card">
         <div className="section-kicker">Contact</div>
         <h2 className="section-title">
-          Bring me in when the work needs practical polish.
+          Have something that almost works, but does not click yet?
         </h2>
         <p className="contact-description">
           I am open to software engineering roles, freelance builds, and collaborative product work.
-          Send the goal, timeline, and what needs to change. I will help turn the messy middle into
-          a clear next step.
+          Send the goal, timeline, and what feels off. I will help turn the scattered pieces into a
+          web experience with shape, function, and a reason to remember it.
         </p>
         <div className="contact-services" aria-label="Project types">
           {projectTypes.map((projectType) => (

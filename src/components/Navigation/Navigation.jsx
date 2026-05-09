@@ -26,7 +26,7 @@ const Navigation = ({ mobileMenuOpen, setMobileMenuOpen, name }) => {
               </a>
             ))}
             <a href="#contact" className="nav-cta">
-              Work With Me
+              Make It Click
             </a>
           </div>
 

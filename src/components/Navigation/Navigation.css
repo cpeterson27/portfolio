@@ -38,7 +38,7 @@
   width: 42px;
   height: 42px;
   border-radius: 8px;
-  background: #0f766e;
+  background: #ff6f61;
   color: #ffffff;
   display: inline-flex;
   align-items: center;
@@ -86,7 +86,7 @@
   min-height: 44px;
   padding: 0.75rem 1rem;
   border-radius: 8px;
-  background: #0f766e;
+  background: #ff6f61;
   color: #ffffff;
   font-weight: 800;
   text-decoration: none;
@@ -94,7 +94,7 @@
 }
 
 .nav-cta:hover {
-  background: #115e59;
+  background: #d95745;
   transform: translateY(-1px);
 }
 

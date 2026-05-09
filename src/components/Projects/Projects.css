@@ -1,6 +1,8 @@
 .projects-section {
-  padding-top: 5.25rem;
-  padding-bottom: 5.75rem;
+  padding-top: 5.75rem;
+  padding-bottom: 6.25rem;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #fff6f2 45%, #eef8f6 100%);
 }
 
 .projects-section .section-container-wide {
@@ -14,7 +16,7 @@
 
 .projects-grid {
   display: grid;
-  gap: 1.15rem;
+  gap: 1.4rem;
   align-items: stretch;
   grid-template-columns: 1fr;
 }
@@ -39,8 +41,7 @@
   }
 
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 }
 
@@ -53,11 +54,6 @@
 
 @media (min-width: 1200px) {
   .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.35rem;
-  }
-
-  .project-card-featured {
-    grid-column: span 3;
+    gap: 1.65rem;
   }
 }

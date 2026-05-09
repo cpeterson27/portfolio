@@ -1,36 +1,36 @@
 import React from "react";
-import { Code2, Eye, Handshake } from "lucide-react";
+import { Code2, MousePointerClick, Palette } from "lucide-react";
 import "./Brand.css";
 
 const Brand = () => {
   const pillars = [
     {
-      icon: Eye,
-      title: "Clarity First",
-      text: "I shape sites around what visitors need to understand, trust, and do next.",
+      icon: MousePointerClick,
+      title: "Make It Clear",
+      text: "I organize the message, layout, and user path so people instantly understand why they are there.",
     },
     {
       icon: Code2,
-      title: "Built to Hold Up",
-      text: "I care about maintainable React, clean structure, and interfaces that do not collapse after launch.",
+      title: "Make It Work",
+      text: "I build with real product behavior in mind: authentication, dashboards, payments, admin flows, and maintainable React.",
     },
     {
-      icon: Handshake,
-      title: "Human and Useful",
-      text: "I bring design sensitivity without losing sight of the business goal behind the screen.",
+      icon: Palette,
+      title: "Make It Memorable",
+      text: "I use color, rhythm, imagery, and small interaction details to make the experience feel intentional.",
     },
   ];
 
   return (
-    <section className="brand-strip" aria-label="Cassandra Peterson brand promise">
+    <section className="brand-strip" aria-label="Cassandra Peterson brand system">
       <div className="brand-container">
         <div className="brand-statement" data-aos="fade-up">
-          <div className="section-kicker">The Brand</div>
-          <h2>Clean code. Clear design. A calmer path from idea to launch.</h2>
+          <div className="section-kicker">Brand System</div>
+          <h2>Make it click is the rule.</h2>
           <p>
-            My brand is practical polish: digital work that feels considered, trustworthy, and easy
-            to move through. I am not here to make noise. I am here to make the product, business,
-            and user experience feel aligned.
+            My work lives between design instinct and engineering follow-through. The goal is not
+            just a pretty screen. It is the moment when the message, flow, and build finally feel
+            obvious in the best way.
           </p>
         </div>
 

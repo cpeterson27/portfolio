@@ -7,11 +7,11 @@ const Projects = ({ projects }) => {
     <section id="projects" className="section projects-section">
       <div className="section-container-wide">
         <div className="section-header">
-          <div className="section-kicker">Proof of Polish</div>
-          <h2 className="section-title">Real builds with the details a business actually needs.</h2>
+          <div className="section-kicker">Click-Worthy Work</div>
+          <h2 className="section-title">Case studies with color, function, and a reason to exist.</h2>
           <p className="section-description">
-            Ecommerce, dashboards, service business tools, and interface-driven projects that show how
-            I think through structure, usability, and presentation together.
+            A curated look at web products where I shaped the interface, the user path, and the
+            engineering details behind the experience.
           </p>
         </div>
         <div className="projects-grid">
@@ -20,6 +20,7 @@ const Projects = ({ projects }) => {
               key={project.id}
               project={project}
               featured={index < 2}
+              index={index}
             />
           ))}
         </div>

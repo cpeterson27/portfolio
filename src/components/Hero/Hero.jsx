@@ -1,26 +1,26 @@
 import React from "react";
-import { ArrowRight, CheckCircle2, Download } from "lucide-react";
+import { ArrowRight, CheckCircle2, Download, Sparkles } from "lucide-react";
 import "./Hero.css";
 
-const Hero = ({ name, title, subtitle, bio, resume }) => {
+const Hero = ({ name, title, subtitle, resume, image }) => {
   const highlights = [
-    "Brand-aware websites",
-    "Full-stack product builds",
-    "Design polish with practical engineering",
+    "Make it clear",
+    "Make it useful",
+    "Make it click",
   ];
 
   const services = [
     {
-      value: "Web Presence",
-      label: "Modern sites that make your brand feel credible and clear",
+      value: "Brand Websites",
+      label: "Clear, memorable web presences with enough polish to feel established",
     },
     {
-      value: "Product Builds",
-      label: "React interfaces, dashboards, ecommerce, and admin tools",
+      value: "Product Interfaces",
+      label: "React dashboards, ecommerce flows, admin tools, and customer-facing apps",
     },
     {
-      value: "Design to Code",
-      label: "Visual direction translated into responsive, maintainable UI",
+      value: "Design-Led Development",
+      label: "A bridge between visual taste, usability, and maintainable frontend systems",
     },
   ];
 
@@ -28,9 +28,11 @@ const Hero = ({ name, title, subtitle, bio, resume }) => {
     <section id="top" className="hero">
       <div className="hero-container">
         <div className="hero-copy" data-aos="fade-up">
-          <div className="hero-kicker">Cassandra Peterson Studio</div>
+          <div className="hero-kicker">
+            <Sparkles size={16} /> Cassandra Peterson / Make It Click
+          </div>
           <h1 className="hero-title">
-            Practical polish for businesses ready to look real online.
+            I make websites, apps, and brands feel like they finally clicked.
           </h1>
           <p className="hero-subtitle">
             <span className="hero-name">{name}</span>
@@ -38,9 +40,8 @@ const Hero = ({ name, title, subtitle, bio, resume }) => {
             <span>{title} & Product-Minded Web Developer</span>
           </p>
           <p className="hero-description">
-            I build brand-aware websites and full-stack web apps that feel trustworthy, easy to use,
-            and ready for real customers. My sweet spot is the place where clean code, thoughtful UX,
-            and visual credibility meet.
+            I turn scattered ideas into digital experiences with a point of view: structured,
+            expressive, usable, and built to hold up after launch.
           </p>
 
           <div className="hero-highlights">
@@ -53,10 +54,10 @@ const Hero = ({ name, title, subtitle, bio, resume }) => {
 
           <div className="hero-buttons">
             <a href="#projects" className="btn btn-primary">
-              Explore Projects <ArrowRight size={18} />
+              See the Work <ArrowRight size={18} />
             </a>
             <a href="#contact" className="btn btn-secondary">
-              Book a Project Conversation
+              Make It Click
             </a>
             <a
               href="https://cgdesigns93.wixsite.com/cassandra-peterson"
@@ -72,28 +73,33 @@ const Hero = ({ name, title, subtitle, bio, resume }) => {
           </div>
         </div>
 
-        <div className="hero-panel surface-card" data-aos="fade-left" data-aos-delay="150">
-          <div className="hero-signature">
-            <div className="hero-signature-mark">CP</div>
-            <div>
-              <div className="hero-panel-label">Brand Promise</div>
-              <div className="hero-panel-role">{subtitle}</div>
-            </div>
+        <div className="hero-brand-stage" data-aos="fade-left" data-aos-delay="150">
+          <div className="hero-portrait-frame">
+            <img src={image} alt={name} className="hero-portrait" />
+            <div className="hero-orbit hero-orbit-one">React</div>
+            <div className="hero-orbit hero-orbit-two">UX</div>
+            <div className="hero-orbit hero-orbit-three">Brand</div>
           </div>
-          <p className="hero-panel-copy">
-            Websites should not just exist. They should make people feel like they are in capable
-            hands.
-          </p>
-          <div className="hero-stats">
-            {services.map((service) => (
-              <div className="hero-stat" key={service.value}>
-                <CheckCircle2 size={19} />
-                <div>
-                <span className="hero-stat-value">{service.value}</span>
-                <span className="hero-stat-label">{service.label}</span>
-                </div>
+
+          <div className="hero-panel">
+            <div className="hero-signature">
+              <div className="hero-signature-mark">CP</div>
+              <div>
+                <div className="hero-panel-label">Signature Mix</div>
+                <div className="hero-panel-role">{subtitle}</div>
               </div>
-            ))}
+            </div>
+            <div className="hero-stats">
+              {services.map((service) => (
+                <div className="hero-stat" key={service.value}>
+                  <CheckCircle2 size={19} />
+                  <div>
+                    <span className="hero-stat-value">{service.value}</span>
+                    <span className="hero-stat-label">{service.label}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

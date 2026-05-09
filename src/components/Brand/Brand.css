@@ -3,8 +3,8 @@
   z-index: 1;
   padding: 5rem 1.5rem;
   background:
-    linear-gradient(90deg, rgba(217, 87, 69, 0.1), transparent 34%),
-    linear-gradient(180deg, #ffffff 0%, #eef6f4 100%);
+    linear-gradient(118deg, transparent 0 76%, rgba(31, 94, 255, 0.12) 76% 100%),
+    linear-gradient(180deg, #0f172a 0%, #162033 100%);
   border-bottom: 1px solid var(--border);
 }
 
@@ -19,8 +19,8 @@
 
 .brand-statement h2 {
   max-width: 600px;
-  color: var(--brand-ink);
-  font-size: 3rem;
+  color: #ffffff;
+  font-size: 4.2rem;
   line-height: 1.04;
   letter-spacing: 0;
   margin-bottom: 1.1rem;
@@ -28,7 +28,7 @@
 
 .brand-statement p {
   max-width: 620px;
-  color: var(--text-secondary);
+  color: #d6e4ff;
   font-size: 1.08rem;
   line-height: 1.75;
 }
@@ -45,9 +45,9 @@
   row-gap: 0.3rem;
   padding: 1.2rem;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(15, 118, 110, 0.16);
-  box-shadow: var(--shadow-soft);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
 }
 
 .brand-pillar svg {
@@ -56,19 +56,19 @@
   height: 46px;
   padding: 0.65rem;
   border-radius: 8px;
-  background: var(--brand-ink);
+  background: #ff6f61;
   color: #ffffff;
   border-bottom: 4px solid var(--brand-coral);
 }
 
 .brand-pillar h3 {
-  color: var(--text-primary);
+  color: #ffffff;
   font-size: 1.05rem;
   margin: 0;
 }
 
 .brand-pillar p {
-  color: var(--text-secondary);
+  color: #d1d5db;
   line-height: 1.65;
   margin: 0;
 }
@@ -79,7 +79,7 @@
   }
 
   .brand-statement h2 {
-    font-size: 2.35rem;
+    font-size: 2.65rem;
   }
 }
 

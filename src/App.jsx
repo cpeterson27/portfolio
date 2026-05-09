@@ -43,6 +43,7 @@ export default function Portfolio() {
           subtitle={personalInfo.subtitle}
           bio={personalInfo.bio}
           resume={personalInfo.resume}
+          image={personalInfo.image}
         />
 
         <Brand />
