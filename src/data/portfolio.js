@@ -65,15 +65,22 @@ export const portfolioData = {
       backendCode: "https://github.com/cpeterson27/sparkle-bows-backend.git",
     },
     {
-  id: 16,
-  title: "Trace — Browser Memory",
-  image: process.env.PUBLIC_URL + "/images/trace-browser-memory.png",
-  alt: "Trace — Browser Memory",
-  description: "Chrome extension to save, organize, and quickly restore browser sessions (tabs, tags, summaries).",
-  tags: ["React", "TypeScript", "Vite", "Chrome Extension API", "Chrome Storage"],
-  link: "https://github.com/cpeterson27/trace-browser-memory",
-  code: "https://github.com/cpeterson27/trace-browser-memory.git"
-},
+      id: 16,
+      title: "Trace — Browser Memory",
+      image: process.env.PUBLIC_URL + "/images/trace-browser-memory.png",
+      alt: "Trace — Browser Memory",
+      description:
+        "A Chrome extension for saving, organizing, and restoring browser sessions with tabs, tags, and quick summaries. Trace helps users capture research flows before they disappear, group related pages into reusable sessions, search saved tabs, and pick work back up without digging through browser history. The interface supports auto-saving, manual imports and exports, and fast restore actions so scattered tabs become a manageable workspace instead of visual clutter.",
+      tags: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Chrome Extension API",
+        "Chrome Storage",
+      ],
+      link: "https://github.com/cpeterson27/trace-browser-memory",
+      code: "https://github.com/cpeterson27/trace-browser-memory.git",
+    },
     {
       
       id: 15,

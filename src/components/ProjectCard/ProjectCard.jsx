@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useImageModal } from "../../contexts/ImageModalContext";
 import { ExternalLink } from "lucide-react";
 import "./ProjectCard.css";
 
 const ProjectCard = ({ project, featured = false, index = 0 }) => {
+  const [showAllTags, setShowAllTags] = useState(false);
   const { openModal } = useImageModal();
   const isSparkleBows = project.id === 14;
-  const visibleTags = project.tags.slice(0, featured ? 8 : 5);
+  const tagLimit = featured ? 8 : 5;
+  const visibleTags = showAllTags ? project.tags : project.tags.slice(0, tagLimit);
+  const hiddenTagCount = project.tags.length - tagLimit;
 
   return (
     <div
@@ -45,8 +48,20 @@ const ProjectCard = ({ project, featured = false, index = 0 }) => {
               {tag}
             </span>
           ))}
-          {project.tags.length > visibleTags.length && (
-            <span className="tag tag-more">+{project.tags.length - visibleTags.length}</span>
+          {hiddenTagCount > 0 && (
+            <button
+              type="button"
+              className="tag tag-more"
+              onClick={() => setShowAllTags((isShowing) => !isShowing)}
+              aria-expanded={showAllTags}
+              aria-label={
+                showAllTags
+                  ? `Hide extra ${project.title} technologies`
+                  : `Show ${hiddenTagCount} more ${project.title} technologies`
+              }
+            >
+              {showAllTags ? "Show less" : `+${hiddenTagCount}`}
+            </button>
           )}
         </div>
         <div className="project-links">
