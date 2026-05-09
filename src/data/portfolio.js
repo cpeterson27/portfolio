@@ -65,6 +65,17 @@ export const portfolioData = {
       backendCode: "https://github.com/cpeterson27/sparkle-bows-backend.git",
     },
     {
+  id: 16,
+  title: "Trace — Browser Memory",
+  image: process.env.PUBLIC_URL + "/images/trace-browser-memory.png",
+  alt: "Trace — Browser Memory",
+  description: "Chrome extension to save, organize, and quickly restore browser sessions (tabs, tags, summaries).",
+  tags: ["React", "TypeScript", "Vite", "Chrome Extension API", "Chrome Storage"],
+  link: "https://github.com/cpeterson27/trace-browser-memory",
+  code: "https://github.com/cpeterson27/trace-browser-memory.git"
+},
+    {
+      
       id: 15,
       title: "Terry's Auto Service Business Management Platform",
       images: [
