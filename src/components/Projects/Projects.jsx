@@ -7,10 +7,11 @@ const Projects = ({ projects }) => {
     <section id="projects" className="section projects-section">
       <div className="section-container-wide">
         <div className="section-header">
-          <div className="section-kicker">Selected Work</div>
-          <h2 className="section-title">Projects that show both technical range and product thinking.</h2>
+          <div className="section-kicker">Proof of Polish</div>
+          <h2 className="section-title">Real builds with the details a business actually needs.</h2>
           <p className="section-description">
-            A mix of full-stack builds, interface-driven work, and practical tools designed around real user needs.
+            Ecommerce, dashboards, service business tools, and interface-driven projects that show how
+            I think through structure, usability, and presentation together.
           </p>
         </div>
         <div className="projects-grid">

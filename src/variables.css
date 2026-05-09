@@ -5,10 +5,13 @@
   --text-primary: #101828;
   --text-secondary: #475467;
   --text-muted: #667085;
-  --accent-primary: #2563eb;
+  --accent-primary: #1f5eff;
   --accent-secondary: #0f766e;
-  --accent-deep: #111827;
+  --accent-deep: #0f172a;
   --accent-gold: #b7791f;
+  --brand-coral: #d95745;
+  --brand-ink: #162033;
+  --brand-mist: #eef6f4;
   --border: rgba(17, 24, 39, 0.1);
   --border-strong: rgba(37, 99, 235, 0.24);
   --shadow-soft: 0 14px 36px rgba(17, 24, 39, 0.08);

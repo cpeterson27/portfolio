@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navigation from "./components/Navigation/Navigation";
 import Hero from "./components/Hero/Hero";
+import Brand from "./components/Brand/Brand";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Skills from "./components/Skills/Skills";
@@ -43,6 +44,8 @@ export default function Portfolio() {
           bio={personalInfo.bio}
           resume={personalInfo.resume}
         />
+
+        <Brand />
 
         <About bio={personalInfo.bio} image={personalInfo.image} />
 

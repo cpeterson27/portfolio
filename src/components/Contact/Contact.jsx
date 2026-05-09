@@ -21,7 +21,7 @@ const Contact = ({ email, github, linkedin }) => {
       <div className="contact-container surface-card">
         <div className="section-kicker">Contact</div>
         <h2 className="section-title">
-          Bring me in when your web presence needs to feel more polished, useful, and real.
+          Bring me in when the work needs practical polish.
         </h2>
         <p className="contact-description">
           I am open to software engineering roles, freelance builds, and collaborative product work.
