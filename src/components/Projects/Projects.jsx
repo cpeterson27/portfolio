@@ -4,7 +4,7 @@ import './Projects.css';
 
 const Projects = ({ projects }) => {
   return (
-    <section id="projects" className="section">
+    <section id="projects" className="section projects-section">
       <div className="section-container-wide">
         <div className="section-header">
           <div className="section-kicker">Selected Work</div>
@@ -14,8 +14,12 @@ const Projects = ({ projects }) => {
           </p>
         </div>
         <div className="projects-grid">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              featured={index < 2}
+            />
           ))}
         </div>
       </div>
