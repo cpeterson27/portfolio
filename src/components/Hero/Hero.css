@@ -30,12 +30,27 @@
   max-width: 720px;
 }
 
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  background: rgba(153, 246, 228, 0.12);
+  border: 1px solid rgba(153, 246, 228, 0.26);
+  color: #99f6e4;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
 .hero-title {
-  font-size: 5rem;
+  font-size: 4.65rem;
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 1.25rem;
-  line-height: 1;
+  line-height: 1.02;
   letter-spacing: 0;
 }
 
@@ -165,7 +180,7 @@
 }
 
 .hero-panel-role {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 800;
   line-height: 1.2;
   color: var(--text-primary);

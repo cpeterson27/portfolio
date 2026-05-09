@@ -14,7 +14,10 @@ const Navigation = ({ mobileMenuOpen, setMobileMenuOpen, name }) => {
     <nav className="navbar">
       <div className="nav-container">
         <div className="nav-content">
-          <span className="logo">{name}</span>
+          <a href="#top" className="logo" aria-label={`${name} home`}>
+            <span className="logo-mark">CP</span>
+            <span className="logo-text">{name}</span>
+          </a>
           
           <div className="nav-links desktop-nav">
             {navLinks.map(link => (
@@ -22,6 +25,9 @@ const Navigation = ({ mobileMenuOpen, setMobileMenuOpen, name }) => {
                 {link.label}
               </a>
             ))}
+            <a href="#contact" className="nav-cta">
+              Work With Me
+            </a>
           </div>
 
           <button 

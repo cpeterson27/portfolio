@@ -4,24 +4,43 @@ import "./Hero.css";
 
 const Hero = ({ name, title, subtitle, bio, resume }) => {
   const highlights = [
-    "Full-stack product development",
-    "Responsive UI and design systems",
-    "Clean, maintainable React architecture",
+    "Business websites and web apps",
+    "Full-stack product builds",
+    "UI polish with practical engineering",
+  ];
+
+  const services = [
+    {
+      value: "Web Presence",
+      label: "Modern sites that make your brand feel credible and clear",
+    },
+    {
+      value: "Product Builds",
+      label: "React interfaces, dashboards, ecommerce, and admin tools",
+    },
+    {
+      value: "Design to Code",
+      label: "Visual direction translated into responsive, maintainable UI",
+    },
   ];
 
   return (
-    <section className="hero">
+    <section id="top" className="hero">
       <div className="hero-container">
         <div className="hero-copy" data-aos="fade-up">
+          <div className="hero-kicker">Cassandra Peterson Studio</div>
           <h1 className="hero-title">
-            Building digital experiences that feel thoughtful, polished, and reliable.
+            Websites and web apps for brands that need to look credible and work beautifully.
           </h1>
           <p className="hero-subtitle">
             <span className="hero-name">{name}</span>
             <span className="hero-divider" />
-            <span>{title}</span>
+            <span>{title} & Product-Minded Web Developer</span>
           </p>
-          <p className="hero-description">{bio[0]}</p>
+          <p className="hero-description">
+            I help small businesses, founders, and product teams turn ideas into responsive digital
+            experiences with clean code, thoughtful UX, and a polished visual finish.
+          </p>
 
           <div className="hero-highlights">
             {highlights.map((item) => (
@@ -36,7 +55,7 @@ const Hero = ({ name, title, subtitle, bio, resume }) => {
               Explore Projects <ArrowRight size={18} />
             </a>
             <a href="#contact" className="btn btn-secondary">
-              Start a Conversation
+              Book a Project Conversation
             </a>
             <a
               href="https://cgdesigns93.wixsite.com/cassandra-peterson"
@@ -53,21 +72,15 @@ const Hero = ({ name, title, subtitle, bio, resume }) => {
         </div>
 
         <div className="hero-panel surface-card" data-aos="fade-left" data-aos-delay="150">
-          <div className="hero-panel-label">Professional Snapshot</div>
+          <div className="hero-panel-label">What I Help With</div>
           <div className="hero-panel-role">{subtitle}</div>
           <div className="hero-stats">
-            <div className="hero-stat">
-              <span className="hero-stat-value">Full Stack</span>
-              <span className="hero-stat-label">Frontend-first development mindset</span>
-            </div>
-            <div className="hero-stat">
-              <span className="hero-stat-value">UI + Code</span>
-              <span className="hero-stat-label">Bridging visual design and implementation</span>
-            </div>
-            <div className="hero-stat">
-              <span className="hero-stat-value">React Focused</span>
-              <span className="hero-stat-label">Modern component-driven product work</span>
-            </div>
+            {services.map((service) => (
+              <div className="hero-stat" key={service.value}>
+                <span className="hero-stat-value">{service.value}</span>
+                <span className="hero-stat-label">{service.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

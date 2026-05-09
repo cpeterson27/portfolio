@@ -3,6 +3,13 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import "./Contact.css";
 
 const Contact = ({ email, github, linkedin }) => {
+  const projectTypes = [
+    "Brand websites",
+    "Full-stack web apps",
+    "Ecommerce and admin tools",
+    "UI redesigns and frontend polish",
+  ];
+
   const socialLinks = [
     { href: `mailto:${email}`, icon: Mail, label: "Email" },
     { href: github, icon: Github, label: "GitHub" },
@@ -14,13 +21,18 @@ const Contact = ({ email, github, linkedin }) => {
       <div className="contact-container surface-card">
         <div className="section-kicker">Contact</div>
         <h2 className="section-title">
-          Let's build something thoughtful together.
+          Bring me in when your web presence needs to feel more polished, useful, and real.
         </h2>
         <p className="contact-description">
-          I'm open to full-time roles, freelance projects, and collaborative
-          product work. If you have an idea, a team, or a problem worth solving,
-          I'd love to hear about it.
+          I am open to software engineering roles, freelance builds, and collaborative product work.
+          Send the goal, timeline, and what needs to change. I will help turn the messy middle into
+          a clear next step.
         </p>
+        <div className="contact-services" aria-label="Project types">
+          {projectTypes.map((projectType) => (
+            <span key={projectType}>{projectType}</span>
+          ))}
+        </div>
         <a href={`mailto:${email}`} className="contact-email">
           {email}
         </a>
