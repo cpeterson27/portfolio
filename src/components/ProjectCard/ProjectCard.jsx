@@ -22,7 +22,6 @@ const ProjectCard = ({ project, featured = false, index = 0 }) => {
         onClick={() => openModal(project.id, 0)}
         aria-label={`Open ${project.title} gallery`}
       >
-        <span className="project-number">{String(index + 1).padStart(2, "0")}</span>
         <img
           alt={project.alt}
           className="project-img"
