@@ -1037,7 +1037,13 @@ function WorkPage() {
         </div>
       </section>
       <section className="section work-detail-grid">
-        <div>
+        <div className="work-photo-card">
+          <img
+            src={`${process.env.PUBLIC_URL}/images/cassandra-work-with-me.png`}
+            alt="Cassandra Peterson working at a laptop"
+          />
+        </div>
+        <div className="work-detail-copy">
           <Eyebrow icon={BriefcaseBusiness}>Collaboration model</Eyebrow>
           <h2>Bring the workflow. I will help shape the system.</h2>
           <p>

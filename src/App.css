@@ -542,9 +542,9 @@ p {
 
 .about-preview-media img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
 }
 
 .about-preview-copy h2 {
@@ -1080,6 +1080,21 @@ p {
 
 .contact-panel {
   padding: 26px;
+}
+
+.work-photo-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.22);
+  box-shadow: var(--shadow);
+}
+
+.work-photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
 }
 
 .contact-actions {
