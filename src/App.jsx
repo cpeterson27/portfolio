@@ -9,6 +9,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Code2,
+  CreditCard,
   Github,
   Layers3,
   Linkedin,
@@ -17,6 +18,8 @@ import {
   Orbit,
   RadioTower,
   Rocket,
+  ShieldCheck,
+  ShoppingBag,
   Sparkles,
   Workflow,
 } from "lucide-react";
@@ -40,6 +43,15 @@ const profile = {
 };
 
 const waitlistHref = `mailto:${profile.email}?subject=Digital product waitlist&body=Hi Cassandra,%0D%0A%0D%0AI'd like to be notified when your digital products are available.`;
+const productQuestionHref = `mailto:${profile.email}?subject=Digital product question&body=Hi Cassandra,%0D%0A%0D%0AI have a question about your digital products.`;
+
+const checkoutLinks = {
+  aiPromptPacks: process.env.REACT_APP_STRIPE_AI_PROMPT_PACKS_LINK || "",
+  notionBuilderOs: process.env.REACT_APP_STRIPE_NOTION_BUILDER_OS_LINK || "",
+  automationKits: process.env.REACT_APP_STRIPE_AUTOMATION_KITS_LINK || "",
+  developerResources: process.env.REACT_APP_STRIPE_DEVELOPER_RESOURCES_LINK || "",
+  founderPortfolioKit: process.env.REACT_APP_STRIPE_FOUNDER_PORTFOLIO_KIT_LINK || "",
+};
 
 const navItems = [
   ["Projects", "/projects"],
@@ -434,33 +446,58 @@ const projectStories = portfolioData.projects.map(normalizePortfolioProject);
 const digitalProducts = [
   {
     icon: Bot,
+    slug: "ai-prompt-packs",
     name: "AI Prompt Packs",
     type: "Prompt systems",
+    price: "$29",
+    status: "Ready first",
+    checkoutUrl: checkoutLinks.aiPromptPacks,
     text: "Practical prompt workflows for product planning, content strategy, UX reviews, and build-in-public operations.",
+    includes: ["Product planning prompts", "UX review workflows", "Content strategy systems"],
   },
   {
     icon: Layers3,
+    slug: "notion-builder-os",
     name: "Notion Builder OS",
     type: "Template",
+    price: "$49",
+    status: "Next up",
+    checkoutUrl: checkoutLinks.notionBuilderOs,
     text: "A workspace for product ideas, launch notes, experiments, content planning, and weekly shipping rhythms.",
+    includes: ["Idea pipeline", "Build log workspace", "Weekly shipping tracker"],
   },
   {
     icon: Workflow,
+    slug: "automation-kits",
     name: "Automation Kits",
     type: "Workflow recipes",
+    price: "$39",
+    status: "Planned",
+    checkoutUrl: checkoutLinks.automationKits,
     text: "Small-business automation blueprints for intake, follow-ups, reporting, customer systems, and repeatable admin.",
+    includes: ["Intake flow blueprints", "Follow-up sequences", "Admin workflow maps"],
   },
   {
     icon: Code2,
+    slug: "developer-resources",
     name: "Developer Resources",
     type: "Resource library",
+    price: "$19",
+    status: "Planned",
+    checkoutUrl: checkoutLinks.developerResources,
     text: "Reusable checklists, launch patterns, front-end polish guides, and implementation notes for modern builders.",
+    includes: ["Launch checklists", "Frontend polish notes", "Implementation patterns"],
   },
   {
     icon: BriefcaseBusiness,
+    slug: "founder-portfolio-kit",
     name: "Founder Portfolio Kit",
     type: "Positioning kit",
+    price: "$59",
+    status: "Planned",
+    checkoutUrl: checkoutLinks.founderPortfolioKit,
     text: "A template system for developers who want to present as product-minded builders, not resume pages.",
+    includes: ["Portfolio positioning prompts", "Case study structure", "Offer page outline"],
   },
 ];
 
@@ -949,32 +986,95 @@ function ProjectGallery({ project }) {
 }
 
 function ProductsPage() {
+  const featuredProduct = digitalProducts[0];
+  const readyProducts = digitalProducts.filter((product) => product.checkoutUrl);
+
   return (
     <main className="page-section">
       <PageHeader
         eyebrow="Digital product shelf"
         title="Practical digital products for builders, teams, and modern workflows."
-        text="A growing collection of prompt systems, templates, automation guides, and developer resources shaped by the tools and client systems I build."
+        text="Prompt systems, templates, automation guides, and developer resources shaped by real product work. The first offer is set up for Stripe checkout as soon as the payment link is connected."
         icon={Bot}
       />
       <div className="store-hero">
         <div>
-          <span>Coming soon</span>
-          <h2>AI Builder Systems</h2>
-          <p>Resources for organizing ideas, improving operations, and turning repeatable workflows into cleaner systems.</p>
+          <span>{featuredProduct.status}</span>
+          <h2>{featuredProduct.name}</h2>
+          <p>{featuredProduct.text}</p>
+          <div className="store-hero-meta" aria-label={`${featuredProduct.name} details`}>
+            <span>{featuredProduct.price}</span>
+            <span>Digital download</span>
+            <span>Stripe checkout</span>
+          </div>
+          <ul className="store-includes">
+            {featuredProduct.includes.map((item) => (
+              <li key={item}>
+                <CheckCircle2 size={16} aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
-        <a className="store-button" href={waitlistHref}>Join waitlist</a>
+        <div className="store-hero-actions">
+          {featuredProduct.checkoutUrl ? (
+            <a className="store-button store-button-primary" href={featuredProduct.checkoutUrl}>
+              <ShoppingBag size={17} aria-hidden="true" />
+              Buy now
+            </a>
+          ) : (
+            <a className="store-button store-button-primary" href={`${waitlistHref}%0D%0A%0D%0AProduct interest: ${encodeURIComponent(featuredProduct.name)}`}>
+              <ShoppingBag size={17} aria-hidden="true" />
+              Request early access
+            </a>
+          )}
+          <a className="store-button store-button-secondary" href={productQuestionHref}>
+            <Mail size={17} aria-hidden="true" />
+            Ask a question
+          </a>
+        </div>
+      </div>
+      <div className="store-checkout-note">
+        <div>
+          <CreditCard size={19} aria-hidden="true" />
+          <span>{readyProducts.length ? `${readyProducts.length} product${readyProducts.length === 1 ? "" : "s"} connected to Stripe.` : "Stripe Payment Links are ready to plug in."}</span>
+        </div>
+        <div>
+          <ShieldCheck size={19} aria-hidden="true" />
+          <span>Payments are handled by Stripe; no card details are stored on this site.</span>
+        </div>
       </div>
       <div className="storefront-grid">
-        {digitalProducts.map(({ icon: Icon, name, type, text }) => (
+        {digitalProducts.map(({ checkoutUrl, icon: Icon, includes, name, price, status, text, type }) => (
           <article className="store-card" key={name}>
             <div className="store-card-top">
               <Icon size={22} aria-hidden="true" />
               <span>{type}</span>
             </div>
+            <div className="store-card-status">
+              <span>{status}</span>
+              <strong>{price}</strong>
+            </div>
             <h3>{name}</h3>
             <p>{text}</p>
-            <a className="store-button" href={`${waitlistHref}%0D%0A%0D%0AProduct interest: ${encodeURIComponent(name)}`}>Notify me</a>
+            <ul className="store-includes compact">
+              {includes.map((item) => (
+                <li key={item}>
+                  <CheckCircle2 size={15} aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            {checkoutUrl ? (
+              <a className="store-button" href={checkoutUrl}>
+                Buy now
+                <ArrowRight size={17} aria-hidden="true" />
+              </a>
+            ) : (
+              <a className="store-button store-button-muted" href={`${waitlistHref}%0D%0A%0D%0AProduct interest: ${encodeURIComponent(name)}`}>
+                Notify me
+              </a>
+            )}
           </article>
         ))}
       </div>
