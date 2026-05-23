@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: portfolio-fulfillment
+    env: node
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm run start:server
+    healthCheckPath: /health
+    envVars:
+      - key: STOREFRONT_URL
+        value: https://cpeterson27.github.io
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_AI_PROMPT_PACKS_PRICE_ID
+        sync: false
+      - key: STRIPE_AI_PROMPT_PACKS_PRODUCT_ID
+        sync: false
+      - key: STRIPE_AI_PROMPT_PACKS_PAYMENT_LINK_ID
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: FULFILLMENT_FROM_EMAIL
+        sync: false
+      - key: FULFILLMENT_REPLY_TO
+        sync: false
+      - key: UPSTASH_REDIS_REST_URL
+        sync: false
+      - key: UPSTASH_REDIS_REST_TOKEN
+        sync: false

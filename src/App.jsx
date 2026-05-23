@@ -52,6 +52,7 @@ const checkoutLinks = {
   developerResources: process.env.REACT_APP_STRIPE_DEVELOPER_RESOURCES_LINK || "",
   founderPortfolioKit: process.env.REACT_APP_STRIPE_FOUNDER_PORTFOLIO_KIT_LINK || "",
 };
+const isFulfillmentReady = process.env.REACT_APP_FULFILLMENT_READY === "true";
 
 const navItems = [
   ["Projects", "/projects"],
@@ -619,6 +620,8 @@ function Layout() {
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/success" element={<ProductSuccessPage />} />
+          <Route path="/products/cancel" element={<ProductCancelPage />} />
           <Route path="/build-log" element={<BuildLogPage />} />
           <Route path="/work-with-me" element={<WorkPage />} />
         </Routes>
@@ -1017,7 +1020,7 @@ function ProductsPage() {
           </ul>
         </div>
         <div className="store-hero-actions">
-          {featuredProduct.checkoutUrl ? (
+          {featuredProduct.checkoutUrl && isFulfillmentReady ? (
             <a className="store-button store-button-primary" href={featuredProduct.checkoutUrl}>
               <ShoppingBag size={17} aria-hidden="true" />
               Buy now
@@ -1037,7 +1040,7 @@ function ProductsPage() {
       <div className="store-checkout-note">
         <div>
           <CreditCard size={19} aria-hidden="true" />
-          <span>{readyProducts.length ? `${readyProducts.length} product${readyProducts.length === 1 ? "" : "s"} connected to Stripe.` : "Stripe Payment Links are ready to plug in."}</span>
+          <span>{readyProducts.length && isFulfillmentReady ? `${readyProducts.length} product${readyProducts.length === 1 ? "" : "s"} connected to Stripe with automated delivery.` : "Checkout will open after automated delivery is connected."}</span>
         </div>
         <div>
           <ShieldCheck size={19} aria-hidden="true" />
@@ -1065,7 +1068,7 @@ function ProductsPage() {
                 </li>
               ))}
             </ul>
-            {checkoutUrl ? (
+            {checkoutUrl && isFulfillmentReady ? (
               <a className="store-button" href={checkoutUrl}>
                 Buy now
                 <ArrowRight size={17} aria-hidden="true" />
@@ -1077,6 +1080,42 @@ function ProductsPage() {
             )}
           </article>
         ))}
+      </div>
+    </main>
+  );
+}
+
+function ProductSuccessPage() {
+  return (
+    <main className="page-section">
+      <div className="checkout-status">
+        <Eyebrow icon={CheckCircle2}>Payment received</Eyebrow>
+        <h1>Your product is on the way.</h1>
+        <p>
+          Stripe has confirmed your checkout. The AI Prompt Packs PDF will be sent automatically to the email address used at checkout.
+        </p>
+        <div className="checkout-status-actions">
+          <PageLink to="/products">Back to products</PageLink>
+          <a className="button button-secondary" href={productQuestionHref}>Need help?</a>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function ProductCancelPage() {
+  return (
+    <main className="page-section">
+      <div className="checkout-status">
+        <Eyebrow icon={CreditCard}>Checkout canceled</Eyebrow>
+        <h1>No payment was completed.</h1>
+        <p>
+          Your checkout was canceled, so nothing was charged. You can return to the product shelf whenever you are ready.
+        </p>
+        <div className="checkout-status-actions">
+          <PageLink to="/products">Return to products</PageLink>
+          <a className="button button-secondary" href={productQuestionHref}>Ask a question</a>
+        </div>
       </div>
     </main>
   );
