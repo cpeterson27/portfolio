@@ -41,16 +41,25 @@ Set `REACT_APP_FULFILLMENT_READY=true` only after the hosted webhook has been te
 
 ### Fulfillment Service Env
 
-Deploy the Node service with:
+Run the Node service locally with:
 
 ```bash
 npm run start:server
 ```
 
+For Render, use the included `render.yaml`. It deploys the backend from the `server` directory:
+
+```txt
+rootDir: server
+buildCommand: npm ci
+startCommand: npm start
+healthCheckPath: /health
+```
+
 Required production environment variables:
 
 ```bash
-STOREFRONT_URL=https://cpeterson27.github.io
+STOREFRONT_URL=https://cpeterson27.github.io,http://localhost:3000
 STRIPE_SECRET_KEY=sk_live_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 STRIPE_AI_PROMPT_PACKS_PRICE_ID=price_...
@@ -97,3 +106,21 @@ checkout.session.completed
 ```
 
 The webhook verifies Stripe's signature, matches the purchased Stripe product or price, generates the AI Prompt Packs PDF, and emails it to the checkout customer through Resend.
+
+### Frontend / Backend Split
+
+Frontend:
+
+- Root app
+- React
+- Hosted on GitHub Pages
+- Deploy with `npm run deploy`
+- Uses only public `REACT_APP_*` variables
+
+Backend:
+
+- `server/`
+- Express
+- Hosted on Render
+- Deploy with `render.yaml`
+- Uses Stripe, Resend, and optional Upstash secrets

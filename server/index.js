@@ -1,4 +1,7 @@
-require("dotenv").config();
+const path = require("path");
+
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 
 const cors = require("cors");
 const express = require("express");
@@ -19,12 +22,24 @@ if (!process.env.STRIPE_WEBHOOK_SECRET) {
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const allowedOrigins = (process.env.STOREFRONT_URL || "https://cpeterson27.github.io")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 app.use(
   cors({
-    origin: process.env.STOREFRONT_URL || "https://cpeterson27.github.io",
+    origin: allowedOrigins,
   })
 );
+
+app.get("/", (_request, response) => {
+  response.json({
+    ok: true,
+    service: "portfolio-fulfillment",
+    routes: ["/health", "/stripe/webhook"],
+  });
+});
 
 app.get("/health", (_request, response) => {
   response.json({ ok: true, service: "portfolio-fulfillment" });

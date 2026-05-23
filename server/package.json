@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-fulfillment-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Stripe webhook fulfillment service for Cassandra Peterson digital products.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "check": "node --check index.js && node --check lib/email.js && node --check lib/createProductPdf.js && node --check lib/idempotency.js && node --check productCatalog.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pdfkit": "^0.18.0",
+    "resend": "^6.12.3",
+    "stripe": "^22.1.1"
+  }
+}
