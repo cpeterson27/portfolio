@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "check": "node --check index.js && node --check lib/email.js && node --check lib/createProductPdf.js && node --check lib/idempotency.js && node --check productCatalog.js"
+    "check": "node --check index.js && node --check app.js && node --check lib/email.js && node --check lib/createProductPdf.js && node --check lib/fulfillment.js && node --check lib/idempotency.js && node --check productCatalog.js && node --check test/fulfillment.test.js",
+    "test": "node --test"
   },
   "engines": {
     "node": ">=20"

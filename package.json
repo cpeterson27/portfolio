@@ -21,6 +21,7 @@
     "start": "react-scripts start",
     "start:server": "npm --prefix server start",
     "check:server": "npm --prefix server run check",
+    "test:server": "npm --prefix server test",
     "build": "react-scripts build",
     "postbuild": "cp build/index.html build/404.html",
     "test": "react-scripts test",

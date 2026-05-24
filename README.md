@@ -124,3 +124,9 @@ Backend:
 - Hosted on Render
 - Deploy with `render.yaml`
 - Uses Stripe, Resend, and optional Upstash secrets
+
+Run the backend fulfillment tests without charging a card:
+
+```bash
+npm run test:server
+```
