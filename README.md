@@ -130,3 +130,9 @@ Run the backend fulfillment tests without charging a card:
 ```bash
 npm run test:server
 ```
+
+Send the generated PDF to your own email through Resend without creating a Stripe checkout:
+
+```bash
+npm run test:delivery
+```
