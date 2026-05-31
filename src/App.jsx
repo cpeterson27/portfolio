@@ -72,7 +72,7 @@ const projects = [
     problem:
       "Research-heavy work creates tab chaos. Trace turns open browser sessions into searchable, reusable workspaces so users can pause, resume, and organize context without digging through history.",
     features: ["Session capture", "Tagged tab groups", "Fast restore actions", "Manual import/export", "Browser-local storage"],
-    stack: ["React", "TypeScript", "Vite", "Chrome Extension API"],
+    stack: ["React", "TypeScript", "Vite", "Chrome Extension API", "Chrome Storage"],
     outcome: "A focused productivity tool concept with strong AI summarization potential.",
     star: {
       situation: "Research sessions often sprawl across dozens of tabs, making it difficult to preserve context or return to a useful workflow later.",
@@ -187,16 +187,42 @@ const projects = [
     label: "Business automation system",
     image: `${process.env.PUBLIC_URL}/images/terrys-auto-service-dashboard.png`,
     statement:
-      "A modern operating layer for appointments, customer records, invoices, expenses, and service content.",
+      "A production business website, customer portal, and admin dashboard for appointments, customer records, invoices, expenses, messages, gallery media, and service operations.",
     problem:
-      "Local businesses often run on disconnected tools. This platform centralizes customer workflows, service information, media, admin operations, and transactional email.",
-    features: ["Customer portal", "Appointment scheduling", "Invoices", "Expense tracking", "Admin dashboard", "Email workflows"],
-    stack: ["React", "TypeScript", "Express", "MongoDB", "JWT", "Resend"],
+      "Local service businesses often run on disconnected tools. This platform centralizes public service content, customer authentication, booking management, invoices, expenses, customer records, gallery media, contact messages, business settings, transactional email, and marketing opt-ins.",
+    features: [
+      "Public service homepage and contact form",
+      "Signup, login, email verification, and password reset",
+      "Customer portal and booking management",
+      "Appointment booking, rescheduling, cancellation, and admin scheduling",
+      "Invoices, expenses, customers, messages, settings, and gallery admin",
+      "Cloudinary image/video gallery uploads",
+      "Resend transactional email",
+      "Klaviyo marketing opt-in",
+    ],
+    stack: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "lucide-react",
+      "Vercel Analytics",
+      "Node.js 20",
+      "Express",
+      "Express TypeScript API",
+      "MongoDB & Mongoose",
+      "JWT Authentication",
+      "Cloudinary",
+      "Resend",
+      "Klaviyo",
+      "Vercel",
+      "Render",
+    ],
     outcome: "A practical business system that modernizes service operations and customer touchpoints.",
     star: {
       situation: "A local service business had customer, scheduling, invoice, expense, and content workflows spread across disconnected processes.",
-      task: "Create one modern web system for public content, customer interactions, and admin operations.",
-      action: "Built a React, TypeScript, Express, and MongoDB platform with appointment scheduling, customer records, invoices, expenses, media, and email flows.",
+      task: "Create one modern web system for public content, customer signup/login, email verification, password reset, customer portal access, appointment management, invoicing, expenses, messages, settings, gallery media, and admin operations.",
+      action: "Built a React 18, TypeScript, Vite, and Tailwind client with a Node.js 20 Express TypeScript API, MongoDB/Mongoose models, JWT authentication, booking reschedule/cancel flows, invoice and expense workflows, customer records, Cloudinary image/video gallery uploads, Resend transactional email for verification, password reset, booking, and admin notifications, Klaviyo opt-in integration, Vercel Analytics, Vercel client deployment, and a Render-compatible API deployment.",
       result: "Delivered a practical business management platform that improves visibility, organization, and customer experience.",
     },
     links: [
@@ -214,7 +240,7 @@ const projects = [
     problem:
       "Most budget tools feel either too sparse or too heavy. BudgetBlox explores a calmer dashboard model for day-to-day financial visibility.",
     features: ["Balance dashboard", "Expense tracking", "Account views", "Responsive UI", "Persistent data model"],
-    stack: ["React", "Vite", "Node.js", "MongoDB", "Vercel"],
+    stack: ["React", "Vite", "Node.js", "MongoDB", "Cookie-parser", "CORS", "Vercel"],
     outcome: "A SaaS-style finance experiment with room for automation and AI insights.",
     star: {
       situation: "Personal finance tools can feel either overwhelming or too shallow for everyday planning.",
@@ -237,7 +263,7 @@ const projects = [
     problem:
       "Design concepts need engineering discipline to become real products. This build focuses on visual accuracy, component structure, and motion quality.",
     features: ["Responsive dashboard", "Design-system thinking", "Motion details", "Reusable components"],
-    stack: ["Next.js", "React", "TypeScript", "Tailwind", "Framer Motion"],
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion"],
     outcome: "A high-fidelity UI build showing product presentation and front-end craft.",
     star: {
       situation: "A polished dashboard concept needed to be translated from design into a real responsive interface.",
@@ -340,6 +366,7 @@ const projectStoryOverrides = {
     label: "Chrome extension",
     statement:
       "A browser-memory tool for saving, organizing, searching, and restoring research sessions before context disappears.",
+    stack: ["React", "TypeScript", "Vite", "Chrome Extension API", "Chrome Storage"],
     star: {
       situation:
         "Research-heavy work often turns into tab overload. Important context gets lost when sessions are closed, browser history becomes noisy, and related links are scattered.",
@@ -359,14 +386,46 @@ const projectStoryOverrides = {
     label: "Business management system",
     image: `${process.env.PUBLIC_URL}/images/terrys-auto-service-dashboard.png`,
     statement:
-      "A service-business platform for appointments, customers, invoices, expenses, gallery media, and admin operations.",
+      "A production business website, customer portal, and admin dashboard for appointments, customers, invoices, expenses, messages, settings, gallery media, and customer communication.",
+    features: [
+      "Public homepage with service information, contact form, and gallery media",
+      "Customer signup/login with email verification and password reset",
+      "Customer portal with booking management",
+      "Appointment booking, rescheduling, cancellation, and admin appointment management",
+      "Admin dashboard for invoices, expenses, customers, messages, settings, and gallery content",
+      "Cloudinary image/video uploads with multiple media files per gallery card",
+      "Resend transactional email for verification, password reset, bookings, and admin notifications",
+      "Klaviyo marketing opt-in during signup",
+      "Admin seed, Cloudinary check, API smoke test, and schema test scripts",
+    ],
+    stack: [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "lucide-react",
+      "Vercel Analytics",
+      "Axios API Client",
+      "Node.js 20",
+      "Express",
+      "Express TypeScript API",
+      "MongoDB & Mongoose",
+      "JWT Authentication",
+      "Email Verification",
+      "Password Reset",
+      "Cloudinary",
+      "Resend",
+      "Klaviyo",
+      "Vercel",
+      "Render",
+    ],
     star: {
       situation:
         "A local auto service business needed a more modern way to present services, manage customer interactions, and organize operational workflows.",
       task:
-        "Build a customer-facing website and internal business system that connected appointments, accounts, messages, invoices, expenses, gallery content, and email communication.",
+        "Build a customer-facing website and internal business system that connected services, contact submissions, signup/login, email verification, password reset, appointments, customer portal access, messages, invoices, expenses, settings, gallery content, and email communication.",
       action:
-        "Implemented a React/TypeScript frontend, Node/Express backend, MongoDB models, JWT authentication, appointment scheduling, invoice and expense management, customer records, Cloudinary media, and Resend/Klaviyo integrations.",
+        "Implemented a React 18, TypeScript, Vite, Tailwind frontend and Node.js 20 Express TypeScript backend with MongoDB/Mongoose models, JWT authentication, booking reschedule/cancel flows, invoice and expense management, customer records, admin appointment management, Cloudinary image/video uploads, Resend transactional emails, Klaviyo list opt-in, Vercel Analytics, Vercel client deployment, Render-compatible API deployment, and operational scripts for admin seeding, Cloudinary checks, API smoke tests, and schema tests.",
       result:
         "Delivered a practical business platform that improves customer experience, centralizes admin workflows, and gives the business a stronger digital operating layer.",
     },
@@ -376,6 +435,7 @@ const projectStoryOverrides = {
     label: "Dashboard UI system",
     statement:
       "A high-fidelity dashboard implementation focused on visual accuracy, reusable components, accessibility, and polished motion.",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion"],
     star: {
       situation:
         "A detailed Figma dashboard concept needed to be translated into a responsive, production-quality interface rather than staying as a static design.",
@@ -408,6 +468,7 @@ const projectStoryOverrides = {
     label: "SaaS experiment",
     statement:
       "A personal finance dashboard for tracking balances, organizing expenses, and building healthier money habits.",
+    stack: ["React", "Vite", "Node.js", "MongoDB", "Cookie-parser", "CORS", "Vercel"],
     star: {
       situation:
         "Personal finance tools can feel either too complicated or too thin to support everyday decisions.",
