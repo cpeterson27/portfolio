@@ -68,17 +68,26 @@ const projects = [
     label: "Chrome extension",
     image: `${process.env.PUBLIC_URL}/images/trace-browser-memory.png`,
     statement:
-      "Browser memory for saving, organizing, and restoring research sessions before context disappears.",
+      "An MVP Chrome extension for saving, searching, restoring, and organizing browser sessions before tabs and workflows disappear.",
     problem:
-      "Research-heavy work creates tab chaos. Trace turns open browser sessions into searchable, reusable workspaces so users can pause, resume, and organize context without digging through history.",
-    features: ["Session capture", "Tagged tab groups", "Fast restore actions", "Manual import/export", "Browser-local storage"],
-    stack: ["React", "TypeScript", "Vite", "Chrome Extension API", "Chrome Storage"],
-    outcome: "A focused productivity tool concept with strong AI summarization potential.",
+      "Research-heavy work creates tab chaos. Trace turns open browser sessions into searchable, reusable workspaces so users can pause, resume, organize, export, and recover context without digging through browser history.",
+    features: [
+      "Save current browser sessions",
+      "Background auto-save with duplicate prevention",
+      "Restore sessions in a new window",
+      "Search tabs, URLs, tags, and summaries",
+      "Pin, tag, rename, and summarize sessions",
+      "Copy session links",
+      "Import/export sessions as JSON",
+      "Collapsible tab lists",
+    ],
+    stack: ["React", "TypeScript", "Vite", "Chrome Extension APIs", "Chrome Storage API", "Chrome Alarms API", "CSS"],
+    outcome: "An active MVP with roadmap paths for AI summaries, semantic search, cloud sync, accounts, subscriptions, and Chrome Web Store release.",
     star: {
       situation: "Research sessions often sprawl across dozens of tabs, making it difficult to preserve context or return to a useful workflow later.",
-      task: "Create a Chrome extension that could capture, organize, search, and restore browser sessions without adding a heavy productivity system.",
-      action: "Built a React and TypeScript extension around Chrome Storage, tagged sessions, restore actions, and import/export flows.",
-      result: "Shipped a focused browser-memory tool concept with clear expansion paths for AI summaries and research automation.",
+      task: "Create a Chrome extension that could save, auto-save, search, organize, restore, import, and export sessions without adding a heavy productivity system.",
+      action: "Built a React, TypeScript, and Vite extension around Chrome Extension APIs, Chrome Storage API, Chrome Alarms API, background auto-save, duplicate prevention, session restore, search, pinning, tagging, renaming, editable summaries, copied links, JSON import/export, and collapsible tab lists.",
+      result: "Shipped an active MVP with clear roadmap paths for AI-generated session summaries, semantic search, cloud sync, user accounts, Stripe subscription billing, and Chrome Web Store release.",
     },
     links: [{ label: "GitHub", href: "https://github.com/cpeterson27/trace-browser-memory" }],
     priority: true,
@@ -365,17 +374,30 @@ const projectStoryOverrides = {
     name: "Trace - Browser Memory",
     label: "Chrome extension",
     statement:
-      "A browser-memory tool for saving, organizing, searching, and restoring research sessions before context disappears.",
-    stack: ["React", "TypeScript", "Vite", "Chrome Extension API", "Chrome Storage"],
+      "An MVP Chrome extension for saving, searching, restoring, and organizing browser sessions so users can recover lost tabs and workflows.",
+    features: [
+      "Manual session save",
+      "Background auto-save with duplicate prevention",
+      "Restore sessions in a new window",
+      "Search saved tabs, URLs, tags, and summaries",
+      "Pin favorite sessions",
+      "Tag and rename sessions",
+      "Edit session summaries",
+      "Copy session links",
+      "JSON import/export",
+      "Collapsible tab lists",
+      "Clean Chrome extension popup UI",
+    ],
+    stack: ["React", "TypeScript", "Vite", "Chrome Extension APIs", "Chrome Storage API", "Chrome Alarms API", "CSS"],
     star: {
       situation:
         "Research-heavy work often turns into tab overload. Important context gets lost when sessions are closed, browser history becomes noisy, and related links are scattered.",
       task:
-        "Create a Chrome extension that helps users preserve browser context, group related tabs, and resume work without rebuilding a research session from scratch.",
+        "Create a Chrome extension that helps users preserve browser context, group related tabs, search saved session data, and resume work without rebuilding a research session from scratch.",
       action:
-        "Built the extension with React, TypeScript, Vite, Chrome Storage, and Chrome Extension APIs. I designed the session model, tab-saving flow, tagging structure, search experience, restore actions, and import/export support.",
+        "Built the extension with React, TypeScript, Vite, Chrome Extension APIs, Chrome Storage API, Chrome Alarms API, and CSS. I designed the session model, tab-saving flow, background auto-save, duplicate prevention, tagging and pinning structure, search experience, restore actions, summary editing, copied links, collapsible tab lists, and JSON import/export support.",
       result:
-        "Created a focused productivity tool with a clear product direction and strong future potential for AI summaries, research automation, and workflow memory.",
+        "Created an active MVP with a clear product direction and roadmap potential for AI-generated summaries, semantic search, cloud sync, user accounts, Stripe subscription billing, and Chrome Web Store release.",
     },
     links: [
       { label: "Chrome Extension Repo", href: "https://github.com/cpeterson27/trace-browser-memory" },
