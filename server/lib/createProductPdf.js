@@ -8,6 +8,29 @@ function writeParagraph(doc, text, options = {}) {
   });
 }
 
+function writeList(doc, items, options = {}) {
+  items.forEach((item) => {
+    doc.font(options.font || "Helvetica").fontSize(options.size || 10.5).fillColor(options.color || "#1f2937");
+    doc.text(`- ${item}`, { lineGap: options.lineGap ?? 3 });
+  });
+}
+
+function writeHeading(doc, text, size = 16) {
+  doc.font("Helvetica-Bold").fontSize(size).fillColor("#0f172a").text(text);
+}
+
+function writeCallout(doc, title, body) {
+  const startY = doc.y;
+  doc.roundedRect(doc.x, startY, 500, 84, 6).fillAndStroke("#f8fafc", "#e2e8f0");
+  doc.y = startY + 14;
+  doc.x = 72;
+  doc.font("Helvetica-Bold").fontSize(11).fillColor("#0f172a").text(title);
+  doc.moveDown(0.35);
+  writeParagraph(doc, body, { size: 10, color: "#334155", lineGap: 3 });
+  doc.x = 56;
+  doc.y = startY + 104;
+}
+
 function createProductPdf(product) {
   return new Promise((resolve, reject) => {
     const doc = new PDFDocument({
@@ -35,19 +58,32 @@ function createProductPdf(product) {
     doc.font("Helvetica").fontSize(11).fillColor("#475569").text("By Cassandra Peterson");
     doc.moveDown(1.4);
     writeParagraph(doc, product.intro, { size: 11.5, lineGap: 5 });
+    doc.moveDown(1);
+    writeCallout(doc, "What this helps you create", product.promise);
+
+    doc.addPage();
+    writeHeading(doc, "Who This Is For");
+    doc.moveDown(0.7);
+    writeList(doc, product.audience, { size: 10.5, lineGap: 4 });
+    doc.moveDown(1.4);
+    writeHeading(doc, "What You Should Walk Away With");
+    doc.moveDown(0.7);
+    writeList(doc, product.outcomes, { size: 10.5, lineGap: 4 });
+    doc.moveDown(1.4);
+    writeHeading(doc, "30-Minute Quick Start");
+    doc.moveDown(0.7);
+    product.quickStart.forEach((item, index) => {
+      writeParagraph(doc, `${index + 1}. ${item}`, { size: 10.5, lineGap: 4 });
+    });
 
     product.sections.forEach((section, sectionIndex) => {
-      if (sectionIndex > 0) {
-        doc.addPage();
-      } else {
-        doc.moveDown(1.8);
-      }
+      doc.addPage();
 
-      doc.font("Helvetica-Bold").fontSize(16).fillColor("#0f172a").text(section.title);
+      writeHeading(doc, section.title);
       doc.moveDown(0.8);
 
       section.prompts.forEach((prompt, promptIndex) => {
-        if (doc.y > 650) {
+        if (doc.y > 620) {
           doc.addPage();
         }
 

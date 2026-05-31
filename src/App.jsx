@@ -453,8 +453,8 @@ const digitalProducts = [
     price: "$29",
     status: "Ready first",
     checkoutUrl: checkoutLinks.aiPromptPacks,
-    text: "A practical AI workbook for product clarity, offer positioning, UX reviews, launch content, workflow automation, and developer handoff.",
-    includes: ["35+ prompt workflows", "Launch and UX checklists", "Post-purchase worksheets"],
+    text: "A practical AI workbook that helps builders create product briefs, offer pages, launch plans, workflow maps, and developer-ready handoffs.",
+    includes: ["35+ workflows with examples", "Scorecards and launch gates", "Copy/paste templates"],
   },
   {
     icon: Layers3,

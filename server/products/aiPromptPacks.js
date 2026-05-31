@@ -5,6 +5,28 @@ const aiPromptPacks = {
   subject: "Your AI Builder Prompt System is ready",
   intro:
     "A practical prompt workbook for founders, builders, and solo operators who want to turn fuzzy ideas into clearer products, sharper pages, better content, and implementation-ready plans. This is not a list of cute one-line prompts. It is a system for thinking, deciding, reviewing, and shipping with AI as a working partner.",
+  promise:
+    "Use this system to produce five real artifacts: a product brief, an offer page outline, a launch plan, a workflow map, and a developer-ready implementation brief.",
+  audience: [
+    "Early founders shaping a first product or paid digital offer",
+    "Developers who want better product thinking before they code",
+    "Freelancers and solo operators turning repeatable work into systems",
+    "AI-curious builders who want structure, not random prompt tricks",
+  ],
+  outcomes: [
+    "Clarify what you are selling and why someone should care",
+    "Audit whether a product feels worth the price",
+    "Turn messy ideas into page copy, launch content, SOPs, and dev briefs",
+    "Catch checkout, UX, and delivery gaps before customers do",
+    "Create reusable operating docs instead of one-off AI chats",
+  ],
+  quickStart: [
+    "Pick one active project, product, or workflow.",
+    "Fill in the Context Block once and reuse it for every prompt.",
+    "Run the Product Clarity Sprint, Paid Product Value Audit, and Product Page Conversion Review.",
+    "Save the outputs in one doc and convert them into the templates at the end.",
+    "Use the scorecards to decide what to improve before launch.",
+  ],
   sections: [
     {
       title: "Start Here: The Working Method",
@@ -28,6 +50,31 @@ const aiPromptPacks = {
           title: "Decision Memo",
           body:
             "Use when you are stuck between options.\n\nPrompt: I am deciding between [option A], [option B], and [option C]. Compare them by customer value, build effort, risk, speed to launch, future flexibility, and confidence level. Recommend one option and explain what would make you change your recommendation.\n\nOutput to save: A one-page decision memo with chosen path, reasons, risks, and next action.",
+        },
+      ],
+    },
+    {
+      title: "Worked Example: Digital Product Readiness",
+      prompts: [
+        {
+          title: "Example Context",
+          body:
+            "Scenario: A builder is selling a $29 AI prompt workbook for early founders.\n\nContext Block: I am working on a paid digital product called AI Builder Prompt System. The audience is early founders, solo builders, and developers who want to use AI for product planning and launch work. The problem is that generic prompts do not produce usable assets. The current state is a PDF with product, UX, content, workflow, and developer prompts. My constraint is that it must feel worth $29 without becoming a giant course. I need help producing a value audit and improvement plan. A good answer should be specific, direct, and focused on what a buyer can actually use.",
+        },
+        {
+          title: "Example Prompt",
+          body:
+            "Review this paid product idea. Is it worth $29? Evaluate by outcome, specificity, usefulness, ease of implementation, buyer urgency, perceived polish, and what a customer might feel after opening it. Tell me what is missing and what would make it feel worth 2x the price.",
+        },
+        {
+          title: "Example Useful Output",
+          body:
+            "Strong enough for beginners, not yet strong enough for advanced buyers. To justify the price, add: worked examples, scorecards, fill-in templates, launch checklists, and clear artifacts buyers can produce. The product should promise outcomes, not prompts. Recommended upgrade: reposition from prompt pack to operating workbook and include a five-artifact workflow.",
+        },
+        {
+          title: "What To Do With the Output",
+          body:
+            "Do not stop at reading the answer. Convert it into product changes: rename the offer, add a quick-start workflow, add scorecards, include examples, and update the product page to explain the artifacts a buyer will walk away with.",
         },
       ],
     },
@@ -67,6 +114,26 @@ const aiPromptPacks = {
       ],
     },
     {
+      title: "Scorecards and Rubrics",
+      prompts: [
+        {
+          title: "Paid Product Value Scorecard",
+          body:
+            "Score your product from 1 to 5 in each category.\n\nOutcome clarity: Does the buyer know what they will be able to do after using it?\nSpecificity: Is it tailored to a real buyer or generic enough to ignore?\nUsability: Can the buyer apply it within 30 minutes?\nCompleteness: Does it include examples, templates, and next steps?\nTrust: Does the product explain delivery, support, and limitations?\nPolish: Does it feel intentionally packaged?\n\nInterpretation: 24-30 is ready to sell. 18-23 needs one focused improvement pass. Under 18 should not launch yet.",
+        },
+        {
+          title: "Prompt Quality Rubric",
+          body:
+            "A strong prompt should include: role, context, audience, goal, constraints, output format, quality bar, and what to avoid. If a prompt only says 'act as X and give me Y,' it is probably too generic. Upgrade it by adding the situation, desired artifact, and decision the output should support.",
+        },
+        {
+          title: "Launch Readiness Gate",
+          body:
+            "Before launch, answer yes/no: Is the product delivered automatically? Does the success page set expectations? Does the email include support instructions? Does the product include examples? Does the page explain who should not buy it? Have you tested mobile checkout? Have you reviewed the first customer experience from click to delivery?",
+        },
+      ],
+    },
+    {
       title: "Page, UX, and Checkout Review",
       prompts: [
         {
@@ -93,6 +160,31 @@ const aiPromptPacks = {
           title: "Trust Gap Finder",
           body:
             "Use when a product feels good to you but may not be convincing to buyers.\n\nPrompt: Find the trust gaps in this offer: [offer/page]. What claims need proof? What terms need examples? What buyer fears are unaddressed? What would make this feel safer to buy from a solo creator?\n\nOutput to save: Trust-building improvements.",
+        },
+      ],
+    },
+    {
+      title: "Copy/Paste Templates",
+      prompts: [
+        {
+          title: "Product Brief Template",
+          body:
+            "Product name:\nBuyer:\nProblem:\nWhy now:\nPromise:\nIncluded assets:\nNot included:\nHow to use it:\nTime to first useful result:\nPrice:\nWhy it is worth the price:\nProof or credibility:\nDelivery method:\nSupport path:\nUpgrade ideas:",
+        },
+        {
+          title: "Offer Page Outline",
+          body:
+            "Hero: product name, buyer, promise, price, CTA.\nProblem: what the buyer is struggling with.\nOutcome: what they can create or decide after using it.\nInside: list the sections/assets.\nHow it works: 3-5 step usage flow.\nWho it is for: specific buyers.\nWho it is not for: honest boundaries.\nFAQ: delivery, refunds/support, skill level, time required.\nCTA: repeat price and action.",
+        },
+        {
+          title: "Developer Handoff Template",
+          body:
+            "Feature:\nUser story:\nGoal:\nNon-goals:\nUser flow:\nUI states:\nData needed:\nAPI/events needed:\nEdge cases:\nFailure states:\nAcceptance criteria:\nAnalytics/logging:\nTest checklist:\nLaunch/rollback notes:",
+        },
+        {
+          title: "Workflow Automation Brief",
+          body:
+            "Workflow name:\nTrigger:\nInputs:\nSteps:\nDecision points:\nTools involved:\nFailure points:\nManual fallback:\nNotification needs:\nData to log:\nOwner:\nFirst version:\nFuture upgrade:",
         },
       ],
     },
