@@ -1039,18 +1039,19 @@ function ProductsPage() {
       <PageHeader
         eyebrow="Digital product shelf"
         title="Practical digital products for builders, teams, and modern workflows."
-        text="Prompt systems, templates, automation guides, and developer resources shaped by real product work. The first offer is live with Stripe checkout and automated email delivery."
+        text="A growing shelf of prompt systems, templates, automation guides, and developer resources shaped by real product work. AI Builder is live now, with the next products planned around the same practical builder workflow."
         icon={Bot}
       />
       <div className="store-hero">
         <div>
-          <span>{featuredProduct.status}</span>
+          <span>Featured ready product</span>
           <h2>{featuredProduct.name}</h2>
           <p>{featuredProduct.text}</p>
           <div className="store-hero-meta" aria-label={`${featuredProduct.name} details`}>
             <span>{featuredProduct.price}</span>
             <span>Digital download</span>
             <span>Stripe checkout</span>
+            <span>More products in progress</span>
           </div>
           <ul className="store-includes">
             {featuredProduct.includes.map((item) => (
@@ -1089,12 +1090,50 @@ function ProductsPage() {
           <span>Payments are handled by Stripe; no card details are stored on this site.</span>
         </div>
       </div>
+      <div className="store-section-heading">
+        <h2>All products</h2>
+        <p>AI Builder is ready now. The other products are the next pieces in the shelf: templates, automation kits, developer resources, and positioning tools.</p>
+      </div>
+      <div className="storefront-grid">
+        {digitalProducts.map(({ checkoutUrl, icon: Icon, includes, name, price, status, text, type }) => (
+          <article className="store-card" key={name}>
+            <div className="store-card-top">
+              <Icon size={22} aria-hidden="true" />
+              <span>{type}</span>
+            </div>
+            <div className="store-card-status">
+              <span>{status}</span>
+              <strong>{price}</strong>
+            </div>
+            <h3>{name}</h3>
+            <p>{text}</p>
+            <ul className="store-includes compact">
+              {includes.map((item) => (
+                <li key={item}>
+                  <CheckCircle2 size={15} aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            {checkoutUrl && isFulfillmentReady ? (
+              <a className="store-button" href={checkoutUrl}>
+                Buy now
+                <ArrowRight size={17} aria-hidden="true" />
+              </a>
+            ) : (
+              <a className="store-button store-button-muted" href={`${waitlistHref}%0D%0A%0D%0AProduct interest: ${encodeURIComponent(name)}`}>
+                Notify me
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
       <section className="product-proof-section" aria-labelledby="ai-builder-preview-title">
         <div className="product-proof-intro">
-          <Eyebrow icon={Sparkles}>Before you buy</Eyebrow>
-          <h2 id="ai-builder-preview-title">See what the workbook helps you make.</h2>
+          <Eyebrow icon={Sparkles}>Featured product preview</Eyebrow>
+          <h2 id="ai-builder-preview-title">A closer look at AI Builder Prompt System.</h2>
           <p>
-            This is for people who want AI to help them produce usable planning assets, not just better chat replies. You get a structured PDF workbook with 45 prompts, templates, scorecards, checklists, and worksheets.
+            Since this is the product available to buy today, here is the extra detail a customer should see before checkout. It is for people who want AI to help them produce usable planning assets, not just better chat replies.
           </p>
         </div>
 
@@ -1162,44 +1201,6 @@ function ProductsPage() {
           <span>After checkout, the PDF is emailed automatically to the address used at purchase. If delivery fails, buyers can reply for support.</span>
         </div>
       </section>
-      <div className="store-section-heading">
-        <h2>Product shelf</h2>
-        <p>The first product is ready now. The rest are planned around the same practical builder workflow.</p>
-      </div>
-      <div className="storefront-grid">
-        {digitalProducts.map(({ checkoutUrl, icon: Icon, includes, name, price, status, text, type }) => (
-          <article className="store-card" key={name}>
-            <div className="store-card-top">
-              <Icon size={22} aria-hidden="true" />
-              <span>{type}</span>
-            </div>
-            <div className="store-card-status">
-              <span>{status}</span>
-              <strong>{price}</strong>
-            </div>
-            <h3>{name}</h3>
-            <p>{text}</p>
-            <ul className="store-includes compact">
-              {includes.map((item) => (
-                <li key={item}>
-                  <CheckCircle2 size={15} aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            {checkoutUrl && isFulfillmentReady ? (
-              <a className="store-button" href={checkoutUrl}>
-                Buy now
-                <ArrowRight size={17} aria-hidden="true" />
-              </a>
-            ) : (
-              <a className="store-button store-button-muted" href={`${waitlistHref}%0D%0A%0D%0AProduct interest: ${encodeURIComponent(name)}`}>
-                Notify me
-              </a>
-            )}
-          </article>
-        ))}
-      </div>
     </main>
   );
 }
