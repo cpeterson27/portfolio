@@ -453,8 +453,8 @@ const digitalProducts = [
     price: "$29",
     status: "Ready first",
     checkoutUrl: checkoutLinks.aiPromptPacks,
-    text: "A practical AI workbook that helps builders create product briefs, offer pages, launch plans, workflow maps, and developer-ready handoffs.",
-    includes: ["35+ workflows with examples", "Scorecards and launch gates", "Copy/paste templates"],
+    text: "A practical AI workbook for turning messy product ideas into sellable, buildable plans.",
+    includes: ["45 prompts, templates, scorecards, and checklists", "Worked example plus copy/paste workbook sections", "Built for early builders, not advanced AI users"],
   },
   {
     icon: Layers3,
@@ -501,6 +501,48 @@ const digitalProducts = [
     includes: ["Portfolio positioning prompts", "Case study structure", "Offer page outline"],
   },
 ];
+
+const aiBuilderDetails = {
+  artifacts: [
+    ["Product brief", "Clarify the buyer, problem, promise, scope, price, and first version."],
+    ["Offer page outline", "Shape the page sections a buyer needs before they trust the product."],
+    ["Launch plan", "Map launch content, buyer objections, and go/no-go checks."],
+    ["Workflow map", "Turn a messy manual process into steps, risks, owners, and automation ideas."],
+    ["Developer handoff", "Convert an idea into user stories, edge cases, acceptance criteria, and tests."],
+    ["Checkout review", "Catch trust, delivery, mobile, and post-purchase gaps before customers do."],
+  ],
+  inside: [
+    "Working method: Context Block, Better Answer Loop, Decision Memo, and asset conversion prompts.",
+    "Product clarity: value audits, offer positioning, objection maps, MVP scope, and premium upgrade ideas.",
+    "Scorecards: paid product value, prompt quality, and launch readiness gates.",
+    "Page and checkout review: conversion review, success page rewrite, trust gap finder, and mobile scan test.",
+    "Templates: product brief, offer page outline, developer handoff, workflow automation brief, and bonus worksheets.",
+  ],
+  bestFor: [
+    "Early founders shaping a first product or digital offer.",
+    "Solo builders who know AI can help but still get generic answers.",
+    "Developers who want stronger product thinking before they code.",
+  ],
+  notFor: [
+    "Experienced AI users with a mature prompting system already in place.",
+    "Anyone expecting a full course, coaching program, or done-for-you strategy.",
+    "People who want novelty prompts instead of practical planning tools.",
+  ],
+  previews: [
+    {
+      title: "Paid Product Value Audit",
+      text: "Review this paid product idea by outcome, specificity, usefulness, buyer urgency, perceived polish, and what a customer might feel after opening it.",
+    },
+    {
+      title: "Checkout Confidence Audit",
+      text: "Identify where a buyer may hesitate, get confused, or worry, then improve button copy, delivery expectations, support language, and reassurance.",
+    },
+    {
+      title: "Developer Handoff Template",
+      text: "Feature, user story, goal, non-goals, UI states, data needed, edge cases, failure states, acceptance criteria, tests, and launch notes.",
+    },
+  ],
+};
 
 const buildPosts = [
   {
@@ -997,7 +1039,7 @@ function ProductsPage() {
       <PageHeader
         eyebrow="Digital product shelf"
         title="Practical digital products for builders, teams, and modern workflows."
-        text="Prompt systems, templates, automation guides, and developer resources shaped by real product work. The first offer is set up for Stripe checkout as soon as the payment link is connected."
+        text="Prompt systems, templates, automation guides, and developer resources shaped by real product work. The first offer is live with Stripe checkout and automated email delivery."
         icon={Bot}
       />
       <div className="store-hero">
@@ -1047,6 +1089,83 @@ function ProductsPage() {
           <span>Payments are handled by Stripe; no card details are stored on this site.</span>
         </div>
       </div>
+      <section className="product-proof-section" aria-labelledby="ai-builder-preview-title">
+        <div className="product-proof-intro">
+          <Eyebrow icon={Sparkles}>Before you buy</Eyebrow>
+          <h2 id="ai-builder-preview-title">See what the workbook helps you make.</h2>
+          <p>
+            This is for people who want AI to help them produce usable planning assets, not just better chat replies. You get a structured PDF workbook with 45 prompts, templates, scorecards, checklists, and worksheets.
+          </p>
+        </div>
+
+        <div className="product-artifact-grid">
+          {aiBuilderDetails.artifacts.map(([title, text]) => (
+            <article className="product-proof-card" key={title}>
+              <CheckCircle2 size={18} aria-hidden="true" />
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="product-proof-layout">
+          <article className="product-proof-panel">
+            <div className="product-proof-panel-heading">
+              <h3>What is inside</h3>
+              <span>45 total items</span>
+            </div>
+            <ul className="product-proof-list">
+              {aiBuilderDetails.inside.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="product-proof-panel">
+            <div className="product-proof-panel-heading">
+              <h3>Honest fit</h3>
+              <span>No mystery box</span>
+            </div>
+            <div className="product-fit-grid">
+              <div>
+                <strong>Best for</strong>
+                <ul className="product-proof-list compact">
+                  {aiBuilderDetails.bestFor.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <strong>Not for</strong>
+                <ul className="product-proof-list compact">
+                  {aiBuilderDetails.notFor.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div className="product-preview-grid" aria-label="Sample workbook sections">
+          {aiBuilderDetails.previews.map((preview) => (
+            <article className="product-preview-card" key={preview.title}>
+              <span>Preview sample</span>
+              <h3>{preview.title}</h3>
+              <p>{preview.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="product-delivery-note">
+          <Rocket size={19} aria-hidden="true" />
+          <span>After checkout, the PDF is emailed automatically to the address used at purchase. If delivery fails, buyers can reply for support.</span>
+        </div>
+      </section>
+      <div className="store-section-heading">
+        <h2>Product shelf</h2>
+        <p>The first product is ready now. The rest are planned around the same practical builder workflow.</p>
+      </div>
       <div className="storefront-grid">
         {digitalProducts.map(({ checkoutUrl, icon: Icon, includes, name, price, status, text, type }) => (
           <article className="store-card" key={name}>
@@ -1092,7 +1211,7 @@ function ProductSuccessPage() {
         <Eyebrow icon={CheckCircle2}>Payment received</Eyebrow>
         <h1>Your product is on the way.</h1>
         <p>
-          Stripe has confirmed your checkout. The AI Prompt Packs PDF will be sent automatically to the email address used at checkout.
+          Stripe has confirmed your checkout. The AI Builder Prompt System PDF will be sent automatically to the email address used at checkout.
         </p>
         <div className="checkout-status-actions">
           <PageLink to="/products">Back to products</PageLink>
