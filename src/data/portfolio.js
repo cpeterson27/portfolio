@@ -34,6 +34,9 @@ export const portfolioData = {
         "Full-stack eCommerce platform with Stripe payments, Shippo shipping, admin dashboard, product management, user authentication, and marketing automation.",
       tags: [
         // Frontend
+        "React 18",
+        "Tailwind CSS",
+        "Responsive Storefront",
         "Cloudinary",
 
         // Backend
@@ -45,7 +48,10 @@ export const portfolioData = {
         "Shippo API",
 
         // Payments / E-commerce
-        "Stripe Payment Intents & Tax",
+        "Stripe Payment Intents",
+        "Stripe Tax",
+        "Cart & Checkout Flow",
+        "Order Fulfillment",
 
         // Marketing / Analytics
         "Google Analytics 4 (GA4)",

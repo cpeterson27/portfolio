@@ -115,16 +115,32 @@ const projects = [
     label: "Live commerce platform",
     image: `${process.env.PUBLIC_URL}/images/sparklebows-mockup.png`,
     statement:
-      "A full-stack eCommerce operating system with payments, shipping, admin tools, and lifecycle marketing.",
+      "A full-stack eCommerce operating system with payments, Shippo shipping, admin tools, customer accounts, analytics, and lifecycle marketing.",
     problem:
       "A handmade product business needs more than a storefront. It needs orders, shipping, product management, customer accounts, analytics, and marketing systems working together.",
-    features: ["Stripe checkout", "Shipping flow", "Admin dashboard", "Product management", "Customer accounts", "Marketing integrations"],
-    stack: ["React", "Node.js", "MongoDB", "Stripe", "Shippo", "Cloudinary"],
+    features: ["Stripe checkout", "Shippo shipping", "Admin dashboard", "Product management", "Customer accounts", "Analytics and marketing"],
+    stack: [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Stripe",
+      "Stripe Tax",
+      "Shippo",
+      "Cloudinary",
+      "Resend",
+      "Klaviyo",
+      "Google Analytics",
+      "Google Tag Manager",
+      "Render",
+      "Cloudflare",
+    ],
     outcome: "A real online business platform designed for daily operations and future growth.",
     star: {
       situation: "A handmade product business needed more than a basic storefront to support real operations and growth.",
       task: "Design and build a full commerce system covering shopping, payments, shipping, admin tools, customer accounts, and marketing integrations.",
-      action: "Built a React and Node platform with Stripe, Shippo, MongoDB, Cloudinary, analytics, authentication, and admin workflows.",
+      action: "Built a React and Node/Express platform with MongoDB, Stripe Payment Intents, Stripe Tax, Shippo shipping, Cloudinary media, Resend email, Klaviyo, Google Analytics, Google Tag Manager, authentication, and admin workflows.",
       result: "Created a live eCommerce operating system that supports real product sales and business management.",
     },
     links: [
@@ -211,14 +227,44 @@ const projectStoryOverrides = {
     label: "Full-stack eCommerce platform",
     image: `${process.env.PUBLIC_URL}/images/sparklebows-mockup.png`,
     statement:
-      "A production eCommerce system with Stripe payments, shipping, admin tools, customer accounts, and marketing automation.",
+      "A production eCommerce system with Stripe payments, Shippo shipping, admin tools, customer accounts, analytics, and marketing automation.",
+    features: [
+      "Product storefront",
+      "Cart and checkout",
+      "Stripe payments and tax",
+      "Shippo shipping",
+      "Customer accounts",
+      "Admin product tools",
+      "Cloudinary media",
+      "Email and marketing flows",
+    ],
+    stack: [
+      "React 18",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB & Mongoose",
+      "JWT Authentication",
+      "Google OAuth",
+      "Optional 2FA",
+      "Stripe Payment Intents",
+      "Stripe Tax",
+      "Shippo API",
+      "Cloudinary",
+      "Resend",
+      "Klaviyo",
+      "GA4",
+      "Google Tag Manager",
+      "Render",
+      "Cloudflare DNS",
+    ],
     star: {
       situation:
         "Sparkle Bows needed more than a pretty storefront. The business needed a real operating system for product sales, shipping, customer accounts, admin management, analytics, and customer communication.",
       task:
         "Design and build a full-stack commerce platform that could support real transactions and make business operations easier to manage.",
       action:
-        "Built the React frontend and Node/Express backend, connected MongoDB data models, implemented Stripe payments, Shippo shipping, JWT authentication, product/admin flows, Cloudinary media, analytics, and email/marketing integrations.",
+        "Built the React frontend and Node/Express backend, connected MongoDB data models, implemented Stripe Payment Intents, Stripe Tax, Shippo shipping, JWT and Google authentication, optional 2FA, product/admin flows, Cloudinary media, Resend email, Klaviyo, GA4, Google Tag Manager, Render deployment, and Cloudflare DNS.",
       result:
         "Launched a live eCommerce platform that supports product discovery, checkout, fulfillment, admin workflows, and future growth for the brand.",
     },
@@ -398,7 +444,8 @@ function normalizePortfolioProject(project) {
   const override = projectStoryOverrides[project.id] || {};
   const gallery = getProjectImages(project);
   const image = override.image || project.image || gallery[0];
-  const stack = (project.tags || []).slice(0, 5);
+  const stack = override.stack || (project.tags || []).slice(0, 5);
+  const features = override.features || (stack.length ? stack : ["Responsive interface", "Structured UI", "Front-end fundamentals"]);
   const baseLinks = override.links || [
     project.link && {
       label: project.link.includes("chromewebstore")
@@ -429,7 +476,7 @@ function normalizePortfolioProject(project) {
       : gallery,
     statement: override.statement || project.description,
     problem: project.description,
-    features: stack.length ? stack : ["Responsive interface", "Structured UI", "Front-end fundamentals"],
+    features,
     stack,
     outcome: override.outcome || "Built as part of my broader engineering foundation and product development practice.",
     star: override.star || {
