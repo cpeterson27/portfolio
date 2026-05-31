@@ -448,13 +448,13 @@ const digitalProducts = [
   {
     icon: Bot,
     slug: "ai-prompt-packs",
-    name: "AI Prompt Packs",
-    type: "Prompt systems",
+    name: "AI Builder Prompt System",
+    type: "Prompt workbook",
     price: "$29",
     status: "Ready first",
     checkoutUrl: checkoutLinks.aiPromptPacks,
-    text: "Practical prompt workflows for product planning, content strategy, UX reviews, and build-in-public operations.",
-    includes: ["Product planning prompts", "UX review workflows", "Content strategy systems"],
+    text: "A practical AI workbook for product clarity, offer positioning, UX reviews, launch content, workflow automation, and developer handoff.",
+    includes: ["35+ prompt workflows", "Launch and UX checklists", "Post-purchase worksheets"],
   },
   {
     icon: Layers3,
