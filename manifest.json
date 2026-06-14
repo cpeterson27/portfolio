@@ -8,11 +8,6 @@
       "type": "image/svg+xml"
     },
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 48x48 32x32 16x16",
-      "type": "image/x-icon"
-    },
-    {
       "src": "favicon-16x16.png",
       "sizes": "16x16",
       "type": "image/png"
@@ -42,6 +37,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#0B1020",
-  "background_color": "#0B1020"
+  "theme_color": "#f6f8fb",
+  "background_color": "#f6f8fb"
 }
