@@ -917,10 +917,10 @@ function Layout() {
         <Link className="brand" to="/" aria-label="Cassandra Peterson home">
           <span className="brand-mark">
             <svg className="brand-symbol" viewBox="0 0 48 48" role="img" aria-label="Cassandra Peterson brand mark">
-              <path className="brand-symbol-bracket" d="M19 14L10 24l9 10" />
-              <path className="brand-symbol-bracket" d="M29 14l9 10-9 10" />
-              <path className="brand-symbol-spark" d="M24 17l1.8 4.8L30.5 24l-4.7 2.2L24 31l-1.8-4.8L17.5 24l4.7-2.2L24 17Z" />
-              <path className="brand-symbol-line" d="M20 36h8" />
+              <path className="brand-symbol-bracket" d="M15 15 8 24l7 9" />
+              <text className="brand-symbol-letters" x="24" y="29" textAnchor="middle">CP</text>
+              <path className="brand-symbol-slash" d="M31 34 37 14" />
+              <path className="brand-symbol-bracket" d="M38 15 45 24l-7 9" />
             </svg>
           </span>
           <span>Cassandra Peterson</span>

@@ -113,26 +113,30 @@
 .brand-symbol {
   position: relative;
   z-index: 1;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
 }
 
 .brand-symbol-bracket,
-.brand-symbol-line {
+.brand-symbol-slash {
   fill: none;
   stroke: #f8fafc;
-  stroke-width: 3.4;
+  stroke-width: 3.2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.brand-symbol-line {
+.brand-symbol-slash {
   stroke: var(--copper);
-  stroke-width: 3;
+  stroke-width: 3.4;
 }
 
-.brand-symbol-spark {
-  fill: var(--copper);
+.brand-symbol-letters {
+  fill: #f8fafc;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 860;
+  letter-spacing: -1px;
 }
 
 .nav-links {
