@@ -20,6 +20,14 @@ const aiPromptPacks = {
     "Catch checkout, UX, and delivery gaps before customers do",
     "Create reusable operating docs instead of one-off AI chats",
   ],
+  artifacts: [
+    ["Product brief", "Clarify the buyer, problem, promise, scope, price, and first version."],
+    ["Offer page outline", "Shape the sections a buyer needs before they trust the product."],
+    ["Launch plan", "Map launch content, buyer objections, and go/no-go checks."],
+    ["Workflow map", "Turn a manual process into steps, risks, owners, and automation ideas."],
+    ["Developer handoff", "Convert an idea into user stories, edge cases, criteria, and tests."],
+    ["Checkout review", "Catch trust, delivery, mobile, and post-purchase gaps before customers do."],
+  ],
   quickStart: [
     "Pick one active project, product, or workflow.",
     "Fill in the Context Block once and reuse it for every prompt.",
