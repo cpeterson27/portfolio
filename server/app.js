@@ -6,7 +6,10 @@ const {
   reserveFulfillment: defaultReserveFulfillment,
 } = require("./lib/idempotency");
 const { fulfillCheckoutSession } = require("./lib/fulfillment");
-const { findProductByStripeSession: defaultFindProductByStripeSession } = require("./productCatalog");
+const {
+  findProductByStripeSession: defaultFindProductByStripeSession,
+  products,
+} = require("./productCatalog");
 
 function getAllowedOrigins(storefrontUrl) {
   return (storefrontUrl || "https://cpeterson27.github.io")
@@ -50,7 +53,11 @@ function createApp({
   });
 
   app.get("/health", (_request, response) => {
-    response.json({ ok: true, service: "portfolio-fulfillment" });
+    response.json({
+      ok: true,
+      products: products.map((product) => product.id),
+      service: "portfolio-fulfillment",
+    });
   });
 
   app.post("/stripe/webhook", express.raw({ type: "application/json" }), async (request, response) => {
