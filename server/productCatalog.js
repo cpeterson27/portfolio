@@ -1,6 +1,7 @@
 const { aiPromptPacks } = require("./products/aiPromptPacks");
+const { notionBuilderOs } = require("./products/notionBuilderOs");
 
-const products = [aiPromptPacks];
+const products = [aiPromptPacks, notionBuilderOs];
 
 function getConfiguredProductMatchers() {
   return {
@@ -8,6 +9,11 @@ function getConfiguredProductMatchers() {
       productId: process.env.STRIPE_AI_PROMPT_PACKS_PRODUCT_ID,
       priceId: process.env.STRIPE_AI_PROMPT_PACKS_PRICE_ID,
       paymentLinkId: process.env.STRIPE_AI_PROMPT_PACKS_PAYMENT_LINK_ID,
+    },
+    [notionBuilderOs.id]: {
+      productId: process.env.STRIPE_NOTION_BUILDER_OS_PRODUCT_ID,
+      priceId: process.env.STRIPE_NOTION_BUILDER_OS_PRICE_ID,
+      paymentLinkId: process.env.STRIPE_NOTION_BUILDER_OS_PAYMENT_LINK_ID,
     },
   };
 }

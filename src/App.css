@@ -1358,6 +1358,40 @@ p {
   color: var(--navy);
 }
 
+.product-workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.product-workflow-step {
+  min-height: 190px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 2px);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.product-workflow-step span {
+  color: var(--copper);
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
+.product-workflow-step strong {
+  display: block;
+  margin: 22px 0 8px;
+  color: var(--navy);
+  font-size: 1.08rem;
+}
+
+.product-workflow-step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
 .product-preview-card {
   min-height: 190px;
   padding: 20px;
@@ -1854,6 +1888,10 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .product-workflow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .store-hero-actions {
     max-width: 520px;
   }
@@ -1911,7 +1949,8 @@ p {
   .storefront-grid,
   .product-artifact-grid,
   .product-preview-grid,
-  .product-fit-grid {
+  .product-fit-grid,
+  .product-workflow-grid {
     grid-template-columns: 1fr;
   }
 

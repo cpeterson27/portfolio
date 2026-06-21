@@ -28,6 +28,7 @@ Add the public Stripe Payment Link to `.env` before building the GitHub Pages si
 
 ```bash
 REACT_APP_STRIPE_AI_PROMPT_PACKS_LINK=https://buy.stripe.com/...
+REACT_APP_STRIPE_NOTION_BUILDER_OS_LINK=https://buy.stripe.com/...
 REACT_APP_FULFILLMENT_READY=false
 ```
 
@@ -63,6 +64,10 @@ STOREFRONT_URL=https://cpeterson27.github.io,http://localhost:3000
 STRIPE_SECRET_KEY=sk_live_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 STRIPE_AI_PROMPT_PACKS_PRICE_ID=price_...
+STRIPE_NOTION_BUILDER_OS_PRODUCT_ID=prod_...
+STRIPE_NOTION_BUILDER_OS_PRICE_ID=price_...
+STRIPE_NOTION_BUILDER_OS_PAYMENT_LINK_ID=plink_...
+NOTION_BUILDER_OS_TEMPLATE_URL=https://www.notion.so/...
 RESEND_API_KEY=re_...
 FULFILLMENT_FROM_EMAIL=Cassandra Peterson <delivery@your-domain.com>
 FULFILLMENT_REPLY_TO=cpeterson.dev@gmail.com
@@ -105,7 +110,17 @@ https://YOUR-FULFILLMENT-DOMAIN/stripe/webhook
 checkout.session.completed
 ```
 
-The webhook verifies Stripe's signature, matches the purchased Stripe product or price, generates the AI Prompt Packs PDF, and emails it to the checkout customer through Resend.
+The webhook verifies Stripe's signature, matches the purchased Stripe product or price, and delivers the correct product through Resend. PDF products are generated and attached; template products receive their configured access link.
+
+### Notion Builder OS
+
+The source kit for assembling the Notion template lives in:
+
+```txt
+product-assets/notion-builder-os/
+```
+
+Import the databases and follow `SETUP-GUIDE.md`. Keep checkout closed until the published Notion page has **Duplicate as template** enabled and the duplicate flow has passed `QA-CHECKLIST.md`.
 
 ### Frontend / Backend Split
 

@@ -1,7 +1,9 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
+const { getDelivery } = require("../lib/email");
 const { fulfillCheckoutSession } = require("../lib/fulfillment");
 const { findProductByStripeSession } = require("../productCatalog");
+const { notionBuilderOs } = require("../products/notionBuilderOs");
 
 const originalEnv = { ...process.env };
 
@@ -13,6 +15,12 @@ function setProductEnv() {
   process.env.STRIPE_AI_PROMPT_PACKS_PRODUCT_ID = "prod_ai_prompt_packs";
   process.env.STRIPE_AI_PROMPT_PACKS_PRICE_ID = "price_ai_prompt_packs";
   process.env.STRIPE_AI_PROMPT_PACKS_PAYMENT_LINK_ID = "plink_ai_prompt_packs";
+}
+
+function setNotionProductEnv() {
+  process.env.STRIPE_NOTION_BUILDER_OS_PRODUCT_ID = "prod_notion_builder_os";
+  process.env.STRIPE_NOTION_BUILDER_OS_PRICE_ID = "price_notion_builder_os";
+  process.env.STRIPE_NOTION_BUILDER_OS_PAYMENT_LINK_ID = "plink_notion_builder_os";
 }
 
 function createCheckoutEvent(overrides = {}) {
@@ -93,6 +101,56 @@ test("fulfills AI Prompt Packs checkout session", async () => {
   assert.equal(deliveries[0].orderId, "cs_live_mock");
   assert.equal(deliveries[0].product.id, "ai-prompt-packs");
   assert.deepEqual(markedEvents, [event.id]);
+});
+
+test("matches and fulfills Notion Builder OS checkout session", async () => {
+  restoreEnv();
+  setProductEnv();
+  setNotionProductEnv();
+
+  const event = createCheckoutEvent({ sessionId: "cs_notion_mock" });
+  const fullSession = createFullSession({
+    sessionId: "cs_notion_mock",
+    paymentLink: "plink_notion_builder_os",
+    priceId: "price_notion_builder_os",
+    productId: "prod_notion_builder_os",
+  });
+  const deliveries = [];
+
+  const result = await fulfillCheckoutSession({
+    event,
+    findProductByStripeSession,
+    reserveFulfillment: async () => true,
+    markFulfilled: async () => {},
+    sendProductDeliveryEmail: async (delivery) => deliveries.push(delivery),
+    stripe: createFakeStripe({ event, fullSession }),
+  });
+
+  assert.deepEqual(result, { received: true, fulfilled: "notion-builder-os" });
+  assert.equal(deliveries.length, 1);
+  assert.equal(deliveries[0].product.delivery.type, "link");
+  assert.equal(deliveries[0].product.delivery.urlEnv, "NOTION_BUILDER_OS_TEMPLATE_URL");
+});
+
+test("builds link delivery for Notion Builder OS", () => {
+  restoreEnv();
+  process.env.NOTION_BUILDER_OS_TEMPLATE_URL = "https://www.notion.so/example-template";
+
+  const delivery = getDelivery(notionBuilderOs);
+
+  assert.deepEqual(delivery.attachments, []);
+  assert.match(delivery.content, /https:\/\/www\.notion\.so\/example-template/);
+  assert.match(delivery.content, /Duplicate Notion Builder OS/);
+});
+
+test("refuses Notion Builder OS delivery without a template URL", () => {
+  restoreEnv();
+  delete process.env.NOTION_BUILDER_OS_TEMPLATE_URL;
+
+  assert.throws(
+    () => getDelivery(notionBuilderOs),
+    /NOTION_BUILDER_OS_TEMPLATE_URL is required/
+  );
 });
 
 test("does not send duplicate fulfillment emails for already reserved events", async () => {

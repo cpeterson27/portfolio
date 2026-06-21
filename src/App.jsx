@@ -660,11 +660,11 @@ const digitalProducts = [
     name: "Notion Builder OS",
     type: "Template",
     price: "$49",
-    status: "Next up",
+    status: "Available",
     checkoutUrl: checkoutLinks.notionBuilderOs,
     detailPath: "/products/notion-builder-os",
-    text: "A workspace for product ideas, launch notes, experiments, content planning, and weekly shipping rhythms.",
-    includes: ["Idea pipeline", "Build log workspace", "Weekly shipping tracker"],
+    text: "A focused Notion workspace for moving product ideas from rough notes to clear decisions, weekly shipping, and launch-ready proof.",
+    includes: ["Product command center", "Idea and experiment pipeline", "Weekly shipping and launch system"],
   },
   {
     icon: Workflow,
@@ -742,6 +742,47 @@ const aiBuilderDetails = {
     {
       title: "Developer Handoff Template",
       text: "Feature, user story, goal, non-goals, UI states, data needed, edge cases, failure states, acceptance criteria, tests, and launch notes.",
+    },
+  ],
+};
+
+const notionBuilderDetails = {
+  modules: [
+    ["Product command center", "See the active product, current milestone, next decision, blockers, and weekly priorities in one place."],
+    ["Idea pipeline", "Capture ideas without letting every idea become a project. Sort by stage, value, confidence, and next action."],
+    ["Decision log", "Record what changed, why it changed, and what evidence should shape the next move."],
+    ["Experiment tracker", "Define the assumption, smallest test, success signal, result, and follow-up before building too much."],
+    ["Build and launch log", "Keep shipping notes, release checkpoints, content tasks, and launch assets connected to the product."],
+    ["Proof library", "Save customer language, screenshots, outcomes, testimonials, and case-study material while the work is fresh."],
+  ],
+  workflow: [
+    ["01", "Capture", "Add an idea, customer signal, problem, or opportunity without interrupting active work."],
+    ["02", "Decide", "Score the idea, name the assumption, and choose whether to test, build, defer, or archive it."],
+    ["03", "Ship", "Turn the selected work into a weekly plan with one milestone and visible next actions."],
+    ["04", "Learn", "Log results, decisions, proof, and follow-up work so progress compounds instead of disappearing."],
+  ],
+  bestFor: [
+    "Solo builders managing product, content, launch, and development themselves.",
+    "Early founders who need a lightweight operating rhythm before adding more tools.",
+    "Developers who want decisions and product context beside their implementation work.",
+  ],
+  notFor: [
+    "Large teams needing advanced permissions, resource planning, or enterprise project management.",
+    "Anyone looking for a decorative life dashboard with dozens of unrelated trackers.",
+    "Teams already committed to a mature Jira, Linear, or dedicated product-ops system.",
+  ],
+  previews: [
+    {
+      title: "This week",
+      text: "One milestone, three priority outcomes, current blockers, decisions needed, and the smallest useful thing to ship next.",
+    },
+    {
+      title: "Idea review",
+      text: "Problem, audience, evidence, expected value, confidence, effort, status, and a clear test-before-build action.",
+    },
+    {
+      title: "Launch room",
+      text: "Offer notes, page status, content plan, checkout QA, delivery checks, launch signals, and post-launch learning.",
     },
   ],
 };
@@ -1521,6 +1562,121 @@ function ProductDetailPage() {
     );
   }
 
+  if (product.slug === "notion-builder-os") {
+    return (
+      <main className="page-section">
+        <div className="product-detail-hero">
+          <div>
+            <Eyebrow icon={Layers3}>Digital product</Eyebrow>
+            <h1>{product.name}</h1>
+            <p>
+              {product.text} It is designed as a practical operating system for one active product—not an oversized second brain.
+            </p>
+            <div className="store-hero-meta" aria-label={`${product.name} details`}>
+              <span>{product.price}</span>
+              <span>Notion template</span>
+              <span>4-step workflow</span>
+              <span>Instant email delivery</span>
+            </div>
+            <div className="product-detail-actions">
+              {product.checkoutUrl && isFulfillmentReady ? (
+                <a className="store-button store-button-primary" href={product.checkoutUrl}>
+                  <ShoppingBag size={17} aria-hidden="true" />
+                  Buy now
+                </a>
+              ) : (
+                <a className="store-button store-button-primary" href={`${waitlistHref}%0D%0A%0D%0AProduct interest: ${encodeURIComponent(product.name)}`}>
+                  <Mail size={17} aria-hidden="true" />
+                  Request access
+                </a>
+              )}
+              <PageLink to="/products" className="store-button store-button-secondary">
+                Back to shelf
+              </PageLink>
+            </div>
+          </div>
+          <ProductVisual product={product} featured />
+        </div>
+
+        <section className="product-proof-section" aria-labelledby="notion-builder-modules-title">
+          <div className="product-proof-intro">
+            <Eyebrow icon={Layers3}>The product foundation</Eyebrow>
+            <h2 id="notion-builder-modules-title">One workspace for deciding what matters and shipping it.</h2>
+            <p>
+              Each module earns its place by helping a builder capture, decide, ship, or learn without turning the workspace into another project to maintain.
+            </p>
+          </div>
+
+          <div className="product-artifact-grid">
+            {notionBuilderDetails.modules.map(([title, text]) => (
+              <article className="product-proof-card" key={title}>
+                <CheckCircle2 size={18} aria-hidden="true" />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+
+          <article className="product-proof-panel">
+            <div className="product-proof-panel-heading">
+              <h3>The working rhythm</h3>
+              <span>Capture → learn</span>
+            </div>
+            <div className="product-workflow-grid">
+              {notionBuilderDetails.workflow.map(([number, title, text]) => (
+                <div className="product-workflow-step" key={number}>
+                  <span>{number}</span>
+                  <strong>{title}</strong>
+                  <p>{text}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="product-proof-panel">
+            <div className="product-proof-panel-heading">
+              <h3>Honest fit</h3>
+              <span>Built to stay focused</span>
+            </div>
+            <div className="product-fit-grid">
+              <div>
+                <strong>Best for</strong>
+                <ul className="product-proof-list compact">
+                  {notionBuilderDetails.bestFor.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <strong>Not for</strong>
+                <ul className="product-proof-list compact">
+                  {notionBuilderDetails.notFor.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <div className="product-preview-grid" aria-label="Planned Notion workspace views">
+            {notionBuilderDetails.previews.map((preview) => (
+              <article className="product-preview-card" key={preview.title}>
+                <span>Workspace view</span>
+                <h3>{preview.title}</h3>
+                <p>{preview.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="product-delivery-note">
+            <Rocket size={19} aria-hidden="true" />
+            <span>After checkout, the Notion template link is emailed automatically to the address used at purchase. Buyers can duplicate it into their own private workspace.</span>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   if (product.slug !== "ai-prompt-packs") {
     return (
       <main className="page-section">
@@ -1670,7 +1826,7 @@ function ProductSuccessPage() {
         <Eyebrow icon={CheckCircle2}>Payment received</Eyebrow>
         <h1>Your product is on the way.</h1>
         <p>
-          Stripe has confirmed your checkout. The AI Builder Prompt System PDF will be sent automatically to the email address used at checkout.
+          Stripe has confirmed your checkout. Your product access email will be sent automatically to the address used at checkout.
         </p>
         <div className="checkout-status-actions">
           <PageLink to="/products">Back to products</PageLink>

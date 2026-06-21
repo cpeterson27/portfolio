@@ -20,6 +20,14 @@ services:
         sync: false
       - key: STRIPE_AI_PROMPT_PACKS_PAYMENT_LINK_ID
         sync: false
+      - key: STRIPE_NOTION_BUILDER_OS_PRODUCT_ID
+        sync: false
+      - key: STRIPE_NOTION_BUILDER_OS_PRICE_ID
+        sync: false
+      - key: STRIPE_NOTION_BUILDER_OS_PAYMENT_LINK_ID
+        sync: false
+      - key: NOTION_BUILDER_OS_TEMPLATE_URL
+        sync: false
       - key: RESEND_API_KEY
         sync: false
       - key: FULFILLMENT_FROM_EMAIL
