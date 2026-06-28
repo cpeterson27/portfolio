@@ -18,7 +18,6 @@ import {
   Orbit,
   RadioTower,
   Rocket,
-  ShieldCheck,
   ShoppingBag,
   Sparkles,
   Workflow,
@@ -27,16 +26,19 @@ import {
   BrowserRouter,
   Link,
   NavLink,
+  Navigate,
   Route,
   Routes,
   useLocation,
   useParams,
 } from "react-router-dom";
+import headshot from "./assets/cassandra-peterson-headshot.jpg";
 import { portfolioData } from "./data/portfolio";
 import "./App.css";
 
 const profile = {
   name: "Cassandra Peterson",
+  location: "Sacramento, California",
   email: "cpeterson.dev@gmail.com",
   github: "https://github.com/cpeterson27",
   linkedin: "https://www.linkedin.com/in/cassandrapeterson-software-engineer/",
@@ -54,10 +56,10 @@ const checkoutLinks = {
   founderPortfolioKit: process.env.REACT_APP_STRIPE_FOUNDER_PORTFOLIO_KIT_LINK || "",
 };
 const isFulfillmentReady = process.env.REACT_APP_FULFILLMENT_READY === "true";
+const showDigitalProducts = false;
 
 const navItems = [
   ["Projects", "/projects"],
-  ["Products", "/products"],
   ["Build Log", "/build-log"],
   ["Work With Me", "/work-with-me"],
 ];
@@ -643,35 +645,37 @@ const projectStories = portfolioData.projects.map(normalizePortfolioProject);
 
 const digitalProducts = [
   {
-    icon: Bot,
-    slug: "ai-prompt-packs",
-    name: "AI Builder Prompt System",
-    type: "Prompt workbook",
-    price: "$29",
-    status: "Ready first",
-    checkoutUrl: checkoutLinks.aiPromptPacks,
-    detailPath: "/products/ai-prompt-packs",
-    text: "A practical AI workbook for turning messy product ideas into sellable, buildable plans.",
-    includes: ["45 prompts, templates, scorecards, and checklists", "Worked example plus copy/paste workbook sections", "Built for early builders, not advanced AI users"],
-  },
-  {
     icon: Layers3,
     slug: "notion-builder-os",
     name: "Notion Builder OS",
-    type: "Template",
+    type: "Notion workspace",
     price: "$49",
     status: "Available",
+    deliveryLabel: "Notion template",
     checkoutUrl: checkoutLinks.notionBuilderOs,
     detailPath: "/products/notion-builder-os",
     text: "A focused Notion workspace for moving product ideas from rough notes to clear decisions, weekly shipping, and launch-ready proof.",
     includes: ["Product command center", "Idea and experiment pipeline", "Weekly shipping and launch system"],
   },
   {
+    icon: Bot,
+    slug: "ai-prompt-packs",
+    name: "AI Builder Prompt System",
+    type: "PDF prompt workbook",
+    price: "$29",
+    status: "Available",
+    deliveryLabel: "PDF workbook",
+    checkoutUrl: checkoutLinks.aiPromptPacks,
+    detailPath: "/products/ai-prompt-packs",
+    text: "A guided workbook that helps turn a fuzzy product idea into a product brief, offer page, launch plan, and developer handoff. It works alone or alongside Notion Builder OS.",
+    includes: ["45 prompts, templates, scorecards, and checklists", "Worked example plus copy/paste workbook sections", "Product brief, offer page, launch plan, and developer handoff"],
+  },
+  {
     icon: Workflow,
     slug: "automation-kits",
     name: "Automation Kits",
     type: "Workflow recipes",
-    price: "$39",
+    price: "Price TBD",
     status: "Planned",
     checkoutUrl: checkoutLinks.automationKits,
     detailPath: "/products/automation-kits",
@@ -683,7 +687,7 @@ const digitalProducts = [
     slug: "developer-resources",
     name: "Developer Resources",
     type: "Resource library",
-    price: "$19",
+    price: "Price TBD",
     status: "Planned",
     checkoutUrl: checkoutLinks.developerResources,
     detailPath: "/products/developer-resources",
@@ -693,14 +697,14 @@ const digitalProducts = [
   {
     icon: BriefcaseBusiness,
     slug: "founder-portfolio-kit",
-    name: "Founder Portfolio Kit",
-    type: "Positioning kit",
-    price: "$59",
+    name: "Builder Portfolio & Case Study Kit",
+    type: "Portfolio storytelling kit",
+    price: "Price TBD",
     status: "Planned",
     checkoutUrl: checkoutLinks.founderPortfolioKit,
     detailPath: "/products/founder-portfolio-kit",
-    text: "A template system for developers who want to present as product-minded builders, not resume pages.",
-    includes: ["Portfolio positioning prompts", "Case study structure", "Offer page outline"],
+    text: "A planned system for turning completed work into credible case studies, portfolio copy, proof points, and a clear builder story. It is not a portfolio website.",
+    includes: ["Builder positioning prompts", "Case study structure", "Proof and outcome worksheets"],
   },
 ];
 
@@ -830,34 +834,6 @@ const productVisuals = {
   },
 };
 
-const productJourney = [
-  {
-    productSlug: "ai-prompt-packs",
-    need: "I have an idea, but it is fuzzy.",
-    action: "Start here to clarify the product, buyer, promise, page outline, launch plan, and developer handoff.",
-  },
-  {
-    productSlug: "notion-builder-os",
-    need: "I need a place to organize the plan.",
-    action: "Move the outputs into a workspace for ideas, experiments, content, and weekly shipping.",
-  },
-  {
-    productSlug: "automation-kits",
-    need: "I keep repeating the same business tasks.",
-    action: "Map manual processes into intake, follow-up, reporting, and admin workflow blueprints.",
-  },
-  {
-    productSlug: "developer-resources",
-    need: "I am ready to build or polish the thing.",
-    action: "Use implementation notes, QA checks, launch reviews, and front-end polish patterns.",
-  },
-  {
-    productSlug: "founder-portfolio-kit",
-    need: "I need to present what I built.",
-    action: "Turn finished work into stronger case studies, proof, positioning, and product-minded portfolio pages.",
-  },
-];
-
 const buildPosts = [
   {
     title: "Designing browser memory for research-heavy work",
@@ -982,10 +958,16 @@ function Layout() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/products/:slug" element={<ProductDetailPage />} />
-          <Route path="/products/success" element={<ProductSuccessPage />} />
-          <Route path="/products/cancel" element={<ProductCancelPage />} />
+          {showDigitalProducts ? (
+            <>
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/products/:slug" element={<ProductDetailPage />} />
+              <Route path="/products/success" element={<ProductSuccessPage />} />
+              <Route path="/products/cancel" element={<ProductCancelPage />} />
+            </>
+          ) : (
+            <Route path="/products/*" element={<Navigate to="/" replace />} />
+          )}
           <Route path="/build-log" element={<BuildLogPage />} />
           <Route path="/work-with-me" element={<WorkPage />} />
         </Routes>
@@ -1023,11 +1005,12 @@ function HomePage() {
           </div>
           <aside className="hero-photo-card" aria-label="Contact Cassandra Peterson">
             <img
-              src={`${process.env.PUBLIC_URL}/images/cassandra-peterson-headshot.png`}
+              src={headshot}
               alt="Cassandra Peterson"
             />
             <div className="hero-contact-card">
               <strong>Full-stack product engineer</strong>
+              <span>Based in {profile.location}</span>
               <span>React interfaces, Node APIs, Stripe flows, automation, and AI-assisted workflows.</span>
               <code>ship({`{`} clarity, polish, systems {`}`});</code>
               <div className="hero-stack" aria-label="Core technical focus">
@@ -1092,34 +1075,11 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section split-section">
-        <div>
-          <SectionIntro
-            eyebrow="Currently building"
-            title="Digital products, AI workflows, and business automation systems."
-            text="The next layer is productized: prompt packs, templates, automation kits, build notes, and SaaS experiments shaped by real project work."
-            icon={Rocket}
-          />
-          <PageLink to="/products">See the product shelf</PageLink>
-        </div>
-        <div className="signal-list">
-          {digitalProducts.slice(0, 4).map(({ icon: Icon, name, text }) => (
-            <div className="signal-item" key={name}>
-              <Icon size={18} aria-hidden="true" />
-              <div>
-                <strong>{name}</strong>
-                <span>{text}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="section about-preview-section">
         <div className="about-preview">
           <div className="about-preview-media">
             <img
-              src={`${process.env.PUBLIC_URL}/images/cassandra-peterson-headshot.png`}
+              src={headshot}
               alt="Cassandra Peterson, software engineer and product builder"
             />
           </div>
@@ -1377,138 +1337,188 @@ function ProjectGallery({ project }) {
 }
 
 function ProductsPage() {
-  const featuredProduct = digitalProducts[0];
-  const readyProducts = digitalProducts.filter((product) => product.checkoutUrl);
+  const availableProducts = digitalProducts.filter((product) => product.status === "Available");
+  const plannedProducts = digitalProducts.filter((product) => product.status === "Planned");
+  const buyingGuide = {
+    "notion-builder-os": {
+      stage: "You know what you are building",
+      label: "Keep the work organized and moving",
+      what: "A duplicable Notion workspace with connected databases, dashboards, templates, and example records.",
+      why: "Choose this when the product is real, but your ideas, decisions, experiments, weekly plans, and customer proof are scattered.",
+      result: "One working command center that shows what matters now, what needs a decision, and what should ship next.",
+      question: "How do I manage everything without losing focus?",
+      accent: "workspace",
+    },
+    "ai-prompt-packs": {
+      stage: "You are still shaping the idea",
+      label: "Turn a rough idea into a clear plan",
+      what: "A downloadable PDF workbook containing 45 guided AI prompts, planning templates, scorecards, and a worked example.",
+      why: "Choose this when you need help defining the buyer, problem, offer, sales page, launch plan, or developer handoff.",
+      result: "A build-ready product brief and practical planning documents you can create with the AI tool you already use.",
+      question: "What exactly should I build, for whom, and how do I explain it?",
+      accent: "workbook",
+    },
+  };
 
   return (
     <main className="page-section">
       <PageHeader
-        eyebrow="Digital product shelf"
-        title="Practical digital products for builders, teams, and modern workflows."
-        text="A growing shelf of prompt systems, templates, automation guides, and developer resources shaped by real product work. AI Builder is live now, with the next products planned around the same practical builder workflow."
-        icon={Bot}
+        eyebrow="Digital tools for builders"
+        title="Turn an idea into a product—and keep the work moving."
+        text="Each tool solves a different stage of the job. Start with the problem you have today: making the idea clear or managing the work after it becomes real."
+        icon={ShoppingBag}
       />
-      <div className="store-hero">
+      <section className="product-stage-picker" aria-labelledby="stage-picker-title">
         <div>
-          <span>Featured ready product</span>
-          <h2>{featuredProduct.name}</h2>
-          <p>{featuredProduct.text}</p>
-          <div className="store-hero-meta" aria-label={`${featuredProduct.name} details`}>
-            <span>{featuredProduct.price}</span>
-            <span>Digital download</span>
-            <span>Stripe checkout</span>
-            <span>More products in progress</span>
+          <span>Choose by your current bottleneck</span>
+          <h2 id="stage-picker-title">Where are you stuck?</h2>
+        </div>
+        <a href="#ai-prompt-packs">
+          <Bot size={20} aria-hidden="true" />
+          <span>I am still shaping the idea</span>
+          <strong>Help me create a clear product plan</strong>
+          <ArrowRight size={18} aria-hidden="true" />
+        </a>
+        <a href="#notion-builder-os">
+          <Layers3 size={20} aria-hidden="true" />
+          <span>I know what I am building</span>
+          <strong>Help me organize and ship the work</strong>
+          <ArrowRight size={18} aria-hidden="true" />
+        </a>
+      </section>
+      <section className="product-choice-section" aria-label="Products available now">
+        {availableProducts.map((product, index) => {
+          const guide = buyingGuide[product.slug];
+          const Icon = product.icon;
+
+          return (
+            <article className={`product-choice-card ${guide.accent}`} id={product.slug} key={product.slug}>
+              <div className="product-choice-topline">
+                <span>0{index + 1}</span>
+                <span>{product.type}</span>
+                <span>{guide.stage}</span>
+              </div>
+              <div className="product-choice-heading">
+                <div className="product-choice-icon">
+                  <Icon size={25} aria-hidden="true" />
+                </div>
+                <div>
+                  <p>{guide.label}</p>
+                  <h2>{product.name}</h2>
+                </div>
+              </div>
+              <ProductVisual product={product} />
+              <div className="product-explainer">
+                <div>
+                  <span>What it is</span>
+                  <p>{guide.what}</p>
+                </div>
+                <div>
+                  <span>Choose it when</span>
+                  <p>{guide.why}</p>
+                </div>
+                <div>
+                  <span>The outcome</span>
+                  <p>{guide.result}</p>
+                </div>
+              </div>
+              <div className="product-choice-includes">
+                <strong>You receive</strong>
+                <ul className="store-includes">
+                  {product.includes.map((item) => (
+                    <li key={item}>
+                      <CheckCircle2 size={16} aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="product-choice-footer">
+                <div>
+                  <strong>{product.price}</strong>
+                  <span>Instant email delivery</span>
+                </div>
+                <div className="product-choice-actions">
+                  <PageLink to={product.detailPath} className="store-button store-button-secondary">
+                    See everything inside
+                  </PageLink>
+                  {product.checkoutUrl && isFulfillmentReady ? (
+                    <a className="store-button store-button-primary" href={product.checkoutUrl}>
+                      Buy {product.name}
+                      <ArrowRight size={17} aria-hidden="true" />
+                    </a>
+                  ) : (
+                    <a className="store-button store-button-primary" href={`${waitlistHref}%0D%0A%0D%0AProduct interest: ${encodeURIComponent(product.name)}`}>
+                      Request access
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </section>
+      <section className="product-fit-section" aria-labelledby="product-fit-title">
+        <div className="product-fit-heading">
+          <span>The simplest difference</span>
+          <h2 id="product-fit-title">Two questions. Two practical tools.</h2>
+          <p>Match the question you are asking to the tool designed to answer it.</p>
+        </div>
+        <div className="product-fit-flow">
+          <div>
+            <Bot size={21} aria-hidden="true" />
+            <span>AI Builder Prompt System</span>
+            <strong>{buyingGuide["ai-prompt-packs"].question}</strong>
+            <p>Use the workbook to shape the strategy and produce a clear plan.</p>
           </div>
-          <ul className="store-includes">
-            {featuredProduct.includes.map((item) => (
-              <li key={item}>
-                <CheckCircle2 size={16} aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
+          <span className="product-fit-divider">or</span>
+          <div>
+            <Layers3 size={21} aria-hidden="true" />
+            <span>Notion Builder OS</span>
+            <strong>{buyingGuide["notion-builder-os"].question}</strong>
+            <p>Use the workspace to operate the product and keep progress visible.</p>
+          </div>
         </div>
-        <ProductVisual product={featuredProduct} featured />
-        <div className="store-hero-actions">
-          {featuredProduct.checkoutUrl && isFulfillmentReady ? (
-            <a className="store-button store-button-primary" href={featuredProduct.checkoutUrl}>
-              <ShoppingBag size={17} aria-hidden="true" />
-              Buy now
-            </a>
-          ) : (
-            <a className="store-button store-button-primary" href={`${waitlistHref}%0D%0A%0D%0AProduct interest: ${encodeURIComponent(featuredProduct.name)}`}>
-              <ShoppingBag size={17} aria-hidden="true" />
-              Request early access
-            </a>
-          )}
-          <PageLink to={featuredProduct.detailPath} className="store-button store-button-secondary">
-            View details
-          </PageLink>
-          <a className="store-button store-button-secondary" href={productQuestionHref}>
-            <Mail size={17} aria-hidden="true" />
-            Ask a question
-          </a>
-        </div>
-      </div>
-      <div className="store-checkout-note">
-        <div>
-          <CreditCard size={19} aria-hidden="true" />
-          <span>{readyProducts.length && isFulfillmentReady ? `${readyProducts.length} product${readyProducts.length === 1 ? "" : "s"} connected to Stripe with automated delivery.` : "Checkout will open after automated delivery is connected."}</span>
-        </div>
-        <div>
-          <ShieldCheck size={19} aria-hidden="true" />
-          <span>Payments are handled by Stripe; no card details are stored on this site.</span>
-        </div>
-      </div>
-      <div className="store-section-heading">
-        <h2>All products</h2>
-        <p>Each product now lives as its own buying path, so this shelf can grow without mixing one product&apos;s details into the whole catalog.</p>
-      </div>
-      <section className="product-path-section" aria-labelledby="product-path-title">
+        <a className="product-fit-help" href={productQuestionHref}>
+          Still unsure? Tell me where you are stuck
+          <ArrowRight size={16} aria-hidden="true" />
+        </a>
+      </section>
+      <section className="product-roadmap-section" aria-labelledby="roadmap-title">
         <div className="store-section-heading">
-          <h2 id="product-path-title">Choose your starting point</h2>
-          <p>The products are meant to work together as a builder path: clarify the idea, organize the work, automate repeatable pieces, build with better checks, then present the finished result.</p>
+          <span>Coming later</span>
+          <h2 id="roadmap-title">More practical tools are being built.</h2>
+          <p>These are upcoming product directions. Join the interest list if one solves a problem you want help with next.</p>
         </div>
-        <div className="product-path-grid">
-          {productJourney.map((step, index) => {
-            const product = digitalProducts.find((item) => item.slug === step.productSlug);
+        <div className="product-roadmap-list">
+          {plannedProducts.map((product) => {
             const Icon = product.icon;
 
             return (
-              <Link className="product-path-card" to={product.detailPath} key={product.slug}>
-                <span className="product-path-number">0{index + 1}</span>
-                <Icon size={18} aria-hidden="true" />
-                <strong>{step.need}</strong>
-                <p>{step.action}</p>
-                <em>{product.name}</em>
-              </Link>
+              <article key={product.slug}>
+                <Icon size={20} aria-hidden="true" />
+                <div>
+                  <span>In development</span>
+                  <h3>{product.name}</h3>
+                  <p>{product.text}</p>
+                </div>
+                <a href={`${waitlistHref}%0D%0A%0D%0AProduct interest: ${encodeURIComponent(product.name)}`}>
+                  Follow progress
+                </a>
+              </article>
             );
           })}
         </div>
       </section>
-      <div className="storefront-grid">
-        {digitalProducts.map((product) => {
-          const { checkoutUrl, detailPath, icon: Icon, includes, name, price, status, text, type } = product;
-
-          return (
-          <article className="store-card" key={name}>
-            <div className="store-card-top">
-              <Icon size={22} aria-hidden="true" />
-              <span>{type}</span>
-            </div>
-            <ProductVisual product={product} />
-            <div className="store-card-status">
-              <span>{status}</span>
-              <strong>{price}</strong>
-            </div>
-            <h3>{name}</h3>
-            <p>{text}</p>
-            <ul className="store-includes compact">
-              {includes.map((item) => (
-                <li key={item}>
-                  <CheckCircle2 size={15} aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="store-card-actions">
-              <PageLink to={detailPath} className="store-button store-button-secondary">
-                Details
-              </PageLink>
-              {checkoutUrl && isFulfillmentReady ? (
-                <a className="store-button" href={checkoutUrl}>
-                  Buy now
-                  <ArrowRight size={17} aria-hidden="true" />
-                </a>
-              ) : (
-                <a className="store-button store-button-muted" href={`${waitlistHref}%0D%0A%0D%0AProduct interest: ${encodeURIComponent(name)}`}>
-                  Notify me
-                </a>
-              )}
-            </div>
-          </article>
-          );
-        })}
+      <div className="store-checkout-note">
+        <div>
+          <CreditCard size={19} aria-hidden="true" />
+          <span>Secure checkout through Stripe.</span>
+        </div>
+        <div>
+          <Mail size={19} aria-hidden="true" />
+          <span>Digital access is delivered automatically by email.</span>
+        </div>
       </div>
     </main>
   );
@@ -1912,7 +1922,7 @@ function WorkPage() {
       <section className="section work-detail-grid">
         <div className="work-photo-card">
           <img
-            src={`${process.env.PUBLIC_URL}/images/cassandra-peterson-headshot.png`}
+            src={headshot}
             alt="Cassandra Peterson"
           />
         </div>
@@ -1925,7 +1935,7 @@ function WorkPage() {
         </div>
         <div className="contact-panel">
           <h3>Start a conversation</h3>
-          <p>Open to freelance projects, collaborations, startup conversations, and product-minded engineering opportunities.</p>
+          <p>Based in {profile.location} and open to freelance projects, collaborations, startup conversations, and product-minded engineering opportunities.</p>
           <div className="contact-actions">
             <a href={`mailto:${profile.email}`}><Mail size={18} aria-hidden="true" /> Email</a>
             <a href={profile.github} target="_blank" rel="noreferrer"><Github size={18} aria-hidden="true" /> GitHub</a>
@@ -1959,7 +1969,7 @@ function Footer() {
   return (
     <footer className="footer">
       <span>{profile.name}</span>
-      <span>Software Engineer | Product Builder | AI + Automation</span>
+      <span>Software Engineer | {profile.location}</span>
       <div>
         <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
         <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
