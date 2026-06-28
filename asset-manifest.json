@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.fce29126.css",
-    "main.js": "/portfolio/static/js/main.235660cd.js",
+    "main.css": "/portfolio/static/css/main.2094ca65.css",
+    "main.js": "/portfolio/static/js/main.b3016446.js",
+    "static/media/cassandra-peterson-headshot.jpg": "/portfolio/static/media/cassandra-peterson-headshot.801d193bc9bdbbeadf4b.jpg",
     "index.html": "/portfolio/index.html",
-    "main.fce29126.css.map": "/portfolio/static/css/main.fce29126.css.map",
-    "main.235660cd.js.map": "/portfolio/static/js/main.235660cd.js.map"
+    "main.2094ca65.css.map": "/portfolio/static/css/main.2094ca65.css.map",
+    "main.b3016446.js.map": "/portfolio/static/js/main.b3016446.js.map"
   },
   "entrypoints": [
-    "static/css/main.fce29126.css",
-    "static/js/main.235660cd.js"
+    "static/css/main.2094ca65.css",
+    "static/js/main.b3016446.js"
   ]
 }
