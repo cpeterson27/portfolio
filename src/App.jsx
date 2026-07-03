@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -14,7 +14,6 @@ import {
   Layers3,
   Linkedin,
   Mail,
-  Newspaper,
   Orbit,
   RadioTower,
   Rocket,
@@ -60,13 +59,13 @@ const showDigitalProducts = false;
 
 const navItems = [
   ["Projects", "/projects"],
-  ["Build Log", "/build-log"],
   ["Work With Me", "/work-with-me"],
 ];
 
 const projects = [
   {
     id: "trace",
+    caseStudyId: "archive-16",
     name: "Trace",
     label: "Chrome extension",
     image: `${process.env.PUBLIC_URL}/images/trace-browser-memory.png`,
@@ -92,11 +91,17 @@ const projects = [
       action: "Built a React, TypeScript, and Vite extension around Chrome Extension APIs, Chrome Storage API, Chrome Alarms API, background auto-save, duplicate prevention, session restore, search, pinning, tagging, renaming, editable summaries, copied links, JSON import/export, and collapsible tab lists.",
       result: "Shipped an active MVP with clear roadmap paths for AI-generated session summaries, semantic search, cloud sync, user accounts, Stripe subscription billing, and Chrome Web Store release.",
     },
-    links: [{ label: "GitHub", href: "https://github.com/cpeterson27/trace-browser-memory" }],
+    links: [
+      {
+        label: "Live extension",
+        href: "https://chromewebstore.google.com/detail/trace-browser-memory/bbaigekgnjillfklcijnhgcplejhmodl?hl=en-US&utm_source=ext_sidebar",
+      },
+    ],
     priority: true,
   },
   {
     id: "standing-break",
+    caseStudyId: "archive-1",
     name: "Standing Break Reminder",
     label: "Paid contract | Sabi Ventures LLC",
     image: `${process.env.PUBLIC_URL}/images/standing-break-reminder.jpg`,
@@ -115,7 +120,7 @@ const projects = [
     },
     links: [
       {
-        label: "Chrome Web Store",
+        label: "Live extension",
         href: "https://chromewebstore.google.com/detail/standing-break-reminder/lidfpoljnclliodaaboebnkkpemobmfm?pli=1",
       },
     ],
@@ -123,6 +128,7 @@ const projects = [
   },
   {
     id: "sparkle-bows",
+    caseStudyId: "archive-14",
     name: "Sparkle Bows Commerce OS",
     label: "Live commerce platform",
     image: `${process.env.PUBLIC_URL}/images/sparklebows-mockup.png`,
@@ -187,8 +193,8 @@ const projects = [
       result: "Created a live eCommerce operating system that supports real product sales and business management.",
     },
     links: [
-      { label: "Live Demo", href: "https://www.sparklebows.shop/" },
-      { label: "Frontend", href: "https://github.com/cpeterson27/sparkle-bows-frontend.git" },
+      { label: "Live project", href: "https://www.sparklebows.shop/" },
+      { label: "Source code", href: "https://github.com/cpeterson27/sparkle-bows-frontend.git" },
       { label: "Backend", href: "https://github.com/cpeterson27/sparkle-bows-backend.git" },
     ],
     priority: true,
@@ -403,7 +409,14 @@ const projectStoryOverrides = {
         "Created an active MVP with a clear product direction and roadmap potential for AI-generated summaries, semantic search, cloud sync, user accounts, Stripe subscription billing, and Chrome Web Store release.",
     },
     links: [
-      { label: "Chrome Extension Repo", href: "https://github.com/cpeterson27/trace-browser-memory" },
+      {
+        label: "Live extension",
+        href: "https://chromewebstore.google.com/detail/trace-browser-memory/bbaigekgnjillfklcijnhgcplejhmodl?hl=en-US&utm_source=ext_sidebar",
+      },
+      {
+        label: "Source code",
+        href: "https://github.com/cpeterson27/trace-browser-memory",
+      },
     ],
   },
   15: {
@@ -805,7 +818,7 @@ const productVisuals = {
     outcome: "Organize product ideas, decisions, content, experiments, and weekly shipping work.",
     before: "Scattered notes",
     after: "Builder dashboard",
-    pages: ["Idea pipeline", "Build log", "Launch notes", "Shipping rhythm"],
+    pages: ["Idea pipeline", "Product roadmap", "Launch notes", "Shipping rhythm"],
     notes: ["Pipeline", "Weekly cadence", "Decision log"],
   },
   "automation-kits": {
@@ -833,29 +846,6 @@ const productVisuals = {
     notes: ["Prompts", "Templates", "Outline"],
   },
 };
-
-const buildPosts = [
-  {
-    title: "Designing browser memory for research-heavy work",
-    category: "Chrome extension lab",
-    summary: "What Trace taught me about context, tab overload, and tiny product loops inside the browser.",
-  },
-  {
-    title: "Turning client work into reusable product systems",
-    category: "Product thinking",
-    summary: "How business dashboards, admin flows, and automations can become repeatable building blocks.",
-  },
-  {
-    title: "AI workflows that make small teams feel bigger",
-    category: "AI + automation",
-    summary: "A practical look at where AI belongs in operations: intake, summaries, follow-ups, and decision support.",
-  },
-  {
-    title: "Shipping a commerce platform beyond the storefront",
-    category: "Engineering notes",
-    summary: "Why payments, shipping, lifecycle email, analytics, and admin tools matter as much as the public UI.",
-  },
-];
 
 const services = [
   ["AI workflow systems", "Map repetitive work into practical AI-assisted workflows for daily operations."],
@@ -968,7 +958,6 @@ function Layout() {
           ) : (
             <Route path="/products/*" element={<Navigate to="/" replace />} />
           )}
-          <Route path="/build-log" element={<BuildLogPage />} />
           <Route path="/work-with-me" element={<WorkPage />} />
         </Routes>
       </div>
@@ -1066,7 +1055,12 @@ function HomePage() {
                         {link.label}
                       </ExternalLink>
                     ))}
-                    <PageLink to="/projects" className="button button-ghost">Case notes</PageLink>
+                    <PageLink
+                      to={`/projects#${project.caseStudyId}`}
+                      className="button button-ghost"
+                    >
+                      Case notes
+                    </PageLink>
                   </div>
                 </div>
               </article>
@@ -1100,41 +1094,34 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section">
-        <SectionIntro
-          eyebrow="Build log preview"
-          title="Notes from product, engineering, and AI experiments."
-          icon={Newspaper}
-        />
-        <div className="build-preview-grid">
-          {buildPosts.slice(0, 3).map((post) => (
-            <article className="build-card" key={post.title}>
-              <span>{post.category}</span>
-              <h3>{post.title}</h3>
-              <p>{post.summary}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <CtaBand />
     </main>
   );
 }
 
 function ProjectsPage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+
+    const targetId = decodeURIComponent(location.hash.slice(1));
+    const target = document.getElementById(targetId);
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [location.hash]);
+
   return (
     <main>
       <section className="page-section">
         <PageHeader
-          eyebrow="Product showcase"
-          title="Projects presented like products, not assignments."
+          eyebrow="Selected engineering work"
+          title="Engineering projects built for real-world use."
           text="A deeper look at the systems I build: browser tools, client platforms, eCommerce operations, automation layers, and SaaS-style experiments."
           icon={Boxes}
         />
         <div className="case-study-stack">
           {projectStories.map((project) => (
-            <article className="case-study" key={project.id}>
+            <article className="case-study" id={project.id} key={project.id}>
               <div className="case-content">
                 <div className="case-heading-row">
                   <div>
@@ -1153,43 +1140,44 @@ function ProjectsPage() {
 
                 <ProjectGallery project={project} />
 
-                <div className="star-grid">
-                  <div className="case-detail">
-                    <strong>Situation</strong>
-                    <p>{project.star.situation}</p>
+                <details
+                  className="case-study-details"
+                  defaultOpen={location.hash === `#${project.id}`}
+                >
+                  <summary>View case study details</summary>
+                  <div className="case-study-details-content">
+                    <div className="star-grid">
+                      <div className="case-detail">
+                        <strong>Situation</strong>
+                        <p>{project.star.situation}</p>
+                      </div>
+                      <div className="case-detail">
+                        <strong>Task</strong>
+                        <p>{project.star.task}</p>
+                      </div>
+                      <div className="case-detail">
+                        <strong>Action</strong>
+                        <p>{project.star.action}</p>
+                      </div>
+                      <div className="case-detail">
+                        <strong>Result</strong>
+                        <p>{project.star.result}</p>
+                      </div>
+                    </div>
+                    <strong className="inline-heading">Key features</strong>
+                    <div className="feature-list">
+                      {project.features.map((feature) => (
+                        <span key={feature}>{feature}</span>
+                      ))}
+                    </div>
+                    {project.stack.length > 0 && <strong className="inline-heading">Tech stack</strong>}
+                    <div className="mini-stack">
+                      {project.stack.map((item) => (
+                        <span key={item}>{item}</span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="case-detail">
-                    <strong>Task</strong>
-                    <p>{project.star.task}</p>
-                  </div>
-                  <div className="case-detail">
-                    <strong>Action</strong>
-                    <p>{project.star.action}</p>
-                  </div>
-                  <div className="case-detail">
-                    <strong>Result</strong>
-                    <p>{project.star.result}</p>
-                  </div>
-                </div>
-                <strong className="inline-heading">Key features</strong>
-                <div className="feature-list">
-                  {project.features.map((feature) => (
-                    <span key={feature}>{feature}</span>
-                  ))}
-                </div>
-                {project.stack.length > 0 && <strong className="inline-heading">Tech stack</strong>}
-                <div className="mini-stack">
-                  {project.stack.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-                <div className="project-links">
-                  {project.links.map((link) => (
-                    <ExternalLink href={link.href} key={link.href}>
-                      {link.label}
-                    </ExternalLink>
-                  ))}
-                </div>
+                </details>
               </div>
             </article>
           ))}
@@ -1860,40 +1848,6 @@ function ProductCancelPage() {
           <PageLink to="/products">Return to products</PageLink>
           <a className="button button-secondary" href={productQuestionHref}>Ask a question</a>
         </div>
-      </div>
-    </main>
-  );
-}
-
-function BuildLogPage() {
-  return (
-    <main className="page-section">
-      <PageHeader
-        eyebrow="Build in public"
-        title="A founder journal for experiments, lessons, and product thinking."
-        text="A future home for engineering notes, AI workflow breakdowns, UI explorations, launch reflections, and the messy middle of building useful things."
-        icon={Newspaper}
-      />
-      <div className="lab-layout">
-        <div className="lab-feed">
-          {buildPosts.map((post, index) => (
-            <article className="lab-post" key={post.title}>
-              <span>0{index + 1} / {post.category}</span>
-              <h2>{post.title}</h2>
-              <p>{post.summary}</p>
-              <Link to="/work-with-me">
-                Discuss this direction
-                <ArrowRight size={17} aria-hidden="true" />
-              </Link>
-            </article>
-          ))}
-        </div>
-        <aside className="lab-sidebar">
-          <h3>Lab themes</h3>
-          {["AI workflows", "Chrome extensions", "SaaS experiments", "Product UX", "Small-business systems", "Build notes"].map((item) => (
-            <span key={item}>{item}</span>
-          ))}
-        </aside>
       </div>
     </main>
   );
