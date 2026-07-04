@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -20,6 +21,7 @@ import {
   ShoppingBag,
   Sparkles,
   Workflow,
+  X,
 } from "lucide-react";
 import {
   BrowserRouter,
@@ -1101,11 +1103,15 @@ function HomePage() {
 
 function ProjectsPage() {
   const location = useLocation();
+  const hashedProjectId = location.hash ? decodeURIComponent(location.hash.slice(1)) : null;
+  const [openGalleryId, setOpenGalleryId] = useState(null);
+  const [openDetailsId, setOpenDetailsId] = useState(hashedProjectId);
 
   useEffect(() => {
     if (!location.hash) return;
 
     const targetId = decodeURIComponent(location.hash.slice(1));
+    setOpenDetailsId(targetId);
     const target = document.getElementById(targetId);
     target?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [location.hash]);
@@ -1138,11 +1144,23 @@ function ProjectsPage() {
                   </div>
                 </div>
 
-                <ProjectGallery project={project} />
+                <ProjectGallery
+                  project={project}
+                  modalOpen={openGalleryId === project.id}
+                  onOpen={() => setOpenGalleryId(project.id)}
+                  onClose={() => setOpenGalleryId(null)}
+                />
 
                 <details
                   className="case-study-details"
-                  defaultOpen={location.hash === `#${project.id}`}
+                  open={openDetailsId === project.id}
+                  onToggle={(event) => {
+                    if (event.currentTarget.open) {
+                      setOpenDetailsId(project.id);
+                    } else {
+                      setOpenDetailsId((current) => current === project.id ? null : current);
+                    }
+                  }}
                 >
                   <summary>View case study details</summary>
                   <div className="case-study-details-content">
@@ -1187,10 +1205,9 @@ function ProjectsPage() {
   );
 }
 
-function ProjectGallery({ project }) {
+function ProjectGallery({ project, modalOpen, onOpen, onClose }) {
   const images = project.images?.length ? project.images : [project.image];
   const [activeIndex, setActiveIndex] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
   const activeImage = images[activeIndex];
   const hasMultipleImages = images.length > 1;
   const goToPrevious = () => {
@@ -1199,6 +1216,20 @@ function ProjectGallery({ project }) {
   const goToNext = () => {
     setActiveIndex((current) => (current === images.length - 1 ? 0 : current + 1));
   };
+
+  useEffect(() => {
+    if (!modalOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [modalOpen, onClose]);
 
   return (
     <div className="case-media">
@@ -1215,7 +1246,7 @@ function ProjectGallery({ project }) {
         )}
         <button
           className="gallery-main-button"
-          onClick={() => setModalOpen(true)}
+          onClick={onOpen}
           type="button"
         >
           <img src={activeImage} alt={`${project.name} project preview`} />
@@ -1251,11 +1282,11 @@ function ProjectGallery({ project }) {
           ))}
         </div>
       )}
-      {modalOpen && (
+      {modalOpen && createPortal(
         <div
           className="gallery-modal-backdrop"
           role="presentation"
-          onClick={() => setModalOpen(false)}
+          onClick={onClose}
         >
           <div
             className="gallery-modal"
@@ -1271,10 +1302,12 @@ function ProjectGallery({ project }) {
               </div>
               <button
                 className="gallery-modal-close"
-                onClick={() => setModalOpen(false)}
+                onClick={onClose}
                 type="button"
+                aria-label={`Close ${project.name} image gallery`}
               >
-                Close
+                <X size={22} aria-hidden="true" />
+                <span>Close</span>
               </button>
             </div>
             <div className="gallery-modal-stage">
@@ -1318,7 +1351,8 @@ function ProjectGallery({ project }) {
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

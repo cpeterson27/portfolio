@@ -716,12 +716,14 @@ p {
 }
 
 .case-study {
+  min-width: 0;
   scroll-margin-top: 110px;
   overflow: hidden;
   transition: border-color 200ms ease;
 }
 
 .case-media {
+  min-width: 0;
   min-height: 0;
   margin: 20px 0;
   padding: clamp(14px, 2vw, 24px);
@@ -734,13 +736,18 @@ p {
 }
 
 .gallery-main-wrap {
+  min-width: 0;
   position: relative;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
 }
 
 .gallery-main-button {
+  min-width: 0;
   width: 100%;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
   padding: 0;
   color: var(--muted);
@@ -749,19 +756,24 @@ p {
   cursor: zoom-in;
   font: inherit;
   text-align: center;
+  overflow: hidden;
 }
 
 .gallery-main-button > img {
+  display: block;
   width: 100%;
-  max-height: 460px;
+  height: clamp(250px, 34vw, 460px);
+  min-width: 0;
   margin: 0 auto;
   object-fit: contain;
+  object-position: center;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: 0 22px 50px rgba(15, 23, 42, 0.14);
 }
 
 .gallery-main-button span {
+  width: 100%;
   font-size: 0.84rem;
   font-weight: 750;
 }
@@ -780,14 +792,15 @@ p {
   background: rgba(255, 250, 242, 0.84);
   backdrop-filter: blur(10px);
   cursor: pointer;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.16);
 }
 
 .gallery-nav.previous {
-  left: 12px;
+  left: 14px;
 }
 
 .gallery-nav.next {
-  right: 12px;
+  right: 14px;
 }
 
 .gallery-counter {
@@ -844,6 +857,8 @@ p {
 }
 
 .gallery-modal {
+  position: relative;
+  min-width: 0;
   width: min(1180px, 96vw);
   max-height: 94vh;
   display: grid;
@@ -896,8 +911,27 @@ p {
 }
 
 .gallery-modal-close {
-  height: 38px;
-  padding: 0 13px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 4;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.88);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+}
+
+.gallery-modal-close:hover,
+.gallery-modal-close:focus-visible {
+  background: #0f172a;
 }
 
 .gallery-modal-stage {
@@ -910,6 +944,9 @@ p {
 }
 
 .gallery-modal-stage img {
+  display: block;
+  width: auto;
+  height: auto;
   max-width: 100%;
   max-height: calc(94vh - 166px);
   object-fit: contain;
@@ -964,6 +1001,7 @@ p {
 }
 
 .case-content {
+  min-width: 0;
   padding: clamp(20px, 2.5vw, 28px);
 }
 
