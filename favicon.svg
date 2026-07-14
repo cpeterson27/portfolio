@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Cassandra Peterson CP software mark</title>
+  <desc id="desc">A clean CP software mark framed by code brackets with an orange slash.</desc>
+  <defs>
+    <linearGradient id="tile" x1="76" y1="68" x2="436" y2="444" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="border" x1="96" y1="88" x2="416" y2="424" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="92" fill="#F6F8FB"/>
+  <rect x="72" y="72" width="368" height="368" rx="76" fill="url(#tile)" stroke="url(#border)" stroke-width="18"/>
+  <path
+    d="M168 164 96 256l72 92"
+    fill="none"
+    stroke="#F8FAFC"
+    stroke-width="34"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M344 164 416 256l-72 92"
+    fill="none"
+    stroke="#F8FAFC"
+    stroke-width="34"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <text
+    x="248"
+    y="285"
+    text-anchor="middle"
+    font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif"
+    font-size="116"
+    font-weight="850"
+    letter-spacing="-8"
+    fill="#F8FAFC"
+  >CP</text>
+  <path
+    d="M302 352 358 160"
+    fill="none"
+    stroke="#F97316"
+    stroke-width="34"
+    stroke-linecap="round"
+  />
+</svg>
