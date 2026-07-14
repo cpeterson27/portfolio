@@ -33,7 +33,7 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom";
-import headshot from "./images/cassandra-peterson-headshot.png";
+import headshot from "./assets/cassandra-peterson-headshot.png";
 import { portfolioData } from "./data/portfolio";
 import "./App.css";
 
