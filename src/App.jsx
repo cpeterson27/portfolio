@@ -66,6 +66,49 @@ const navItems = [
 
 const projects = [
   {
+    id: "growth-generator",
+    caseStudyId: "archive-17",
+    name: "The Growth Generator",
+    label: "Private growth operations platform",
+    image: `${process.env.PUBLIC_URL}/images/growthoperator-dashboard.png`,
+    statement:
+      "A private growth operations command center for planning campaigns, discovering audiences, managing contacts, coordinating outreach, creating AI-assisted content, and measuring performance.",
+    problem:
+      "Growth teams often operate across disconnected campaign, contact, outreach, content, event, and analytics tools. The Growth Generator brings those workflows into one focused workspace.",
+    features: [
+      "Guided campaign launch",
+      "Audience discovery and contact management",
+      "Email outreach and conversations",
+      "AI-assisted content creation",
+      "Event and affiliate workflows",
+      "Campaign and revenue analytics",
+      "Workspace search and business-card scanning",
+      "Embedded Jarvis AI assistant",
+    ],
+    stack: [
+      "Private SaaS Platform",
+      "Growth Operations",
+      "Campaign Management",
+      "AI-Assisted Workflows",
+      "Analytics Dashboard",
+      "Third-Party Integrations",
+    ],
+    outcome:
+      "A unified private platform that gives growth teams one place to launch, operate, and evaluate campaigns.",
+    star: {
+      situation:
+        "Campaign planning, audience research, outreach, content, events, and reporting are commonly fragmented across separate tools and workflows.",
+      task:
+        "Create a cohesive growth operations product that keeps campaign decisions, contacts, execution, AI assistance, and performance data in one workspace.",
+      action:
+        "Designed and built an end-to-end command center with guided campaign launch, audience discovery, contact and conversation management, outreach, AI-assisted content, event and affiliate workflows, analytics, integrations, workspace search, card scanning, and an embedded AI assistant.",
+      result:
+        "Delivered a private SaaS platform that centralizes the complete campaign lifecycle and makes growth operations easier to coordinate and evaluate.",
+    },
+    links: [],
+    priority: true,
+  },
+  {
     id: "trace",
     caseStudyId: "archive-16",
     name: "Trace",
