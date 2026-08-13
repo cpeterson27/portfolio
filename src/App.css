@@ -945,7 +945,7 @@ p {
 }
 
 .gallery-modal-stage.has-navigation {
-  grid-template-columns: 56px minmax(0, 1fr);
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
   column-gap: 10px;
 }
 
