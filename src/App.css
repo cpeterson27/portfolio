@@ -939,14 +939,22 @@ p {
   position: relative;
   display: grid;
   place-items: center;
+  grid-template-columns: minmax(0, 1fr);
   padding: 16px;
   background: #eef2f7;
 }
 
+.gallery-modal-stage.has-navigation {
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  column-gap: 10px;
+}
+
 .gallery-modal-stage img {
   display: block;
+  grid-column: 1;
   width: auto;
   height: auto;
+  min-width: 0;
   max-width: 100%;
   max-height: calc(94vh - 166px);
   object-fit: contain;
@@ -955,8 +963,8 @@ p {
 }
 
 .gallery-modal-nav {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: auto;
   z-index: 3;
   width: 44px;
   height: 44px;
@@ -967,7 +975,7 @@ p {
   border-radius: 999px;
   background: rgba(15, 23, 42, 0.9);
   box-shadow: 0 6px 20px rgba(15, 23, 42, 0.28);
-  transform: translateY(-50%);
+  transform: none;
 }
 
 .gallery-modal-nav:hover,
@@ -976,11 +984,20 @@ p {
 }
 
 .gallery-modal-nav.previous {
-  left: 18px;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
 }
 
 .gallery-modal-nav.next {
-  right: 18px;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: center;
+}
+
+.gallery-modal-stage.has-navigation > img {
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .gallery-modal-thumbs {

@@ -1430,7 +1430,11 @@ function ProjectGallery({ project, modalOpen, onOpen, onClose }) {
                 <span>Close</span>
               </button>
             </div>
-            <div className="gallery-modal-stage">
+            <div
+              className={`gallery-modal-stage${
+                hasMultipleImages ? " has-navigation" : ""
+              }`}
+            >
               {hasMultipleImages && (
                 <button
                   className="gallery-modal-nav previous"
