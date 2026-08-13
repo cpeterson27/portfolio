@@ -1446,17 +1446,17 @@ function ProjectGallery({ project, modalOpen, onOpen, onClose }) {
                 </button>
               )}
               <img src={activeImage} alt={`${project.name} enlarged preview`} />
-              {hasMultipleImages && (
-                <button
-                  className="gallery-modal-nav next"
-                  onClick={goToNext}
-                  type="button"
-                  aria-label={`Next ${project.name} screenshot`}
-                >
-                  <ChevronRight size={26} aria-hidden="true" />
-                </button>
-              )}
             </div>
+            {hasMultipleImages && (
+              <button
+                className="gallery-next-photo-control"
+                onClick={goToNext}
+                type="button"
+                aria-label={`Next ${project.name} screenshot`}
+              >
+                <ChevronRight size={30} aria-hidden="true" />
+              </button>
+            )}
             <div className="gallery-modal-footer">
               <span>{activeIndex + 1} of {images.length}</span>
               {hasMultipleImages && (
