@@ -86,24 +86,38 @@ const projects = [
       "Embedded Jarvis AI assistant",
     ],
     stack: [
-      "Private SaaS Platform",
-      "Growth Operations",
-      "Campaign Management",
-      "AI-Assisted Workflows",
-      "Analytics Dashboard",
-      "Third-Party Integrations",
+      "React 19",
+      "Vite",
+      "React Router",
+      "Axios",
+      "Recharts",
+      "Node.js 20",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "OpenAI",
+      "Resend",
+      "Eventbrite API & Webhooks",
+      "Emailable",
+      "Cloudinary",
+      "Gmail",
+      "Monday.com",
+      "Server-Side Sessions",
+      "Secure Cookies",
+      "CSRF Protection",
+      "Database-Leased Workers",
     ],
     outcome:
       "A unified private platform that gives growth teams one place to launch, operate, and evaluate campaigns.",
     star: {
       situation:
-        "Campaign planning, audience research, outreach, content, events, and reporting are commonly fragmented across separate tools and workflows.",
+        "A small event-marketing team was managing campaign planning, prospect research, contacts, email safety, outreach, ticketing, affiliate attribution, and performance reporting across disconnected tools and manual records.",
       task:
-        "Create a cohesive growth operations product that keeps campaign decisions, contacts, execution, AI assistance, and performance data in one workspace.",
+        "Design and build a private, secure operating workspace that could move an event from idea to measurable campaign while preserving human approval, auditable communication history, reliable background research, and Eventbrite as the ticketing source of truth.",
       action:
-        "Designed and built an end-to-end command center with guided campaign launch, audience discovery, contact and conversation management, outreach, AI-assisted content, event and affiliate workflows, analytics, integrations, workspace search, card scanning, and an embedded AI assistant.",
+        "Built a React 19/Vite frontend and Node.js 20/Express API backed by MongoDB and Mongoose. Implemented invitation-only access, server-side sessions, secure cookies, CSRF protection, workspace roles, CSV contact import, email verification, audience discovery, intentional campaign assignment, immutable outreach history, approval-before-send workflows, Eventbrite OAuth synchronization and secured webhooks, affiliate revenue reconciliation, Resend delivery, Cloudinary event media, OpenAI-powered recommendations and Jarvis assistance with rules-based fallbacks, and database-leased monitoring workers that prevent duplicate processing across deployments.",
       result:
-        "Delivered a private SaaS platform that centralizes the complete campaign lifecycle and makes growth operations easier to coordinate and evaluate.",
+        "Delivered a private growth operations platform that centralizes events, CRM, research, campaigns, outreach, AI assistance, partner attribution, and analytics while protecting credentials, keeping risky contacts out of sends, preserving an audit trail, and providing a foundation for future multi-business tenancy.",
     },
     links: [],
     priority: true,
@@ -342,6 +356,59 @@ const projects = [
 ];
 
 const projectStoryOverrides = {
+  17: {
+    name: "The Growth Generator",
+    label: "Private AI event-marketing platform",
+    statement:
+      "A private event-marketing workspace that unifies contact management, audience discovery, campaign planning, email outreach, Eventbrite operations, affiliate attribution, analytics, and an embedded AI assistant.",
+    features: [
+      "Event and campaign planning with duplicate-prevention workflows",
+      "Eventbrite OAuth, imports, publishing, synchronization, and secured webhooks",
+      "CSV contact import, built-in CRM, email verification, and campaign assignment",
+      "Organization discovery, intent monitoring, live leads, people research, and saved searches",
+      "Database-leased background workers with safe retry and concurrency control",
+      "Review-and-approval outreach with immutable send history and reply tracking",
+      "OpenAI-powered strategy, content assistance, and Jarvis with rules-based fallbacks",
+      "Affiliate links, attributed sales, revenue, and commission reconciliation",
+      "Invitation-only access, workspace roles, secure sessions, cookies, and CSRF protection",
+      "Campaign delivery, engagement, registration, attendance, and revenue analytics",
+    ],
+    stack: [
+      "React 19",
+      "Vite",
+      "React Router",
+      "Axios",
+      "Recharts",
+      "Node.js 20",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "OpenAI",
+      "Resend",
+      "Eventbrite API & Webhooks",
+      "Emailable",
+      "Cloudinary",
+      "Gmail",
+      "Monday.com",
+      "Obsidian Memory Bridge",
+      "Server-Side Sessions",
+      "Secure Cookies",
+      "CSRF Protection",
+      "Database-Leased Workers",
+    ],
+    outcome:
+      "A secure, auditable growth operating system that helps a small team move from event idea to measurable campaign without fragmented spreadsheets, contact lists, outreach records, or reporting.",
+    star: {
+      situation:
+        "A small event-marketing team was managing campaign planning, prospect research, contacts, email safety, outreach, ticketing, affiliate attribution, and performance reporting across disconnected tools and manual records.",
+      task:
+        "Design and build a private, secure operating workspace that could move an event from idea to measurable campaign while preserving human approval, auditable communication history, reliable background research, and Eventbrite as the ticketing source of truth.",
+      action:
+        "Built a React 19/Vite frontend and Node.js 20/Express API backed by MongoDB and Mongoose. Implemented invitation-only access, server-side sessions, secure cookies, CSRF protection, workspace roles, CSV contact import, email verification, audience discovery, intentional campaign assignment, immutable outreach history, approval-before-send workflows, Eventbrite OAuth synchronization and secured webhooks, affiliate revenue reconciliation, Resend delivery, Cloudinary event media, OpenAI-powered recommendations and Jarvis assistance with rules-based fallbacks, and database-leased monitoring workers that prevent duplicate processing across deployments.",
+      result:
+        "Delivered a private growth operations platform that centralizes events, CRM, research, campaigns, outreach, AI assistance, partner attribution, and analytics while protecting credentials, keeping risky contacts out of sends, preserving an audit trail, and providing a foundation for future multi-business tenancy.",
+    },
+  },
   14: {
     name: "Sparkle Bows Commerce OS",
     label: "Full-stack eCommerce platform",
