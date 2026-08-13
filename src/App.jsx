@@ -1332,6 +1332,16 @@ function ProjectGallery({ project, modalOpen, onOpen, onClose }) {
 
     const handleKeyDown = (event) => {
       if (event.key === "Escape") onClose();
+      if (event.key === "ArrowLeft" && hasMultipleImages) {
+        setActiveIndex((current) =>
+          current === 0 ? images.length - 1 : current - 1,
+        );
+      }
+      if (event.key === "ArrowRight" && hasMultipleImages) {
+        setActiveIndex((current) =>
+          current === images.length - 1 ? 0 : current + 1,
+        );
+      }
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -1339,7 +1349,7 @@ function ProjectGallery({ project, modalOpen, onOpen, onClose }) {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [modalOpen, onClose]);
+  }, [modalOpen, onClose, hasMultipleImages, images.length]);
 
   return (
     <div className="case-media">
