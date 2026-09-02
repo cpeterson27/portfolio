@@ -4,19 +4,16 @@ const path = require("path");
 const { execFileSync } = require("child_process");
 
 const publicDir = path.join(__dirname, "..", "public");
-const svgPath = path.join(publicDir, "favicon.svg");
+const masterPath = path.join(publicDir, "favicon-master.png");
 const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "cp-favicon-"));
 
-function renderMaster() {
-  execFileSync("qlmanage", ["-t", "-s", "1024", "-o", tmpDir, svgPath], {
+function prepareMaster() {
+  const squareMaster = path.join(tmpDir, "favicon-square.png");
+  fs.copyFileSync(masterPath, squareMaster);
+  execFileSync("sips", ["-c", "1030", "1030", squareMaster], {
     stdio: "ignore",
   });
-
-  const rendered = path.join(tmpDir, "favicon.svg.png");
-  if (!fs.existsSync(rendered)) {
-    throw new Error("Quick Look did not render favicon.svg");
-  }
-  return rendered;
+  return squareMaster;
 }
 
 function resize(source, size, destination) {
@@ -58,7 +55,7 @@ function writeIco(pngFiles) {
   );
 }
 
-const master = renderMaster();
+const master = prepareMaster();
 const files = [
   [16, path.join(publicDir, "favicon-16x16.png")],
   [32, path.join(publicDir, "favicon-32x32.png")],
@@ -72,4 +69,4 @@ const files = [
 files.forEach(([size, file]) => resize(master, size, file));
 writeIco(files.slice(0, 4));
 
-console.log("Generated anti-aliased favicon and app icon assets from public/favicon.svg.");
+console.log("Generated favicon and app icon assets from public/favicon-master.png.");
