@@ -1033,16 +1033,12 @@ function Layout() {
   return (
     <div className="site-shell">
       <nav className="nav">
-        <Link className="brand" to="/" aria-label="Cassandra Peterson home">
-          <span className="brand-mark">
-            <svg className="brand-symbol" viewBox="0 0 48 48" role="img" aria-label="Cassandra Peterson brand mark">
-              <path className="brand-symbol-bracket" d="M15 15 8 24l7 9" />
-              <text className="brand-symbol-letters" x="24" y="29" textAnchor="middle">CP</text>
-              <path className="brand-symbol-slash" d="M31 34 37 14" />
-              <path className="brand-symbol-bracket" d="M38 15 45 24l-7 9" />
-            </svg>
-          </span>
-          <span>Cassandra Peterson</span>
+        <Link className="brand" to="/" aria-label="CP Software home">
+          <img
+            className="brand-logo"
+            src={`${process.env.PUBLIC_URL}/images/cp-software-logo.png`}
+            alt="CP Software"
+          />
         </Link>
         <div className="nav-links" aria-label="Primary navigation">
           {navItems.map(([label, to]) => (

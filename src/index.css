@@ -15,8 +15,8 @@ body {
   font-family: 'Inter', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f6f8fb;
-  color: #26312f;
+  background: #f7f4fb;
+  color: #222d39;
 }
 
 code {
@@ -39,6 +39,6 @@ img {
 }
 
 ::selection {
-  background: rgba(249, 115, 22, 0.2);
-  color: #26312f;
+  background: rgba(142, 117, 196, 0.32);
+  color: #302047;
 }
