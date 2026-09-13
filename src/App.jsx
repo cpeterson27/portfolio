@@ -16,7 +16,6 @@ import {
   Linkedin,
   Mail,
   Orbit,
-  RadioTower,
   Rocket,
   ShoppingBag,
   Sparkles,
@@ -33,9 +32,10 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom";
-import headshot from "./assets/cassandra-peterson-headshot.png";
 import { portfolioData } from "./data/portfolio";
 import "./App.css";
+
+const headshot = `${process.env.PUBLIC_URL}/images/cassandra-peterson-headshot.png`;
 
 const profile = {
   name: "Cassandra Peterson",
@@ -1030,15 +1030,39 @@ function SectionIntro({ eyebrow, title, text, icon }) {
 function Layout() {
   const location = useLocation();
 
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (preference.matches || !("IntersectionObserver" in window)) return;
+    const elements = [...document.querySelectorAll(".section-intro, .work-preview-row, .about-preview, .service-card, .cta-band")];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.remove("reveal-pending");
+        entry.target.classList.add("reveal-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08 });
+    elements.forEach((element) => {
+      element.classList.add("reveal-pending");
+      observer.observe(element);
+    });
+    const showAll = () => {
+      observer.disconnect();
+      elements.forEach((element) => element.classList.remove("reveal-pending", "reveal-visible"));
+    };
+    preference.addEventListener("change", showAll);
+    return () => {
+      showAll();
+      preference.removeEventListener("change", showAll);
+    };
+  }, [location.pathname]);
+
   return (
     <div className="site-shell">
       <nav className="nav">
         <Link className="brand" to="/" aria-label="CP Software home">
-          <img
-            className="brand-logo"
-            src={`${process.env.PUBLIC_URL}/images/cp-software-logo.png`}
-            alt="CP Software"
-          />
+          <span className="brand-monogram" aria-hidden="true">CP</span>
+          <span className="brand-wordmark"><strong>Cassandra Peterson</strong><small>Software & design</small></span>
         </Link>
         <div className="nav-links" aria-label="Primary navigation">
           {navItems.map(([label, to]) => (
@@ -1083,13 +1107,10 @@ function HomePage() {
       <section className="hero">
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="status-pill">
-              <RadioTower size={16} aria-hidden="true" />
-              Software Engineer | Product Builder | AI + Automation
-            </p>
-            <h1>Warm, polished web systems for products, teams, and growing businesses.</h1>
+            <p className="hero-kicker">Software engineer · Product builder · Sacramento</p>
+            <h1>Thoughtfully designed.<br /><em>Beautifully built.</em></h1>
             <p className="hero-subtitle">
-              I design and engineer product-focused systems for founders, small businesses, and modern teams: business platforms, commerce flows, AI workflows, automation, and polished front-end experiences.
+              I’m Cassandra, a software engineer with a designer’s eye. I build polished web experiences, practical business tools, and thoughtful AI automations that make work feel simpler.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href={`mailto:${profile.email}`}>
@@ -1099,27 +1120,16 @@ function HomePage() {
               <PageLink to="/projects">View product work</PageLink>
               <ExternalLink href={profile.resume} className="button button-secondary">Resume</ExternalLink>
             </div>
+            <p className="hero-location">Rooted in Sacramento. Building for what’s next.</p>
           </div>
           <aside className="hero-photo-card" aria-label="Contact Cassandra Peterson">
             <img
               src={headshot}
               alt="Cassandra Peterson"
             />
-            <div className="hero-contact-card">
-              <strong>Full-stack product engineer</strong>
-              <span>Based in {profile.location}</span>
-              <span>React interfaces, Node APIs, Stripe flows, automation, and AI-assisted workflows.</span>
-              <code>ship({`{`} clarity, polish, systems {`}`});</code>
-              <div className="hero-stack" aria-label="Core technical focus">
-                <span>React</span>
-                <span>Node</span>
-                <span>Stripe</span>
-                <span>AI workflows</span>
-              </div>
-              <a href={`mailto:${profile.email}`}>
-                <Mail size={16} aria-hidden="true" />
-                {profile.email}
-              </a>
+            <div className="hero-photo-caption">
+              <span>Cassandra Peterson</span>
+              <span>Sacramento, California</span>
             </div>
           </aside>
         </div>
@@ -1136,14 +1146,14 @@ function HomePage() {
       <section className="section selected-work-section">
         <SectionIntro
           eyebrow="Selected work"
-          title="A preview of product-minded engineering work."
-          text="A few representative builds are highlighted here. The full projects page includes the complete project archive, links, screenshots, and STAR-based case study notes."
+          title="Ideas brought to life."
+          text="A selection of web platforms, business tools, and digital experiences, built with care from the first idea to the final detail."
           icon={Orbit}
         />
         <div className="selected-work-layout">
           <div className="selected-work-copy">
             <p>
-              These examples show the range I want people to notice first: browser tooling, paid client work, commerce systems, and automation-minded product development.
+              From browser tools to client platforms, each project brings design and engineering together to solve a real problem.
             </p>
             <PageLink to="/projects">View all projects</PageLink>
           </div>
@@ -1187,7 +1197,7 @@ function HomePage() {
           </div>
           <div className="about-preview-copy">
             <Eyebrow icon={Sparkles}>About Cassandra</Eyebrow>
-            <h2>Product-minded engineering with a design background and systems mindset.</h2>
+            <h2>A designer’s eye.<br />An engineer’s mindset.</h2>
             <p>
               I build modern web systems, Chrome extensions, business tools, and automation-minded product experiences. My work blends full-stack engineering, UI/UX thinking, and a practical interest in how AI can make workflows clearer and more useful.
             </p>
@@ -2064,7 +2074,7 @@ function CtaBand() {
       <div className="cta-band">
         <div>
           <Eyebrow icon={BriefcaseBusiness}>Work with me</Eyebrow>
-          <h2>Need a sharper product, workflow, or automation system?</h2>
+          <h2>Let’s build something thoughtful.</h2>
           <p>I help businesses and founders turn fragmented operations into polished digital systems.</p>
         </div>
         <PageLink to="/work-with-me">Start here</PageLink>
