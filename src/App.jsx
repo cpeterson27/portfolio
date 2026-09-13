@@ -66,15 +66,15 @@ const navItems = [
 
 const projects = [
   {
-    id: "growth-generator",
+    id: "lead-porch",
     caseStudyId: "archive-17",
-    name: "The Growth Generator",
+    name: "Lead Porch",
     label: "Private growth operations platform",
     image: `${process.env.PUBLIC_URL}/images/growthoperator-dashboard.png`,
     statement:
       "A private growth operations command center for planning campaigns, discovering audiences, managing contacts, coordinating outreach, creating AI-assisted content, and measuring performance.",
     problem:
-      "Growth teams often operate across disconnected campaign, contact, outreach, content, event, and analytics tools. The Growth Generator brings those workflows into one focused workspace.",
+      "Growth teams often operate across disconnected campaign, contact, outreach, content, event, and analytics tools. Lead Porch brings those workflows into one focused workspace.",
     features: [
       "Guided campaign launch",
       "Audience discovery and contact management",
@@ -357,7 +357,7 @@ const projects = [
 
 const projectStoryOverrides = {
   17: {
-    name: "The Growth Generator",
+    name: "Lead Porch",
     label: "Private AI event-marketing platform",
     statement:
       "A private event-marketing workspace that unifies contact management, audience discovery, campaign planning, email outreach, Eventbrite operations, affiliate attribution, analytics, and an embedded AI assistant.",

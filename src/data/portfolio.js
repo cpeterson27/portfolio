@@ -20,7 +20,7 @@ export const portfolioData = {
   projects: [
     {
       id: 17,
-      title: "The Growth Generator",
+      title: "Lead Porch",
       images: [
         process.env.PUBLIC_URL + "/images/growthoperator-dashboard.png",
         process.env.PUBLIC_URL + "/images/growthoperator-growth.png",
@@ -38,7 +38,7 @@ export const portfolioData = {
         process.env.PUBLIC_URL + "/images/growthoperator-jarvis.png",
         process.env.PUBLIC_URL + "/images/growthoperator-settings.png",
       ],
-      alt: "The Growth Generator campaign operations platform",
+      alt: "Lead Porch campaign operations platform",
       description:
         "A private AI event-marketing workspace that unifies event and campaign planning, audience discovery, a built-in CRM, verified outreach, Eventbrite operations, affiliate attribution, analytics, and Jarvis assistance. Built with a React 19/Vite frontend and Node/Express/MongoDB backend, it uses secure server-side sessions, CSRF protection, approval-based sends, immutable outreach history, secured webhooks, and database-leased background workers to keep growth operations reliable and auditable.",
       tags: [
