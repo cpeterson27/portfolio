@@ -14,7 +14,7 @@ export const portfolioData = {
     github: "https://github.com/cpeterson27",
     linkedin:
       "https://www.linkedin.com/in/cassandrapeterson-software-engineer/",
-    resume: "assets/ResumeCassandraPeterson.pdf",
+    resume: "assets/ResumeCassandraPeterson.pdf?v=a7b399b8bca4",
     image: process.env.PUBLIC_URL + "/images/cassandra-peterson.png",
   },
   projects: [

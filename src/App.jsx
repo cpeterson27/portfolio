@@ -43,7 +43,7 @@ const profile = {
   email: "cpeterson.dev@gmail.com",
   github: "https://github.com/cpeterson27",
   linkedin: "https://www.linkedin.com/in/cassandrapeterson-software-engineer/",
-  resume: `${process.env.PUBLIC_URL}/assets/ResumeCassandraPeterson.pdf`,
+  resume: `${process.env.PUBLIC_URL}/assets/ResumeCassandraPeterson.pdf?v=a7b399b8bca4`,
 };
 
 const waitlistHref = `mailto:${profile.email}?subject=Digital product waitlist&body=Hi Cassandra,%0D%0A%0D%0AI'd like to be notified when your digital products are available.`;
